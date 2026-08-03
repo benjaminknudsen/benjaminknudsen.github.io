@@ -4,22 +4,15 @@ function ContactPage() {
       <p className="eyebrow">Kontakt</p>
       <h1>Lad os tale sammen.</h1>
       <p className="lead">
-        Tilpas links og mailadresse, så siden peger på dine egne profiler.
+        Du er velkommen til at kontakte mig på mail eller telefon.
       </p>
 
       <ul className="contact-list">
         <li>
-          <a href="mailto:dinmail@example.com">dinmail@example.com</a>
+          <a href="mailto:benjaminskovknudsen@hotmail.com">benjaminskovknudsen@hotmail.com</a>
         </li>
         <li>
-          <a href="https://github.com/username" rel="noreferrer" target="_blank">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com" rel="noreferrer" target="_blank">
-            LinkedIn
-          </a>
+          <a href="tel:+4593922880">93 92 28 80</a>
         </li>
       </ul>
     </div>
