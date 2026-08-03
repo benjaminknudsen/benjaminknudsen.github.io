@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/">
-        Dit Navn
+        Benjamin Knudsen
       </NavLink>
 
       <nav className="site-nav" aria-label="Primær navigation">
