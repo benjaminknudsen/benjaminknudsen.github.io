@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -22,6 +23,8 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+
+      <Footer />
     </>
   );
 }

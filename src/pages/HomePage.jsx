@@ -11,12 +11,16 @@ function HomePage() {
         <div>
           <div className="hero-greeting">
             <p>Multimediedesigner</p>
-            <div className="hero-portrait">
+            <Link
+              className="hero-portrait"
+              to="/about"
+              aria-label="Læs mere om Benjamin Knudsen"
+            >
               <img
                 src={portraitImage}
                 alt="Portræt af Benjamin Knudsen"
               />
-            </div>
+            </Link>
           </div>
 
           <h1 className="hero-name">BENJAMIN KNUDSEN</h1>
