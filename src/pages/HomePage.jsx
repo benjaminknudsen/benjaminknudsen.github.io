@@ -10,7 +10,7 @@ function HomePage() {
       <section className="hero-section">
         <div>
           <div className="hero-greeting">
-            <p>Hej! Jeg er</p>
+            <p>Multimediedesigner</p>
             <div className="hero-portrait">
               <img
                 src={portraitImage}
@@ -26,7 +26,7 @@ function HomePage() {
             <div className="portfolio-intro">
               <p className="portfolio-year">PORTFOLIO</p>
               <p className="portfolio-tagline">
-                Frontend med øje for detaljen og styr på strukturen.
+                Frontend, UI/UX og digitale løsninger med fokus på detaljen.
               </p>
             </div>
           </div>
