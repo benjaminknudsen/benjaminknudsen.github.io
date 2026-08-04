@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import portraitImage from "../assets/images/portfolio-billede3.jpeg";
 import projects from "../data/projects";
 
 function HomePage() {
@@ -7,23 +8,32 @@ function HomePage() {
   return (
     <div className="page">
       <section className="hero-section">
-        <p className="eyebrow">Portfolio</p>
-        <h1>Hej, jeg hedder Benjamin.</h1>
-        <p className="hero-text">
-          Jeg arbejder med frontend, design og digitale produkter. Her samler
-          jeg projekter, proces og det, jeg lærer undervejs.
-        </p>
-        <div className="actions">
-          <Link className="button" to="/projects">
-            Se projekter
-          </Link>
-          <Link className="button secondary" to="/contact">
-            Kontakt mig
-          </Link>
+        <div>
+          <div className="hero-greeting">
+            <p>Hej! Jeg er</p>
+            <div className="hero-portrait">
+              <img
+                src={portraitImage}
+                alt="Portræt af Benjamin Knudsen"
+              />
+            </div>
+          </div>
+
+          <h1 className="hero-name">BENJAMIN KNUDSEN</h1>
+
+          <div className="portfolio-row">
+            <span className="scroll-arrow" aria-hidden="true" />
+            <div className="portfolio-intro">
+              <p className="portfolio-year">PORTFOLIO</p>
+              <p className="portfolio-tagline">
+                Frontend med øje for detaljen og styr på strukturen.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section featured-projects">
         <div className="section-heading">
           <p className="eyebrow">Udvalgte projekter</p>
           <h2>Start med få projekter og gør dem stærke.</h2>

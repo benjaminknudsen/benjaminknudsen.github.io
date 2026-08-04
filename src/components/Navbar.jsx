@@ -3,10 +3,6 @@ import { NavLink } from "react-router";
 function Navbar() {
   return (
     <header className="site-header">
-      <NavLink className="brand" to="/">
-        Benjamin Knudsen
-      </NavLink>
-
       <nav className="site-nav" aria-label="Primær navigation">
         <NavLink to="/" end>
           Forside
