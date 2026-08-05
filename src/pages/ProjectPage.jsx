@@ -1,9 +1,14 @@
 import { Link, useParams } from "react-router";
 import projects from "../data/projects";
+import LynkProjectPage from "./LynkProjectPage";
 
 function ProjectPage() {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
+
+  if (slug === "lynk") {
+    return <LynkProjectPage />;
+  }
 
   if (!project) {
     return (
