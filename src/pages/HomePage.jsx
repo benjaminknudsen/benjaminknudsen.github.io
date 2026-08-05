@@ -1,9 +1,45 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import portraitImage from "../assets/images/portfolio-billede3.jpeg";
 import projects from "../data/projects";
 
 function HomePage() {
   const featuredProjects = projects.slice(0, 4);
+  const projectsSectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = projectsSectionRef.current;
+
+    if (!section) return undefined;
+
+    const elements = section.querySelectorAll("[data-reveal]");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    section.classList.add("scroll-reveal-ready");
+
+    if (reducedMotion) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -12%", threshold: 0.12 },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="page">
@@ -37,8 +73,8 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section featured-projects">
-        <div className="section-heading">
+      <section className="section featured-projects" ref={projectsSectionRef}>
+        <div className="section-heading" data-reveal>
           <h2>Udvalgte projekter</h2>
         </div>
 
@@ -47,6 +83,7 @@ function HomePage() {
             <article
               className="project-card"
               key={project.slug}
+              data-reveal
               style={{
                 "--project-accent": project.accent,
                 "--project-background": project.coverBackground,

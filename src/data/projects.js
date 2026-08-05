@@ -1,5 +1,5 @@
 import bluntImage from "../assets/images/blunt.svg";
-import fortunaImage from "../assets/images/fortuna3.svg";
+import fortunaImage from "../assets/images/rigtigfortunahj.svg";
 import luminaImage from "../assets/images/lumina2.svg";
 import lynkImage from "../assets/images/lynk.svg";
 
