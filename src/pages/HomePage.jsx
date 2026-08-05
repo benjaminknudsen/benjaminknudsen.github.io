@@ -64,9 +64,13 @@ function HomePage() {
           <div className="portfolio-row">
             <span className="scroll-arrow" aria-hidden="true" />
             <div className="portfolio-intro">
-              <p className="portfolio-year">PORTFOLIO</p>
+              <p className="portfolio-year">
+                <span>Portfolio</span>
+                <span>2026</span>
+              </p>
               <p className="portfolio-tagline">
-                Frontend, UI/UX og digitale løsninger med fokus på detaljen.
+                Digitale oplevelser formet af godt design, omtanke og
+                sans for detaljen.
               </p>
             </div>
           </div>
@@ -96,11 +100,15 @@ function HomePage() {
               >
                 <img src={project.image} alt={`Preview af ${project.title}`} />
               </Link>
-              <div className="project-card-content">
+              <Link
+                className="project-card-content project-card-content-link"
+                to={`/projects/${project.slug}`}
+                aria-label={`Læs mere om ${project.title}`}
+              >
                 <p className="eyebrow">{project.category}</p>
                 <h3>{project.title}</h3>
                 <p>{project.summary}</p>
-              </div>
+              </Link>
             </article>
           ))}
         </div>
