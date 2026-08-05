@@ -1,6 +1,5 @@
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: "Avenir Next", Avenir, "Segoe UI", ui-sans-serif, sans-serif;
   color: #1d2430;
   background: #f7f4ef;
   font-synthesis: none;
@@ -34,14 +33,20 @@ textarea {
 }
 
 .site-header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
   padding: 1.7rem max(2rem, calc((100% - 1120px) / 2));
-  background: #f7f4ef;
-  box-shadow: 0 0.65rem 1rem -0.8rem rgb(81 74 71 / 28%);
+  border-bottom: 1px solid rgb(216 207 198 / 62%);
+  background: rgb(247 244 239 / 78%);
+  box-shadow: 0 0.5rem 1.5rem rgb(55 48 44 / 7%);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
   animation: header-enter 1800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
@@ -94,7 +99,7 @@ textarea {
 }
 
 .page {
-  width: min(100% - 2rem, 1120px);
+  width: min(100% - 2rem, 1200px);
   margin: 0 auto;
   padding: 1rem 0 5rem;
 }
@@ -195,11 +200,11 @@ textarea {
   max-width: none;
   margin: 0;
   color: #49b5f5;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(1.8rem, 8.2vw, 6.5rem);
-  font-weight: 900;
+  font-family: "Avenir Next", Avenir, "Segoe UI", ui-sans-serif, sans-serif;
+  font-size: clamp(1.65rem, 7.2vw, 5.5rem);
+  font-weight: 750;
   line-height: 0.9;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -214,9 +219,11 @@ textarea {
 .hero-greeting p {
   margin: 0;
   color: #e6654f;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(1.05rem, 2.3vw, 1.85rem);
+  font-weight: 300;
   line-height: 1;
+  letter-spacing: 0.01em;
 }
 
 .hero-portrait {
@@ -369,7 +376,18 @@ textarea {
 }
 
 .featured-projects {
-  margin-top: 2rem;
+  margin-top: clamp(3rem, 8vw, 7rem);
+}
+
+.featured-projects .section-heading {
+  max-width: none;
+  text-align: center;
+}
+
+.featured-projects .section-heading h2 {
+  color: #514a47;
+  font-weight: 400;
+  transform: translateY(-2.5rem);
 }
 
 .section-heading {
@@ -462,30 +480,96 @@ p {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  row-gap: clamp(3.5rem, 7vw, 6rem);
 }
 
 .project-card {
-  overflow: hidden;
-  border: 1px solid #e5ddd2;
-  border-radius: 0.75rem;
-  background: #fffaf3;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
-.project-card img {
+.project-cover {
+  position: relative;
+  display: flex;
+  min-height: clamp(17rem, 34vw, 24rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1.3rem;
+  color: #211f1d;
+  background: var(--project-background, var(--project-accent));
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  text-decoration: none;
+}
+
+.project-cover img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-cover:hover img {
+  transform: scale(1.06);
 }
 
 .project-card-content {
-  padding: 1.1rem;
+  width: 100%;
+  padding: 0.8rem 0 0;
+  text-align: left;
 }
 
 .project-card a {
-  color: #5b21b6;
   font-weight: 800;
+}
+
+.project-card-content h3,
+.project-card-content h2 {
+  margin: 0.3rem 0 0.4rem;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.project-card-content > p:not(.eyebrow) {
+  max-width: 34rem;
+  margin-bottom: 0;
+  color: #5f5a57;
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.project-card-content .eyebrow {
+  margin-bottom: 0;
+}
+
+.project-card-content .eyebrow {
+  color: color-mix(
+    in srgb,
+    var(--project-accent, #e6654f) 45%,
+    #514a47
+  );
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 700px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-cover {
+    min-height: 18rem;
+  }
 }
 
 .detail-image {

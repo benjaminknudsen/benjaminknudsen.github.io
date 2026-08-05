@@ -15,10 +15,23 @@ function ProjectsPage() {
 
       <section className="project-grid" aria-label="Projektliste">
         {projects.map((project) => (
-          <article className="project-card" key={project.slug}>
-            <img src={project.image} alt={`Preview af ${project.title}`} />
+          <article
+            className="project-card"
+            key={project.slug}
+            style={{
+              "--project-accent": project.accent,
+              "--project-background": project.coverBackground,
+            }}
+          >
+            <Link
+              className="project-cover"
+              to={`/projects/${project.slug}`}
+              aria-label={`Se projektet ${project.title}`}
+            >
+              <img src={project.image} alt={`Preview af ${project.title}`} />
+            </Link>
             <div className="project-card-content">
-              <p className="eyebrow">{project.year}</p>
+              <p className="eyebrow">{project.category}</p>
               <h2>{project.title}</h2>
               <p>{project.summary}</p>
               <ul className="tag-list">
@@ -26,7 +39,6 @@ function ProjectsPage() {
                   <li key={tag}>{tag}</li>
                 ))}
               </ul>
-              <Link to={`/projects/${project.slug}`}>Se projekt</Link>
             </div>
           </article>
         ))}
