@@ -42,14 +42,7 @@ textarea {
   gap: 2rem;
   width: 100%;
   padding: 1.7rem max(2rem, calc((100% - 1120px) / 2));
-  border-bottom: 1px solid rgb(216 207 198 / 78%);
-  background: rgb(247 244 239 / 92%);
-  background-clip: padding-box;
-  box-shadow: 0 0.6rem 1.8rem rgb(55 48 44 / 11%);
-  backdrop-filter: blur(44px) saturate(120%);
-  -webkit-backdrop-filter: blur(44px) saturate(120%);
-  transform: translateZ(0);
-  will-change: backdrop-filter;
+  background: #f7f4ef;
   animation: header-enter 1800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
