@@ -33,6 +33,7 @@ textarea {
 }
 
 .site-header {
+  --contact-accent: #e6654f;
   position: sticky;
   z-index: 100;
   top: 0;
@@ -54,6 +55,14 @@ textarea {
     0 0.35rem 0.8rem rgb(55 48 44 / 9%),
     0 1rem 2.4rem rgb(55 48 44 / 14%);
   animation: header-enter 1800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.site-header--lynk {
+  --contact-accent: #315a45;
+}
+
+.site-header--lumina {
+  --contact-accent: #c8a98d;
 }
 
 .brand {
@@ -92,16 +101,21 @@ textarea {
 }
 
 .site-nav .contact-link {
-  border: 1.5px solid #e6654f;
+  border: 1.5px solid var(--contact-accent);
   border-radius: 999px;
-  color: #e6654f;
+  color: var(--contact-accent);
   padding: 0.5rem 1.05rem;
 }
 
 .site-nav .contact-link:hover,
 .site-nav .contact-link.active {
   color: #111111;
-  background: #e6654f;
+  background: var(--contact-accent);
+}
+
+.site-header--lynk .site-nav .contact-link:hover,
+.site-header--lynk .site-nav .contact-link.active {
+  color: #ffffff;
 }
 
 .page {
@@ -218,7 +232,7 @@ textarea {
 .hero-greeting {
   display: flex;
   align-items: flex-end;
-  gap: 0;
+  gap: clamp(0.55rem, 0.9vw, 0.9rem);
   margin-bottom: 0.85rem;
 }
 
@@ -277,6 +291,7 @@ textarea {
 
 .portfolio-intro {
   width: min(100%, 39rem);
+  margin-top: 0.75rem;
   border-top: 1px solid #bdb7b1;
   color: #514a47;
   padding-top: 0.8rem;
@@ -381,6 +396,1227 @@ textarea {
   .scroll-arrow::before {
     animation: none;
     clip-path: inset(0);
+  }
+}
+
+/* Structured Lumina portfolio layout */
+.lumina-layout {
+  min-height: 100svh;
+  background: #e9e1d7;
+}
+
+.lumina-layout-shell {
+  width: min(100% - 3rem, 1180px);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.lumina-layout figure,
+.lumina-layout section {
+  margin: 0;
+}
+
+.lumina-layout figure,
+.lumina-moodboard-card {
+  overflow: hidden;
+  border-radius: clamp(0.8rem, 1.5vw, 1.35rem);
+  background: rgb(255 255 255 / 22%);
+  box-shadow: 0 1.5rem 4rem rgb(71 61 54 / 10%);
+}
+
+.lumina-layout img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lumina-wordmark {
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+  color: #2c302e;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  font-weight: 520;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.lumina-layout-hero {
+  width: 100%;
+  margin-bottom: clamp(4rem, 8vw, 8rem) !important;
+}
+
+.lumina-layout-identity {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  align-items: stretch;
+  margin-bottom: clamp(5rem, 10vw, 10rem) !important;
+}
+
+.lumina-logo-card {
+  display: grid;
+  place-items: center;
+}
+
+.lumina-logo-card img {
+  width: min(72%, 25rem);
+}
+
+.lumina-moodboard-card {
+  display: grid;
+  align-content: space-between;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.lumina-moodboard-image,
+.lumina-moodboard-colors {
+  border-radius: 0.7rem;
+}
+
+.lumina-layout-products {
+  display: grid;
+  grid-template-columns: 1.08fr 0.18fr 1fr;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: center;
+  margin-bottom: clamp(5rem, 10vw, 10rem) !important;
+}
+
+.lumina-color-dots {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.lumina-color-dots span {
+  width: clamp(2.5rem, 4.5vw, 4rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(44 48 46 / 8%);
+}
+
+.lumina-color-dots span:nth-child(1) { background: #eae4de; }
+.lumina-color-dots span:nth-child(2) { background: #e3e3d0; }
+.lumina-color-dots span:nth-child(3) { background: #a0ab96; }
+.lumina-color-dots span:nth-child(4) { background: #c58d89; }
+.lumina-color-dots span:nth-child(5) { background: #bdabc2; }
+
+.lumina-banner-stack {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.lumina-landingpage,
+.lumina-product-gallery {
+  width: 100%;
+}
+
+.lumina-landingpage {
+  margin-bottom: clamp(5rem, 10vw, 10rem) !important;
+}
+
+.lumina-layout-reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 2400ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--lumina-delay),
+    transform 3000ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--lumina-delay);
+}
+
+.lumina-layout-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 760px) {
+  .lumina-layout-shell { width: min(100% - 2rem, 1180px); }
+  .lumina-layout-identity,
+  .lumina-layout-products { grid-template-columns: 1fr; }
+  .lumina-logo-card { min-height: 18rem; }
+  .lumina-color-dots { flex-direction: row; padding-block: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumina-layout-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Compact Lumina collage */
+.lumina-case {
+  --lumina-paper: #eae4de;
+  background:
+    radial-gradient(circle at 78% 16%, rgb(189 171 194 / 34%), transparent 30%),
+    radial-gradient(circle at 12% 76%, rgb(160 171 150 / 30%), transparent 32%),
+    linear-gradient(145deg, #eae4de 0%, #e3e3d0 100%);
+}
+
+.lumina-case .lumina-hero {
+  min-height: 82svh;
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.lumina-case .lumina-back {
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+}
+
+.lumina-case .lumina-hero-copy h1 {
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+}
+
+.lumina-case .lumina-hero-art {
+  --lumina-rest-transform: none;
+  aspect-ratio: 1.28 / 1;
+  max-height: 66svh;
+  border-radius: 0.4rem;
+  background: transparent;
+}
+
+.lumina-case .lumina-hero-art img {
+  height: 100%;
+  max-height: 66svh;
+  object-fit: cover;
+  transform: scale(1.12);
+}
+
+.lumina-board {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 0.7fr 0.8fr 1fr 1.15fr 1fr 0.85fr;
+  gap: clamp(0.55rem, 1.1vw, 1rem);
+  height: min(108svh, 960px);
+  min-height: 700px;
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.lumina-board figure {
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: clamp(0.65rem, 1.4vw, 1.25rem);
+  background: transparent;
+  box-shadow: 0 0.8rem 2rem rgb(50 61 61 / 11%);
+}
+
+.lumina-board figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lumina-board-copy {
+  grid-column: 1 / 5;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding-right: 1rem;
+}
+
+.lumina-board-copy h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 3vw, 3.25rem);
+}
+
+.lumina-board-copy p:last-child,
+.lumina-board-note {
+  margin: 0;
+  color: #666d6b;
+  font-size: 0.9rem;
+}
+
+.lumina-board-colors { grid-column: 5 / 13; grid-row: 1; }
+.lumina-board-strip-one { grid-column: 5 / 13; grid-row: 2; }
+.lumina-board-strip-two { grid-column: 1 / 9; grid-row: 3; }
+.lumina-board-detail {
+  --lumina-rest-transform: rotate(2deg);
+  z-index: 2;
+  grid-column: 9 / 13;
+  grid-row: 2 / 4;
+}
+.lumina-board-landscape {
+  --lumina-rest-transform: rotate(-1deg);
+  grid-column: 4 / 9;
+  grid-row: 4 / 6;
+}
+.lumina-board-page {
+  --lumina-rest-transform: rotate(-1.5deg);
+  grid-column: 1 / 4;
+  grid-row: 4 / 7;
+}
+.lumina-board-main {
+  grid-column: 9 / 13;
+  grid-row: 4 / 7;
+}
+.lumina-board-card {
+  --lumina-rest-transform: rotate(-3deg);
+  z-index: 3;
+  grid-column: 6 / 10;
+  grid-row: 5 / 7;
+  margin: 0.5rem !important;
+}
+.lumina-board-note {
+  grid-column: 1 / 4;
+  grid-row: 6;
+  align-self: center;
+  max-width: 22ch;
+}
+.lumina-board-link {
+  grid-column: 1 / 4;
+  grid-row: 6;
+  align-self: end;
+  color: var(--lumina-ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.lumina-board > .lumina-reveal:nth-child(2) { transition-delay: 70ms; }
+.lumina-board > .lumina-reveal:nth-child(3) { transition-delay: 140ms; }
+.lumina-board > .lumina-reveal:nth-child(4) { transition-delay: 210ms; }
+.lumina-board > .lumina-reveal:nth-child(5) { transition-delay: 280ms; }
+.lumina-board > .lumina-reveal:nth-child(6) { transition-delay: 350ms; }
+.lumina-board > .lumina-reveal:nth-child(7) { transition-delay: 420ms; }
+.lumina-board > .lumina-reveal:nth-child(8) { transition-delay: 490ms; }
+.lumina-board > .lumina-reveal:nth-child(9) { transition-delay: 560ms; }
+.lumina-board > .lumina-reveal:nth-child(10) { transition-delay: 630ms; }
+
+@media (max-width: 760px) {
+  .lumina-case .lumina-hero { min-height: 82svh; }
+  .lumina-board {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto repeat(6, minmax(8rem, 1fr));
+    height: auto;
+    min-height: 135svh;
+  }
+  .lumina-board-copy { grid-column: 1 / -1; grid-row: 1; }
+  .lumina-board-colors { grid-column: 1 / -1; grid-row: 2; }
+  .lumina-board-strip-one { grid-column: 1 / -1; grid-row: 3; }
+  .lumina-board-strip-two { grid-column: 1 / -1; grid-row: 4; }
+  .lumina-board-detail { grid-column: 1; grid-row: 5; }
+  .lumina-board-landscape { grid-column: 2; grid-row: 5; }
+  .lumina-board-page { grid-column: 1; grid-row: 6; }
+  .lumina-board-main { grid-column: 1 / -1; grid-row: 7 / 9; }
+  .lumina-board-card { grid-column: 2; grid-row: 8; }
+}
+
+/* Text-free Lumina gallery */
+.lumina-gallery-page {
+  min-height: 100svh;
+}
+
+.lumina-gallery {
+  display: grid;
+  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+.lumina-gallery-row {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.lumina-gallery-item {
+  overflow: hidden;
+  flex: 0 0 auto;
+  margin: 0;
+  border-radius: 0.35rem;
+  box-shadow: 0 1rem 2.5rem rgb(50 61 61 / 12%);
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 1500ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--gallery-delay),
+    transform 1800ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--gallery-delay);
+}
+
+.lumina-gallery-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lumina-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lumina-gallery-square { width: 28%; }
+.lumina-gallery-tall { width: 31%; }
+.lumina-gallery-colors { width: 35%; }
+.lumina-gallery-strip { width: calc(50% - 1rem); }
+.lumina-gallery-landscape { width: 43%; }
+.lumina-gallery-detail { width: 22%; }
+.lumina-gallery-moodboard { width: 31%; }
+.lumina-gallery-finale { width: min(62%, 44rem); }
+
+@media (max-width: 760px) {
+  .lumina-gallery-row { flex-wrap: wrap; align-items: flex-start; }
+  .lumina-gallery-square,
+  .lumina-gallery-tall { width: calc(50% - 0.5rem); }
+  .lumina-gallery-colors,
+  .lumina-gallery-strip,
+  .lumina-gallery-landscape,
+  .lumina-gallery-finale { width: 100%; }
+  .lumina-gallery-detail { width: 36%; }
+  .lumina-gallery-moodboard { width: calc(64% - 1rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumina-gallery-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Freeform image composition inspired by a physical moodboard */
+@media (min-width: 761px) {
+  .lumina-board {
+    position: relative;
+    display: block;
+    height: min(108svh, 940px);
+    min-height: 700px;
+    padding-block: 2rem;
+  }
+
+  .lumina-board-copy {
+    position: absolute;
+    z-index: 8;
+    top: 4%;
+    left: 0;
+    width: 31%;
+    padding: 0;
+  }
+
+  .lumina-board figure {
+    position: absolute;
+    margin: 0 !important;
+    border-radius: 0.45rem;
+    box-shadow: 0 1.2rem 2.8rem rgb(50 61 61 / 15%);
+  }
+
+  .lumina-board figure img {
+    height: auto;
+    object-fit: initial;
+  }
+
+  .lumina-board-colors {
+    z-index: 2;
+    top: 5%;
+    left: 38%;
+    width: 45%;
+  }
+
+  .lumina-board-strip-one {
+    --lumina-rest-transform: rotate(0.7deg);
+    z-index: 3;
+    top: 19%;
+    left: 33%;
+    width: 61%;
+  }
+
+  .lumina-board-strip-two {
+    --lumina-rest-transform: rotate(-1deg);
+    z-index: 4;
+    top: 34%;
+    left: 4%;
+    width: 58%;
+  }
+
+  .lumina-board-detail {
+    --lumina-rest-transform: rotate(3deg);
+    z-index: 6;
+    top: 31%;
+    right: 1%;
+    left: auto;
+    width: 26%;
+  }
+
+  .lumina-board-page {
+    --lumina-rest-transform: rotate(-2deg);
+    z-index: 3;
+    top: 49%;
+    left: 3%;
+    width: 29%;
+  }
+
+  .lumina-board-landscape {
+    --lumina-rest-transform: rotate(1.5deg);
+    z-index: 20;
+    top: 48%;
+    left: 27%;
+    width: 43%;
+  }
+
+  .lumina-board-main {
+    --lumina-rest-transform: rotate(-0.6deg);
+    z-index: 2;
+    top: 51%;
+    right: 0;
+    left: auto;
+    width: 38%;
+  }
+
+  .lumina-board-card {
+    --lumina-rest-transform: rotate(-4deg);
+    z-index: 7;
+    top: 68%;
+    left: 43%;
+    width: 27%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumina-case.lumina-layout,
+  .lumina-case.lumina-layout::before {
+    animation: none;
+  }
+}
+
+/* Keep the final Lumina collage proportions above legacy project styles. */
+@media (min-width: 761px) {
+  .lumina-layout-opening .lumina-layout-hero {
+    height: auto;
+    margin: 0 !important;
+  }
+
+  .lumina-layout-opening .lumina-logo-card {
+    align-self: stretch;
+  }
+
+  .lumina-layout-middle .lumina-moodboard-colors {
+    height: auto !important;
+    max-height: 7rem;
+  }
+
+  .lumina-layout-bottom .lumina-landingpage,
+  .lumina-layout-bottom .lumina-product-gallery {
+    height: 100%;
+  }
+
+  .lumina-layout-bottom .lumina-landingpage img,
+  .lumina-layout-bottom .lumina-product-gallery img {
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 761px) {
+  .lumina-layout-opening {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    min-height: 72svh;
+  }
+
+  .lumina-layout-opening .lumina-layout-hero {
+    width: 88%;
+    justify-self: end;
+  }
+
+  .lumina-layout-opening .lumina-logo-card {
+    place-items: center start;
+  }
+
+  .lumina-layout-opening .lumina-logo-card img {
+    width: 90%;
+  }
+
+  .lumina-layout-middle {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    min-height: 78svh;
+  }
+
+  .lumina-layout-middle .lumina-moodboard-card {
+    align-self: center;
+    height: 82%;
+  }
+
+  .lumina-layout-middle .lumina-moodboard-colors {
+    max-height: 4.5rem;
+  }
+
+  .lumina-layout-middle .lumina-testimonials {
+    height: 100%;
+  }
+
+  .lumina-layout-bottom {
+    grid-template-columns: minmax(0, 0.58fr) minmax(0, 1.12fr) minmax(0, 0.72fr);
+    min-height: 86svh;
+  }
+
+  .lumina-layout-bottom .lumina-bottom-banners {
+    height: 100%;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .lumina-layout-bottom .lumina-bottom-banners figure,
+  .lumina-layout-bottom .lumina-bottom-banners img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Latest Lumina collage sizing. */
+@media (min-width: 761px) {
+  .lumina-case.lumina-layout .lumina-layout-opening {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    min-height: 72svh;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-opening .lumina-layout-hero {
+    width: 88%;
+    height: auto;
+    justify-self: end;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-opening .lumina-logo-card {
+    place-items: center start;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-opening .lumina-logo-card img {
+    width: 90%;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-middle {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    min-height: 78svh;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-middle .lumina-moodboard-card {
+    align-self: stretch;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-middle .lumina-moodboard-colors {
+    max-height: 4.5rem;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-middle .lumina-testimonials {
+    height: 100%;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-bottom {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    height: 78svh;
+    min-height: 0;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-bottom .lumina-landingpage,
+  .lumina-case.lumina-layout .lumina-layout-bottom .lumina-product-gallery {
+    width: 100%;
+    height: 78svh;
+    min-height: 0;
+  }
+
+  .lumina-case.lumina-layout .lumina-layout-bottom .lumina-landingpage img,
+  .lumina-case.lumina-layout .lumina-layout-bottom .lumina-product-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .lumina-case.lumina-layout > .lumina-layout-shell > .lumina-bottom-banners {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .lumina-layout-opening {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    min-height: 72svh;
+  }
+
+  .lumina-layout-opening .lumina-layout-hero {
+    width: 88%;
+    justify-self: end;
+  }
+
+  .lumina-layout-opening .lumina-logo-card {
+    place-items: center start;
+  }
+
+  .lumina-layout-opening .lumina-logo-card img {
+    width: 90%;
+  }
+
+  .lumina-layout-middle {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    min-height: 78svh;
+  }
+
+  .lumina-layout-middle .lumina-moodboard-card {
+    align-self: center;
+    height: 82%;
+  }
+
+  .lumina-layout-middle .lumina-moodboard-colors {
+    max-height: 4.5rem;
+  }
+
+  .lumina-layout-middle .lumina-testimonials {
+    height: 100%;
+  }
+
+  .lumina-layout-bottom {
+    grid-template-columns: minmax(0, 0.58fr) minmax(0, 1.12fr) minmax(0, 0.72fr);
+    min-height: 86svh;
+  }
+
+  .lumina-layout-bottom .lumina-bottom-banners {
+    height: 100%;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .lumina-layout-bottom .lumina-bottom-banners figure,
+  .lumina-layout-bottom .lumina-bottom-banners img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Slow, directional entrance for the Lumina collage. */
+.lumina-layout .lumina-layout-reveal {
+  opacity: 0;
+  transform: var(--lumina-entry-transform, translate3d(0, 6rem, 0));
+  transition:
+    opacity 3800ms cubic-bezier(0.16, 1, 0.3, 1) 500ms,
+    transform 4800ms cubic-bezier(0.16, 1, 0.3, 1) 500ms;
+  will-change: opacity, transform;
+}
+
+.lumina-layout .lumina-layout-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.lumina-layout-opening .lumina-logo-card {
+  --lumina-entry-transform: translate3d(-9rem, 0, 0);
+}
+
+.lumina-layout-opening .lumina-layout-hero {
+  --lumina-entry-transform: translate3d(9rem, 0, 0);
+}
+
+.lumina-layout-opening .lumina-banner-stack figure:first-child {
+  --lumina-entry-transform: translate3d(0, -7rem, 0);
+}
+
+.lumina-layout-opening .lumina-banner-stack figure:last-child {
+  --lumina-entry-transform: translate3d(0, 7rem, 0);
+}
+
+.lumina-layout-middle .lumina-moodboard-card {
+  --lumina-entry-transform: translate3d(-8rem, 0, 0);
+}
+
+.lumina-layout-middle .lumina-testimonials {
+  --lumina-entry-transform: translate3d(8rem, 0, 0);
+}
+
+.lumina-layout-bottom .lumina-landingpage {
+  --lumina-entry-transform: translate3d(0, 8rem, 0);
+}
+
+.lumina-layout-bottom .lumina-product-gallery {
+  --lumina-entry-transform: translate3d(8rem, 0, 0);
+}
+
+.lumina-layout-bottom .lumina-bottom-banners figure:first-child {
+  --lumina-entry-transform: translate3d(0, -3.5rem, 0);
+}
+
+.lumina-layout-bottom .lumina-bottom-banners figure:last-child {
+  --lumina-entry-transform: translate3d(0, 3.5rem, 0);
+}
+
+.lumina-layout > .lumina-layout-shell > .lumina-bottom-banners figure:first-child {
+  --lumina-entry-transform: translate3d(-9rem, 0, 0);
+}
+
+.lumina-layout > .lumina-layout-shell > .lumina-bottom-banners figure:last-child {
+  --lumina-entry-transform: translate3d(9rem, 0, 0);
+}
+
+.lumina-layout > .lumina-layout-shell > .lumina-bottom-banners {
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumina-layout .lumina-layout-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.lumina-layout .lumina-captioned {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(0.55rem, 0.9vw, 0.9rem);
+  overflow: visible;
+}
+
+.lumina-layout .lumina-moodboard-card {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-self: stretch;
+  overflow: visible !important;
+}
+
+.lumina-image-title {
+  display: grid;
+  gap: 0.3rem;
+  justify-self: start;
+  max-width: 18ch;
+  margin: 0;
+  padding-left: 0.12em;
+  color: rgb(46 39 36 / 90%);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  line-height: 1.15;
+}
+
+.lumina-layout-middle .lumina-testimonials {
+  align-content: start;
+}
+
+.lumina-layout-middle .lumina-moodboard-card,
+.lumina-layout-middle .lumina-testimonials {
+  padding-top: 0.35rem;
+}
+
+.lumina-layout-middle .lumina-moodboard-card .lumina-image-title,
+.lumina-layout-middle .lumina-testimonials .lumina-image-title {
+  align-self: start;
+  margin-bottom: 0.3rem;
+  overflow: visible;
+}
+
+.lumina-layout-middle .lumina-moodboard-image,
+.lumina-layout-middle .lumina-testimonials img {
+  object-position: top left;
+}
+
+.lumina-layout-middle .lumina-moodboard-image,
+.lumina-layout-middle .lumina-moodboard-colors {
+  border-radius: 0;
+  /* Justér denne værdi for at flytte begge Brandidentitet-billeder op eller ned. */
+  transform: translateY(-3.5rem);
+}
+
+.lumina-layout > .lumina-layout-shell > .lumina-persona {
+  width: min(58%, 46rem);
+  margin: clamp(2.5rem, 5vw, 4.5rem) auto 0 !important;
+  gap: 0;
+  overflow: visible;
+}
+
+.lumina-layout > .lumina-layout-shell > .lumina-persona img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.7rem;
+  object-fit: contain;
+}
+
+.lumina-layout > .lumina-layout-shell > .lumina-persona .lumina-image-title {
+  justify-self: start;
+  transform: translateY(1rem);
+}
+
+.lumina-project-intro {
+  align-self: center;
+  max-width: 32rem;
+  margin: 0;
+  translate: 0 -1.5rem;
+  color: #5a5048;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+@media (max-width: 760px) {
+  .lumina-layout > .lumina-layout-shell > .lumina-persona {
+    width: 100%;
+  }
+}
+
+.lumina-layout-middle .lumina-testimonials img {
+  border-radius: 0.7rem;
+  object-position: top left;
+}
+
+.lumina-layout-bottom .lumina-landingpage {
+  justify-items: start;
+}
+
+.lumina-layout-bottom .lumina-landingpage .lumina-image-title {
+  width: 100%;
+  max-width: none;
+  text-align: left;
+}
+
+.lumina-layout-bottom .lumina-landingpage img {
+  aspect-ratio: 1 / 1;
+  border-radius: 0.7rem;
+  object-position: top left;
+}
+
+.lumina-image-title span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.lumina-text-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.lumina-captioned:nth-child(even) .lumina-text-reveal,
+.lumina-layout-middle > :nth-child(even) .lumina-text-reveal {
+  transform: none;
+}
+
+.lumina-text-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumina-text-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.lumina-layout figure,
+.lumina-moodboard-card {
+  background: transparent;
+  box-shadow: none;
+}
+
+.lumina-layout-shell,
+.lumina-layout-identity,
+.lumina-layout-products,
+.lumina-banner-stack {
+  gap: clamp(0.4rem, 0.8vw, 0.75rem);
+}
+
+/* Final Lumina editorial layout */
+.lumina-layout-opening,
+.lumina-layout-middle,
+.lumina-layout-bottom,
+.lumina-opening-left {
+  display: grid;
+  gap: clamp(0.5rem, 0.85vw, 0.85rem);
+  min-width: 0;
+}
+
+.lumina-layout-opening {
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  min-height: 88svh;
+}
+
+.lumina-opening-left {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.lumina-layout-opening .lumina-logo-card,
+.lumina-layout-opening .lumina-layout-hero,
+.lumina-layout-opening .lumina-banner-stack,
+.lumina-layout-opening .lumina-banner-stack figure {
+  height: auto;
+  min-height: 0;
+}
+
+.lumina-layout-opening .lumina-logo-card img,
+.lumina-layout-opening .lumina-layout-hero img,
+.lumina-layout-opening .lumina-banner-stack img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lumina-layout-opening .lumina-layout-hero {
+  display: grid;
+  place-items: center;
+}
+
+.lumina-layout-middle {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  align-items: stretch;
+  min-height: 74svh;
+}
+
+.lumina-layout-middle .lumina-moodboard-card {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.lumina-layout-middle img,
+.lumina-layout-bottom img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lumina-layout-middle .lumina-moodboard-colors {
+  height: auto;
+  max-height: 7rem;
+}
+
+.lumina-layout-bottom {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  min-height: 82svh;
+}
+
+.lumina-layout-bottom .lumina-landingpage,
+.lumina-layout-bottom .lumina-product-gallery {
+  height: 100%;
+  margin: 0 !important;
+}
+
+.lumina-layout-bottom .lumina-landingpage img {
+  object-fit: contain;
+}
+
+.lumina-layout-bottom .lumina-product-gallery {
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 760px) {
+  .lumina-layout-opening,
+  .lumina-layout-middle,
+  .lumina-layout-bottom {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .lumina-layout-opening .lumina-logo-card {
+    min-height: 0;
+  }
+
+  .lumina-layout-opening .lumina-layout-hero,
+  .lumina-layout-middle > *,
+  .lumina-layout-bottom > * {
+    height: auto;
+  }
+
+  .lumina-layout-opening img,
+  .lumina-layout-middle img,
+  .lumina-layout-bottom img {
+    height: auto;
+  }
+}
+
+.lumina-moodboard-card {
+  gap: 0.4rem;
+  padding: 0;
+}
+
+.lumina-layout-hero,
+.lumina-layout-identity,
+.lumina-layout-products,
+.lumina-landingpage {
+  margin-bottom: 0 !important;
+}
+
+/* Natural-ratio Lumina image wall */
+.lumina-case .lumina-hero-art {
+  aspect-ratio: auto;
+}
+
+.lumina-case .lumina-hero-art img {
+  height: auto;
+  object-fit: contain;
+  transform: none;
+}
+
+.lumina-case .lumina-reveal {
+  transition:
+    opacity 1400ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1750ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.lumina-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.8rem, 1.5vw, 1.35rem);
+  align-items: flex-start;
+  align-content: flex-start;
+  height: auto;
+  min-height: 0;
+  padding-block: clamp(2.5rem, 5vw, 5rem);
+}
+
+.lumina-board-copy,
+.lumina-board figure {
+  position: relative;
+  inset: auto;
+  margin: 0 !important;
+  transform: none;
+}
+
+.lumina-board-copy {
+  flex: 1 1 27%;
+  width: auto;
+  padding: 1rem 2rem 0 0;
+}
+
+.lumina-board figure {
+  --lumina-rest-transform: none;
+  flex: 0 0 auto;
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  border-radius: 0.3rem;
+}
+
+.lumina-board figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.lumina-board-colors { flex-basis: 37%; }
+.lumina-board-strip-one { flex-basis: 31%; }
+.lumina-board-strip-two { flex-basis: 42%; }
+.lumina-board-detail { flex-basis: 18%; }
+.lumina-board-page { flex-basis: 25%; }
+.lumina-board-landscape { flex-basis: 40%; }
+.lumina-board-main { flex-basis: 31%; }
+.lumina-board-card { flex-basis: 25%; }
+
+.lumina-board > .lumina-reveal:nth-child(2) { transition-delay: 140ms; }
+.lumina-board > .lumina-reveal:nth-child(3) { transition-delay: 280ms; }
+.lumina-board > .lumina-reveal:nth-child(4) { transition-delay: 420ms; }
+.lumina-board > .lumina-reveal:nth-child(5) { transition-delay: 560ms; }
+.lumina-board > .lumina-reveal:nth-child(6) { transition-delay: 700ms; }
+.lumina-board > .lumina-reveal:nth-child(7) { transition-delay: 840ms; }
+.lumina-board > .lumina-reveal:nth-child(8) { transition-delay: 980ms; }
+.lumina-board > .lumina-reveal:nth-child(9) { transition-delay: 1120ms; }
+
+@media (max-width: 760px) {
+  .lumina-board-copy { flex-basis: 100%; padding-right: 0; }
+  .lumina-board-colors,
+  .lumina-board-strip-one,
+  .lumina-board-strip-two { flex-basis: 100%; }
+  .lumina-board-detail,
+  .lumina-board-page,
+  .lumina-board-landscape,
+  .lumina-board-main,
+  .lumina-board-card { flex-basis: calc(50% - 0.7rem); }
+}
+
+@media (max-width: 760px) {
+  .lumina-board figure {
+    position: relative;
+    box-shadow: 0 0.8rem 2rem rgb(50 61 61 / 14%);
+  }
+}
+
+/* Lumina gallery-wall composition */
+@media (min-width: 761px) {
+  .lumina-board {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.3vw, 1.2rem);
+    height: min(108svh, 940px);
+    padding-block: clamp(2rem, 4vw, 4rem);
+  }
+
+  .lumina-board-copy,
+  .lumina-board figure {
+    position: relative;
+    inset: auto;
+    width: auto;
+    margin: 0 !important;
+    transform: none;
+  }
+
+  .lumina-board figure {
+    --lumina-rest-transform: none;
+    border-radius: 0.35rem;
+  }
+
+  .lumina-board figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lumina-board-copy {
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+
+  .lumina-board-colors {
+    grid-column: 4 / 8;
+    grid-row: 1;
+  }
+
+  .lumina-board-strip-one {
+    grid-column: 8 / 13;
+    grid-row: 1;
+  }
+
+  .lumina-board-strip-two {
+    grid-column: 1 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .lumina-board-detail {
+    z-index: auto;
+    grid-column: 4 / 7;
+    grid-row: 2 / 4;
+  }
+
+  .lumina-board-page {
+    z-index: auto;
+    grid-column: 7 / 11;
+    grid-row: 2 / 5;
+  }
+
+  .lumina-board-landscape {
+    z-index: auto;
+    grid-column: 11 / 13;
+    grid-row: 2 / 4;
+  }
+
+  .lumina-board-main {
+    z-index: auto;
+    grid-column: 1 / 6;
+    grid-row: 4 / 7;
+  }
+
+  .lumina-board-card {
+    z-index: auto;
+    grid-column: 6 / 9;
+    grid-row: 5 / 7;
   }
 }
 
@@ -1581,5 +2817,443 @@ p {
   .footer-links {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+/* Lumina case study */
+.lumina-case {
+  --lumina-ink: #202424;
+  --lumina-muted: #737978;
+  --lumina-paper: #f6f5f1;
+  --lumina-blue: #9cc9dc;
+  color: var(--lumina-ink);
+  background: var(--lumina-paper);
+}
+
+.lumina-shell {
+  width: min(100% - 3rem, 1160px);
+  margin-inline: auto;
+}
+
+.lumina-case figure {
+  margin: 0;
+}
+
+.lumina-case img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lumina-case h1,
+.lumina-case h2 {
+  margin-top: 0;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  letter-spacing: -0.055em;
+}
+
+.lumina-case h2 {
+  max-width: 14ch;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  font-weight: 520;
+  line-height: 0.98;
+}
+
+.lumina-case p {
+  line-height: 1.7;
+}
+
+.lumina-reveal {
+  opacity: 0;
+  transform: translateY(2.5rem) scale(0.985);
+  transition:
+    opacity 850ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1050ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.lumina-reveal:nth-child(2) { transition-delay: 110ms; }
+.lumina-reveal:nth-child(3) { transition-delay: 220ms; }
+.lumina-reveal:nth-child(4) { transition-delay: 330ms; }
+.lumina-reveal.is-visible {
+  opacity: 1;
+  transform: var(--lumina-rest-transform, translateY(0) scale(1));
+}
+
+.lumina-back {
+  display: inline-block;
+  margin-bottom: clamp(3rem, 7vw, 7rem);
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.lumina-eyebrow,
+.lumina-index {
+  color: var(--lumina-muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lumina-hero {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+  min-height: calc(100svh - 6rem);
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.lumina-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.lumina-hero-copy h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 480;
+  line-height: 0.8;
+}
+
+.lumina-hero-copy > p:last-child {
+  max-width: 31rem;
+  color: #59605f;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+}
+
+.lumina-hero-art {
+  --lumina-rest-transform: rotate(1.5deg);
+  overflow: hidden;
+  border-radius: 0.5rem 4rem 0.5rem 4rem;
+  box-shadow: 0 2rem 5rem rgb(50 61 61 / 16%);
+}
+
+.lumina-intro {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: start;
+  padding-block: clamp(7rem, 14vw, 13rem);
+}
+
+.lumina-intro-copy p,
+.lumina-finale-copy > p:last-child {
+  max-width: 42rem;
+  color: #5e6463;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+}
+
+.lumina-colors {
+  grid-column: 2;
+  width: min(100%, 46rem);
+  margin-top: 2rem !important;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 1rem 3rem rgb(50 61 61 / 8%);
+}
+
+.lumina-ribbons {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(8rem, 15vw, 14rem);
+}
+
+.lumina-ribbon {
+  overflow: hidden;
+  width: 88%;
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 4rem rgb(50 61 61 / 11%);
+}
+
+.lumina-ribbon.is-offset {
+  justify-self: end;
+}
+
+.lumina-note {
+  width: min(100%, 32rem);
+  margin: 0 10% 0 auto;
+  color: #5e6463;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+}
+
+.lumina-collage {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+  padding-bottom: clamp(8rem, 15vw, 14rem);
+}
+
+.lumina-collage-heading {
+  grid-column: 1 / -1;
+  margin-bottom: clamp(2rem, 5vw, 5rem);
+}
+
+.lumina-piece {
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 1.75rem 4rem rgb(50 61 61 / 13%);
+}
+
+.lumina-piece-wide {
+  --lumina-rest-transform: rotate(-1.25deg);
+  grid-row: 2 / span 2;
+}
+
+.lumina-piece-small {
+  --lumina-rest-transform: rotate(2.5deg);
+  width: 88%;
+  margin-top: 4rem !important;
+}
+
+.lumina-quote {
+  align-self: end;
+  margin: clamp(2rem, 5vw, 5rem) 0 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--lumina-blue);
+  color: #414746;
+  font-family: Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.lumina-finale {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding-bottom: clamp(8rem, 14vw, 13rem);
+}
+
+.lumina-finale-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.lumina-finale-main {
+  overflow: hidden;
+  border-radius: 3rem 0.75rem 3rem 0.75rem;
+  box-shadow: 0 2rem 5rem rgb(50 61 61 / 15%);
+}
+
+.lumina-finale-card {
+  --lumina-rest-transform: rotate(-4deg);
+  grid-column: 1 / -1;
+  width: 55%;
+  margin-top: -10% !important;
+  margin-left: 12% !important;
+  border: 0.7rem solid #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 4rem rgb(50 61 61 / 18%);
+}
+
+.lumina-outro {
+  padding-block: clamp(5rem, 10vw, 9rem);
+  background: #dce9eb;
+}
+
+.lumina-outro a {
+  display: inline-flex;
+  gap: 2rem;
+  color: var(--lumina-ink);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 520;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .lumina-shell { width: min(100% - 2rem, 1160px); }
+  .lumina-hero,
+  .lumina-intro,
+  .lumina-collage,
+  .lumina-finale { grid-template-columns: 1fr; }
+  .lumina-hero { min-height: auto; }
+  .lumina-hero-art { border-radius: 0.5rem 2.5rem; }
+  .lumina-intro-copy,
+  .lumina-colors { grid-column: 1; }
+  .lumina-ribbon { width: 100%; }
+  .lumina-note { margin-right: 0; }
+  .lumina-piece-wide { grid-row: auto; }
+  .lumina-piece-small { width: 75%; margin-top: 0 !important; margin-left: auto !important; }
+  .lumina-finale-card { width: 76%; margin-top: -5% !important; margin-left: 5% !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lumina-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.lumina-case.lumina-layout {
+  position: relative;
+  isolation: isolate;
+  background-color: #c8a98d;
+  background-image:
+    radial-gradient(ellipse 62% 48% at 43% 52%, rgb(247 229 211 / 94%) 0%, rgb(231 203 176 / 66%) 42%, transparent 72%),
+    radial-gradient(ellipse 52% 68% at 8% 42%, rgb(177 134 99 / 40%) 0%, transparent 70%),
+    radial-gradient(ellipse 48% 64% at 92% 46%, rgb(164 122 91 / 36%) 0%, transparent 72%),
+    linear-gradient(105deg, #bc9677 0%, #dec1a5 46%, #b89174 100%);
+  background-attachment: fixed;
+  background-size: 125% 125%;
+  animation: lumina-background-drift 24s ease-in-out infinite alternate;
+}
+
+.lumina-case.lumina-layout::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 25%, rgb(255 246 235 / 26%), transparent 30%),
+    radial-gradient(circle at 72% 72%, rgb(113 75 49 / 13%), transparent 34%);
+  content: "";
+  filter: blur(22px);
+  animation: lumina-light-drift 18s ease-in-out infinite alternate;
+}
+
+.lumina-case.lumina-layout .lumina-layout-shell {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes lumina-background-drift {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 70%; }
+}
+
+@keyframes lumina-light-drift {
+  from { opacity: 0.55; transform: scale(1) translate3d(-1%, -1%, 0); }
+  to { opacity: 0.9; transform: scale(1.08) translate3d(2%, 1%, 0); }
+}
+
+@media (min-width: 761px) {
+  .lumina-layout-shell {
+    display: grid;
+    gap: clamp(0.4rem, 0.8vw, 0.75rem);
+    padding-block: clamp(2rem, 3vw, 3rem);
+  }
+
+  .lumina-wordmark {
+    margin-bottom: 0;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+  }
+
+  .lumina-layout-hero {
+    height: 40svh;
+    margin-bottom: 0 !important;
+  }
+
+  .lumina-layout-identity {
+    height: 28svh;
+    margin-bottom: 0 !important;
+  }
+
+  .lumina-layout-products {
+    height: 28svh;
+    margin-bottom: 0 !important;
+  }
+
+  .lumina-landingpage {
+    height: 32svh;
+    margin-bottom: 0 !important;
+  }
+
+  .lumina-product-gallery {
+    height: 34svh;
+  }
+
+  .lumina-layout figure,
+  .lumina-moodboard-card,
+  .lumina-banner-stack {
+    min-height: 0;
+  }
+
+  .lumina-layout figure img,
+  .lumina-moodboard-card img,
+  .lumina-banner-stack img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .lumina-moodboard-card {
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 0.4rem;
+    padding: 0;
+  }
+
+  .lumina-moodboard-colors {
+    height: auto !important;
+    max-height: 3.25rem;
+  }
+
+  .lumina-banner-stack {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+
+  .lumina-banner-stack figure {
+    height: 100%;
+  }
+
+  .lumina-logo-card {
+    align-self: center;
+    height: auto;
+  }
+
+  .lumina-logo-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .lumina-landingpage {
+    position: relative;
+    z-index: auto;
+    display: grid;
+    height: 55svh;
+    place-items: center;
+  }
+
+  .lumina-landingpage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 761px) {
+  .lumina-layout-opening .lumina-layout-hero {
+    height: auto;
+    margin: 0 !important;
+  }
+
+  .lumina-layout-opening .lumina-logo-card {
+    align-self: stretch;
+  }
+
+  .lumina-layout-middle .lumina-moodboard-colors {
+    height: auto !important;
+    max-height: 7rem;
+  }
+
+  .lumina-layout-bottom .lumina-landingpage,
+  .lumina-layout-bottom .lumina-product-gallery {
+    height: 100%;
+  }
+
+  .lumina-layout-bottom .lumina-landingpage img,
+  .lumina-layout-bottom .lumina-product-gallery img {
+    object-fit: contain;
   }
 }
