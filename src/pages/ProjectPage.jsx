@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router";
 import projects from "../data/projects";
 import LynkProjectPage from "./LynkProjectPage";
+import LuminaProjectPage from "./LuminaProjectPage";
 
 function ProjectPage() {
   const { slug } = useParams();
@@ -8,6 +9,10 @@ function ProjectPage() {
 
   if (slug === "lynk") {
     return <LynkProjectPage />;
+  }
+
+  if (slug === "lumina") {
+    return <LuminaProjectPage />;
   }
 
   if (!project) {

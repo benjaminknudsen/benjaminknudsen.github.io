@@ -1,9 +1,16 @@
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import logo from "../assets/images/BKlogoooo.svg";
 
 function Navbar() {
+  const { pathname } = useLocation();
+  const projectTheme = pathname === "/projects/lynk"
+    ? "site-header--lynk"
+    : pathname === "/projects/lumina"
+      ? "site-header--lumina"
+      : "";
+
   return (
-    <header className="site-header">
+    <header className={`site-header ${projectTheme}`.trim()}>
       <NavLink className="brand" to="/" aria-label="Gå til forsiden">
         <img src={logo} alt="BK" />
       </NavLink>
