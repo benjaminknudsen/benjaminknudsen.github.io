@@ -83,20 +83,22 @@ function ProjectPage() {
   if (slug === "landingpage-koncept") {
     return (
       <article className="page creative-project-page landing-concept-page" ref={creativePageRef}>
-        <h1>Landingpage-koncept</h1>
+        <h1>Landingpage</h1>
         <p className="lead">{project.description}</p>
         <section className="home-hygge-case creative-reveal" aria-label="Landingpage-koncept">
           <div className="creative-video-frame">
-            <video
-              className="detail-image detail-video"
-              src={homeHyggeVideo}
-              aria-label="Landingpage-koncept lavet i Figma"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-            />
+            <div className="landing-video-crop">
+              <video
+                className="detail-image detail-video"
+                src={homeHyggeVideo}
+                aria-label="Landingpage-koncept lavet i Figma"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+              />
+            </div>
             <div className="creative-video-badges">
               <div className="figma-badge" aria-label="Lavet i Figma">
                 <span className="figma-mark" aria-hidden="true">
