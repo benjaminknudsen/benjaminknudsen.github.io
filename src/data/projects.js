@@ -68,16 +68,16 @@ const projects = [
   },
   {
     slug: "landingpage-koncept",
-    title: "Landingpage-koncept",
+    title: "Landingpage",
     year: "2026",
     category: "Koncept",
     accent: "#5a466c",
-    categoryColor: "#5a466c",
+    categoryColor: "#111111",
     coverBackground: "#f8f6f2",
     summary:
-      "Et interaktivt landingpage-koncept udviklet som et visuelt eksperiment i Figma.",
+      "En landingpage udviklet som et kreativt fritidsprojekt med fokus på æstetik, animationer og moderne webdesign.",
     description:
-      "Et selvstændigt landingpage-koncept med fokus på bevægelse, stemning og digital formidling.",
+      "En landingpage udviklet som et kreativt fritidsprojekt med fokus på æstetik, animationer og moderne webdesign.",
     tags: ["Figma", "UI", "Koncept"],
     image: fortunaImage,
     previewVideo: landingConceptVideo,

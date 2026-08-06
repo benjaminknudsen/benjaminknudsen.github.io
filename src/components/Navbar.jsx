@@ -7,6 +7,8 @@ function Navbar() {
     ? "site-header--lynk"
     : pathname === "/projects/lumina"
       ? "site-header--lumina"
+      : pathname === "/projects/landingpage-koncept"
+        ? "site-header--concept"
       : "";
 
   return (
