@@ -1,6 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import placeholderImage from "../assets/images/lynk.svg";
+import homepageImage from "../assets/images/Homepage.svg";
+import moodboardImage from "../assets/images/Moodboard.svg";
+import prototypeImage from "../assets/images/Prototype.png";
+import userTestImage from "../assets/images/thinkaloud.svg";
+import designSystemImage from "../assets/images/designsystem2.svg";
+import wireframeImage from "../assets/images/wireframe.svg";
+import exploreEventsImage from "../assets/images/udforskevents.svg";
+import filteringImage from "../assets/images/filtrering.png";
+import profileImage from "../assets/images/profil.svg";
+import createEvent1Image from "../assets/images/opretevent1.svg";
+import createEvent2Image from "../assets/images/opretevent2.svg";
+import createEvent3Image from "../assets/images/opretevent3.svg";
+import createEvent4Image from "../assets/images/opretevent4.svg";
+import createEvent5Image from "../assets/images/opretevent5.svg";
 
 const facts = [
   ["Type", "Eksamensprojekt"],
@@ -20,34 +34,41 @@ const processSteps = [
     number: "01",
     title: "Research og idéudvikling",
     text: "Indsigter om motivation, fællesskab og barrierer for aktivitet dannede grundlaget for konceptet.",
-    image: "moodboard og research",
+    image: moodboardImage,
+    imageAlt: "Moodboard og research til Lynk",
   },
   {
     number: "02",
     title: "Brugerflow og wireframes",
     text: "De vigtigste flows blev kortlagt og omsat til wireframes med fokus på enkel orientering.",
-    image: "user flow og wireframes",
+    image: wireframeImage,
+    imageAlt: "Wireframes og brugerflow til Lynk",
   },
   {
     number: "03",
     title: "High-fidelity design i Figma",
     text: "Wireframes blev udviklet til et sammenhængende visuelt design og en klikbar prototype.",
-    image: "Figma-prototype",
+    image: prototypeImage,
+    imageAlt: "High-fidelity prototype af Lynk",
   },
   {
     number: "04",
     title: "Test og implementering",
     text: "Løsningen blev testet, justeret og implementeret som genbrugelige React-komponenter.",
-    image: "testresultater eller implementering",
+    image: userTestImage,
+    imageAlt: "Brugertest af Lynk",
   },
 ];
 
 const screens = [
-  ["Udforsk events", "Forsiden giver hurtigt overblik over kategorier og nærliggende aktiviteter. Brugeren kan se deltagerantal, tidspunkt, lokation og aktivitetstype direkte på eventkortene."],
-  ["Filtrering", "Brugeren kan filtrere events efter aktivitet, lokation, tidspunkt og niveau, så det bliver lettere at finde relevante muligheder uden at blive overvældet."],
-  ["Opret event", "Eventflowet er opdelt i enkle trin, hvor brugeren vælger aktivitet, tidspunkt, lokation og deltagerantal."],
-  ["Profil og fællesskab", "Profilsiden samler brugerens aktiviteter, kommende events og relevante oplysninger i et overskueligt layout."],
+  ["Udforsk events", "Forsiden giver hurtigt overblik over kategorier og nærliggende aktiviteter. Brugeren kan se deltagerantal, tidspunkt, lokation og aktivitetstype direkte på eventkortene.", exploreEventsImage],
+  ["Filtrering", "Brugeren kan filtrere events efter aktivitet, lokation, tidspunkt og niveau, så det bliver lettere at finde relevante muligheder uden at blive overvældet.", filteringImage],
+  ["Opret event flow", "Eventflowet er opdelt i enkle trin, hvor brugeren vælger aktivitet, tidspunkt, lokation og deltagerantal."],
+  ["Profil og fællesskab", "Profilsiden samler brugerens aktiviteter, kommende events og relevante oplysninger i et overskueligt layout.", profileImage],
 ];
+
+const createEventFlow = [createEvent1Image, createEvent2Image, createEvent3Image, createEvent4Image, createEvent5Image];
+const eventFlowOffsets = [0, 5, 7.9, 10, 11.4];
 
 const technologies = ["React", "Vite", "React Router", "JavaScript", "CSS", "Supabase", "Figma", "GitHub"];
 
@@ -56,6 +77,48 @@ function Placeholder({ label, className = "" }) {
     <div className={`lynk-placeholder ${className}`}>
       <img src={placeholderImage} alt="" />
       <span>{label}</span>
+    </div>
+  );
+}
+
+function ScreenImage({ src, alt, className = "" }) {
+  return (
+    <div className={`lynk-placeholder lynk-screen-image-small lynk-screen-image ${className}`}>
+      <img src={src} alt={alt} />
+    </div>
+  );
+}
+
+function EventFlowCarousel() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  return (
+    <div className="lynk-event-flow-wrap">
+      <div className="lynk-event-flow-stage">
+        {createEventFlow.map((image, index) => {
+          const stackPosition = (index - activeSlide + createEventFlow.length) % createEventFlow.length;
+          return (
+            <button
+              className="lynk-event-flow-card"
+              type="button"
+              onClick={() => setActiveSlide((current) => current === index ? (current + 1) % createEventFlow.length : index)}
+              aria-label={index === activeSlide ? "Vis næste trin i opret event flow" : `Vis trin ${index + 1} i opret event flow`}
+              aria-current={index === activeSlide ? "true" : undefined}
+              style={{
+                "--stack-position": stackPosition,
+                "--stack-offset": `${eventFlowOffsets[stackPosition]}rem`,
+                zIndex: createEventFlow.length - stackPosition,
+              }}
+              key={image}
+            >
+              <img src={image} alt={`Opret event flow – trin ${index + 1}`} />
+            </button>
+          );
+        })}
+      </div>
+      <div className="lynk-event-flow-status" aria-live="polite">
+        <span>{String(activeSlide + 1).padStart(2, "0")} / 05</span>
+      </div>
     </div>
   );
 }
@@ -77,7 +140,6 @@ function LynkProjectPage() {
       ".lynk-screen-row",
       ".lynk-tech-list",
       ".lynk-focus-grid > *",
-      ".lynk-result > *",
       ".lynk-reflection .lynk-container",
     ].join(","));
     const directions = ["from-left", "from-right", "from-bottom"];
@@ -135,8 +197,9 @@ function LynkProjectPage() {
           <p>Idéen udsprang af min egen interesse for sport og de sociale fællesskaber, der opstår gennem fysisk aktivitet.</p>
           <p>Platformen giver brugeren mulighed for at udforske events, filtrere aktiviteter efter behov og oprette egne sportsarrangementer. Løsningen blev udviklet som en single-page application i React med Supabase som database.</p>
         </div>
-        {/* Udskift med: stemningsbillede eller sekundært app-mockup */}
-        <Placeholder label="Projektmockup" className="lynk-about-image" />
+        <div className="lynk-placeholder lynk-about-image">
+          <img src={homepageImage} alt="Lynk-platformens hjemmeside" />
+        </div>
       </section>
 
       <section className="lynk-section lynk-container">
@@ -158,8 +221,9 @@ function LynkProjectPage() {
         <div className="lynk-process-grid">
           {processSteps.map((step) => (
             <article className="lynk-process-card" key={step.number}>
-              {/* Udskift med det angivne procesbillede: moodboard, wireframe, user flow, Figma-prototype eller testresultater */}
-              <Placeholder label={step.image} />
+              <div className={`lynk-placeholder lynk-process-image${step.number === "01" ? " lynk-process-image-zoom" : ""}${step.number === "04" ? " lynk-process-image-wide" : ""}`}>
+                <img src={step.image} alt={step.imageAlt} />
+              </div>
               <span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p>
             </article>
           ))}
@@ -169,19 +233,18 @@ function LynkProjectPage() {
       <section className="lynk-section lynk-container">
         <p className="lynk-kicker">04 — Visuel retning</p><h2>Designsystem</h2>
         <p className="lynk-section-intro">Der blev udviklet et simpelt designsystem for at sikre konsistens på tværs af platformens skærme og komponenter.</p>
-        {/* Udskift med: ét samlet billede af Lynk-designsystemet med farver, typografi, knapper, eventkort, navigation, formularfelter og ikoner */}
-        <Placeholder label="Designsystem" className="lynk-design-image" />
+        <div className="lynk-placeholder lynk-design-image">
+          <img src={designSystemImage} alt="Lynks designsystem" />
+        </div>
       </section>
 
       <section className="lynk-section lynk-screens">
         <div className="lynk-container"><p className="lynk-kicker">05 — Produktet</p><h2>Udvalgte skærme</h2></div>
-        {screens.map(([title, text], index) => (
-          <div className="lynk-screen-row lynk-container" key={title}>
-            {/* Udskift med: skærmbillede fra den beskrevne Lynk-side */}
-            <Placeholder
-              label={`${index + 1}. ${title}`}
-              className={index === 0 || index === 2 ? "lynk-screen-image-small" : ""}
-            />
+        {screens.map(([title, text, image], index) => (
+          <div className={`lynk-screen-row lynk-container${index === 2 ? " lynk-screen-row-flow" : ""}`} key={title}>
+            {index === 2
+              ? <EventFlowCarousel />
+              : <ScreenImage src={image} alt={`${title} i Lynk`} className={index === 1 ? "lynk-screen-image-filtering" : ""} />}
             <div><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></div>
           </div>
         ))}
@@ -200,15 +263,8 @@ function LynkProjectPage() {
         ].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
       </section>
 
-      <section className="lynk-section lynk-container lynk-result">
-        <p className="lynk-kicker">07 — Outcome</p><h2>Resultatet</h2>
-        <p className="lynk-section-intro">Resultatet blev en responsiv og visuelt sammenhængende prototype, der gør det enkelt at opdage aktiviteter og møde andre gennem sport. Projektet viser min evne til at føre en idé fra de første indsigter til en gennemarbejdet og brugervenlig løsning.</p>
-        {/* Udskift med: afsluttende mockup med flere Lynk-skærme */}
-        <Placeholder label="Afsluttende mockup" className="lynk-result-image" />
-      </section>
-
       <section className="lynk-section lynk-reflection">
-        <div className="lynk-container"><p className="lynk-kicker">08 — Refleksion</p><h2>Hvad lærte jeg?</h2><p>Projektet lærte mig at arbejde mere struktureret med en større digital løsning og holde fokus på brugerens behov gennem hele processen. Jeg blev særligt bedre til at omsætte indsigter og feedback til konkrete designvalg og skabe en tydelig sammenhæng mellem koncept, visuel identitet og brugeroplevelse.</p><Link to="/projects">Se flere projekter <span>→</span></Link></div>
+        <div className="lynk-container"><p className="lynk-kicker">07 — Refleksion</p><h2>Hvad lærte jeg?</h2><p>Projektet lærte mig at arbejde mere struktureret med en større digital løsning og holde fokus på brugerens behov gennem hele processen. Jeg blev særligt bedre til at omsætte indsigter og feedback til konkrete designvalg og skabe en tydelig sammenhæng mellem koncept, visuel identitet og brugeroplevelse.</p><Link to="/projects">Se flere projekter <span>→</span></Link></div>
       </section>
     </article>
   );
