@@ -1629,8 +1629,32 @@ textarea {
 }
 
 .featured-projects .section-heading {
+  position: relative;
   max-width: none;
   text-align: center;
+}
+
+.view-all-projects {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: #6a625d;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(calc(-50% - 2.5rem));
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.view-all-projects:hover {
+  color: #2f2a27;
+  transform: translate(0.2rem, calc(-50% - 2.5rem));
+}
+
+.view-all-projects:focus-visible {
+  border-radius: 0.25rem;
+  outline: 2px solid #5a466c;
+  outline-offset: 0.3rem;
 }
 
 .featured-projects .section-heading h2 {
@@ -1802,6 +1826,32 @@ p {
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.project-cover video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card-link:hover .project-cover img,
+.project-card-link:hover .project-cover video,
+.project-card-link:focus-visible .project-cover img,
+.project-card-link:focus-visible .project-cover video {
+  transform: scale(1.06);
+}
+
+.project-card-link:focus-visible {
+  border-radius: 1.3rem;
+  outline: 2px solid #5a466c;
+  outline-offset: 0.35rem;
+}
+
 .project-cover:hover img {
   transform: scale(1.06);
 }
@@ -1850,11 +1900,11 @@ p {
 }
 
 .project-card-content .eyebrow {
-  color: color-mix(
-    in srgb,
-    var(--project-accent, #e6654f) 45%,
-    #514a47
-  );
+  color: var(--project-category-color, color-mix(
+      in srgb,
+      var(--project-accent, #e6654f) 45%,
+      #514a47
+    ));
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1870,12 +1920,781 @@ p {
   }
 }
 
+@media (max-width: 700px) {
+  .featured-projects .section-heading {
+    display: grid;
+  }
+
+  .view-all-projects {
+    position: static;
+    justify-self: end;
+    margin-top: -1.5rem;
+    transform: none;
+  }
+
+  .view-all-projects:hover {
+    transform: translateX(0.2rem);
+  }
+}
+
 .detail-image {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 0.75rem;
   object-fit: cover;
   margin-bottom: 2rem;
+}
+
+.detail-video {
+  display: block;
+  background: #111111;
+}
+
+.creative-project-page h1 {
+  margin-bottom: 0.75rem;
+}
+
+.creative-project-page .lead {
+  margin-top: 0;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.creative-video-frame {
+  position: relative;
+}
+
+.creative-video-frame .detail-video {
+  margin-bottom: 0;
+  object-fit: contain;
+}
+
+.figma-badge {
+  position: static;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgb(255 255 255 / 34%);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgb(22 22 22 / 72%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: 0 0.45rem 1.3rem rgb(0 0 0 / 20%);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.creative-video-badges {
+  position: absolute;
+  z-index: 2;
+  bottom: calc(100% + 0.6rem);
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.figma-mark {
+  display: grid;
+  grid-template-columns: repeat(2, 0.32rem);
+  grid-template-rows: repeat(3, 0.32rem);
+}
+
+.figma-mark i { display: block; }
+.figma-mark i:nth-child(1) { grid-area: 1 / 1; border-radius: 0.2rem 0 0 0.2rem; background: #f24e1e; }
+.figma-mark i:nth-child(2) { grid-area: 1 / 2; border-radius: 0 0.2rem 0.2rem 0; background: #ff7262; }
+.figma-mark i:nth-child(3) { grid-area: 2 / 1; border-radius: 0.2rem 0 0 0.2rem; background: #a259ff; }
+.figma-mark i:nth-child(4) { grid-area: 2 / 2; border-radius: 50%; background: #1abcfe; }
+.figma-mark i:nth-child(5) { grid-area: 3 / 1; border-radius: 0.2rem 0 0.2rem 0.2rem; background: #0acf83; }
+
+.fortuna-case {
+  --fortuna-green: #2a8638;
+  --fortuna-lime: #cbd125;
+  --fortuna-ink: #172319;
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin: clamp(3rem, 7vw, 6rem) 0 clamp(6rem, 12vw, 11rem);
+  padding: clamp(1rem, 2vw, 1.75rem);
+  border-radius: clamp(1.25rem, 3vw, 2.5rem);
+  color: var(--fortuna-ink);
+  background:
+    radial-gradient(circle at 88% 8%, rgb(203 209 37 / 34%), transparent 30%),
+    linear-gradient(145deg, #eef1df 0%, #dfe8d9 52%, #f2f0e3 100%);
+}
+
+.fortuna-case-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1.15fr);
+  gap: 0.8rem clamp(2rem, 6vw, 6rem);
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 4rem);
+}
+
+.fortuna-kicker {
+  margin: 0;
+  color: var(--fortuna-green, #2a8638);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.fortuna-case-intro h2 {
+  grid-column: 1;
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 7rem);
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+}
+
+.fortuna-case-intro > p:not(.fortuna-kicker) {
+  grid-column: 2;
+  margin: 0;
+  color: #415044;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.fortuna-comparison,
+.fortuna-applications,
+.fortuna-logo-system {
+  display: grid;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.fortuna-comparison { grid-template-columns: 0.8fr 1.2fr; }
+.fortuna-logo-system { grid-template-columns: 1.4fr 0.8fr 0.8fr; }
+.fortuna-applications { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.fortuna-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 22rem;
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.6rem);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 62%);
+  overflow: hidden;
+  animation: content-enter 2400ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.fortuna-card:nth-child(2) { animation-delay: 220ms; }
+.fortuna-card:nth-child(3) { animation-delay: 440ms; }
+.fortuna-card-dark { color: #ffffff; background: var(--fortuna-green); }
+.fortuna-card-lime { background: var(--fortuna-lime); }
+
+.fortuna-card figcaption {
+  display: grid;
+  gap: 0.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+}
+
+.fortuna-card figcaption span {
+  color: var(--fortuna-green);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fortuna-card-dark figcaption span { color: #dce77a; }
+.fortuna-card img { width: 100%; height: 100%; object-fit: contain; }
+
+.home-hygge-case {
+  margin-bottom: 4rem;
+}
+
+.home-hygge-case h2 {
+  margin: 0.25rem 0 clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: -0.055em;
+}
+
+.landingpage-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgb(63 71 65 / 24%);
+  border-radius: 999px;
+  color: #3f4741;
+  background: rgb(255 255 255 / 68%);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .fortuna-case-intro,
+  .fortuna-comparison,
+  .fortuna-logo-system,
+  .fortuna-applications { grid-template-columns: 1fr; }
+  .fortuna-case-intro > * { grid-column: 1 !important; }
+  .fortuna-card { min-height: 18rem; }
+}
+
+/* Minimal, editorial Fortuna case — aligned with the Lumina presentation. */
+.creative-project-page .fortuna-case {
+  gap: clamp(0.55rem, 1vw, 0.9rem);
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding: clamp(1rem, 2.2vw, 2rem);
+  border-radius: 0;
+  background: transparent;
+}
+
+.creative-project-page {
+  overflow-x: clip;
+  background: #ffffff;
+  box-shadow: 0 0 0 100vmax #ffffff;
+}
+
+.creative-project-page .fortuna-mirror-layout,
+.creative-project-page .lumina-layout-opening,
+.creative-project-page .lumina-layout-middle,
+.creative-project-page .lumina-layout-bottom,
+.creative-project-page figure,
+.creative-project-page .lumina-moodboard-card {
+  background: transparent;
+  box-shadow: none;
+}
+
+.creative-project-page .fortuna-case-intro {
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  align-items: end;
+  padding: clamp(3rem, 7vw, 7rem) clamp(1rem, 4vw, 4rem);
+}
+
+.creative-project-page .fortuna-case-intro h2 {
+  font-size: clamp(3.5rem, 8vw, 8rem);
+}
+
+.creative-project-page .fortuna-case-intro > p:not(.fortuna-kicker) {
+  max-width: 33rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.creative-project-page .fortuna-card {
+  gap: 0.55rem;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  animation: none;
+  overflow: visible;
+}
+
+.creative-project-page .fortuna-card-dark,
+.creative-project-page .fortuna-card-lime {
+  color: inherit;
+  background: transparent;
+}
+
+.creative-project-page .fortuna-card figcaption {
+  order: 2;
+  gap: 0.15rem;
+  padding-top: 0.15rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.creative-project-page .fortuna-card figcaption span,
+.creative-project-page .fortuna-card-dark figcaption span {
+  color: #2a8638;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.creative-project-page .fortuna-card img {
+  order: 1;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.creative-project-page .fortuna-comparison {
+  grid-template-columns: 0.72fr 1.28fr;
+  height: min(68svh, 720px);
+}
+
+.creative-project-page .fortuna-logo-system {
+  grid-template-columns: 1.35fr 0.82fr 0.82fr;
+  height: min(48svh, 510px);
+}
+
+.creative-project-page .fortuna-applications {
+  height: min(54svh, 570px);
+}
+
+.creative-reveal {
+  opacity: 0;
+  transform: translate3d(0, 7rem, 0);
+  transition:
+    opacity 3000ms cubic-bezier(0.16, 1, 0.3, 1) 350ms,
+    transform 3800ms cubic-bezier(0.16, 1, 0.3, 1) 350ms;
+}
+
+.fortuna-comparison .creative-reveal:first-child,
+.fortuna-logo-system .creative-reveal:first-child,
+.fortuna-applications .creative-reveal:first-child {
+  transform: translate3d(-8rem, 0, 0);
+}
+
+.fortuna-comparison .creative-reveal:last-child,
+.fortuna-logo-system .creative-reveal:last-child,
+.fortuna-applications .creative-reveal:last-child {
+  transform: translate3d(8rem, 0, 0);
+}
+
+.creative-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 760px) {
+  .creative-project-page .fortuna-case-intro { grid-template-columns: 1fr; }
+  .creative-project-page .fortuna-comparison,
+  .creative-project-page .fortuna-logo-system,
+  .creative-project-page .fortuna-applications { height: auto; grid-template-columns: 1fr; }
+  .creative-project-page .fortuna-card img { height: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creative-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+.fortuna-mirror-layout .lumina-image-title,
+.fortuna-mirror-layout .fortuna-kicker {
+  color: #3f4741;
+}
+
+.fortuna-mirror-layout .lumina-image-title span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+}
+
+.fortuna-mirror-layout .fortuna-project-intro {
+  color: #465348;
+}
+
+.fortuna-mirror-layout .lumina-moodboard-image,
+.fortuna-mirror-layout .lumina-moodboard-colors {
+  border-radius: 0;
+  transform: none;
+}
+
+.fortuna-mirror-layout .lumina-logo-card img {
+  width: 68%;
+  height: 68%;
+  justify-self: center;
+}
+
+.fortuna-mirror-layout .lumina-layout-hero img {
+  width: 72%;
+  height: 72%;
+  justify-self: center;
+}
+
+.fortuna-mirror-layout .lumina-moodboard-image {
+  width: 82%;
+  height: 82%;
+  justify-self: center;
+}
+
+.fortuna-mirror-layout .lumina-moodboard-colors {
+  width: 72%;
+  justify-self: center;
+}
+
+.fortuna-mirror-layout .lumina-product-gallery img {
+  width: 76%;
+  height: 76%;
+  justify-self: center;
+}
+
+.fortuna-mirror-layout .lumina-testimonials img,
+.fortuna-mirror-layout .lumina-landingpage img,
+.fortuna-mirror-layout .lumina-product-gallery img {
+  border-radius: 0.7rem;
+  clip-path: none;
+}
+
+.fortuna-mirror-layout .lumina-logo-card.creative-reveal {
+  transform: translate3d(-9rem, 0, 0);
+}
+
+.fortuna-mirror-layout .lumina-layout-hero.creative-reveal,
+.fortuna-mirror-layout .lumina-testimonials.creative-reveal,
+.fortuna-mirror-layout .lumina-product-gallery.creative-reveal {
+  transform: translate3d(9rem, 0, 0);
+}
+
+.fortuna-mirror-layout .lumina-moodboard-card.creative-reveal {
+  transform: translate3d(-8rem, 0, 0);
+}
+
+.fortuna-mirror-layout .lumina-landingpage.creative-reveal {
+  transform: translate3d(0, 8rem, 0);
+}
+
+.fortuna-mirror-layout .creative-reveal.is-visible {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Fortuna editorial case study */
+.creative-project-page.fortuna-editorial {
+  width: 100%;
+  overflow-x: clip;
+  color: #252823;
+  background: #f8f6f2;
+  box-shadow: 0 0 0 100vmax #f8f6f2;
+}
+
+.fortuna-editorial-shell {
+  width: min(100% - 3rem, 1040px);
+  margin: 0 auto;
+  padding-bottom: clamp(6rem, 12vw, 11rem);
+}
+
+.creative-collection-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 2rem;
+  padding-block: clamp(5rem, 9vw, 8rem);
+  border-bottom: 1px solid rgb(37 40 35 / 14%);
+}
+
+.creative-collection-header p,
+.creative-collection-header span,
+.creative-project-index {
+  margin: 0;
+  color: #62665f;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.creative-collection-header h1 {
+  color: #5a466c;
+  grid-column: 1;
+  max-width: 14ch;
+  margin: 0.65rem 0 0;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 580;
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+}
+
+.creative-collection-header > p {
+  color: #87728f;
+}
+
+.creative-collection-header span {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  padding-bottom: 0.35rem;
+}
+
+.fortuna-editorial-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.7fr);
+  align-items: end;
+  gap: clamp(2rem, 7vw, 7rem);
+  min-height: 62svh;
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+.fortuna-editorial-kicker,
+.fortuna-section-heading > p {
+  margin: 0;
+  color: #596159;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fortuna-editorial-hero h1 {
+  grid-column: 1;
+  margin: 0.8rem 0 0;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.84;
+}
+
+.fortuna-editorial .home-hygge-case {
+  margin-top: clamp(12rem, 22vw, 22rem);
+}
+
+.creative-project-index {
+  margin-bottom: 0.75rem;
+}
+
+.fortuna-editorial-lead {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  max-width: 31rem;
+  margin: 0;
+  color: #5c5e58;
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  line-height: 1.65;
+}
+
+.fortuna-editorial-section {
+  margin-top: clamp(6rem, 10vw, 10rem);
+}
+
+.fortuna-section-heading {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+  align-items: start;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.fortuna-section-heading h2 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(2.3rem, 4.5vw, 4.5rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.fortuna-editorial-figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.fortuna-editorial-figure figcaption {
+  order: 2;
+  color: #555b54;
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fortuna-editorial-figure img {
+  order: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.fortuna-redesign img,
+.fortuna-mockup-main img {
+  border-radius: 8px;
+}
+
+.fortuna-before-after-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 5rem);
+  min-height: 56svh;
+}
+
+.fortuna-before-after-grid .fortuna-editorial-figure {
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  justify-items: center;
+}
+
+.fortuna-before-after-grid .fortuna-editorial-figure figcaption {
+  width: auto;
+  margin-left: 10%;
+  justify-self: start;
+  text-align: left;
+}
+
+.fortuna-before-after-grid .fortuna-original img {
+  width: 82%;
+  transform: translateY(-2.375rem);
+}
+
+.fortuna-before-after-grid .fortuna-redesign img {
+  width: 78%;
+}
+
+.fortuna-original {
+  height: min(34svh, 350px);
+}
+
+.fortuna-redesign {
+  height: min(53svh, 550px);
+}
+
+.fortuna-system-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+.fortuna-system-grid .fortuna-editorial-figure {
+  height: auto;
+}
+
+.fortuna-system-grid .fortuna-editorial-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: fill;
+}
+
+.fortuna-primary-pair {
+  display: grid;
+  grid-column: span 2;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  height: auto;
+}
+
+.fortuna-primary-pair > p {
+  order: 2;
+  margin: 0;
+  color: #555b54;
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fortuna-primary-pair-grid {
+  order: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  min-height: 0;
+}
+
+.fortuna-primary-logo {
+  order: 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;
+}
+
+.fortuna-primary-logo img {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  object-fit: fill;
+}
+
+.fortuna-split-logo {
+  position: relative;
+  order: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 0;
+  border-radius: 5px;
+}
+
+.fortuna-split-logo img {
+  position: absolute;
+  top: 0;
+  width: 200%;
+  max-width: none;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  object-fit: fill;
+  object-position: center;
+}
+
+.fortuna-split-logo-left img { left: 0; }
+.fortuna-split-logo-right img { left: -100%; }
+
+@media (max-width: 980px) and (min-width: 761px) {
+  .fortuna-system-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.fortuna-masonry {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  align-items: end;
+  gap: clamp(2rem, 5vw, 5rem);
+  transform: translateX(-3rem);
+}
+
+.fortuna-mockup-main {
+  height: min(58svh, 600px);
+}
+
+.fortuna-mockup-main img,
+.fortuna-mockup-main figcaption {
+  width: 68%;
+  justify-self: end;
+}
+
+.fortuna-mockup-main figcaption {
+  padding-left: 3rem;
+}
+
+.fortuna-mockup-secondary {
+  height: min(38svh, 390px);
+  margin-bottom: clamp(2rem, 8vw, 8rem);
+}
+
+.fortuna-before-after-grid .creative-reveal:first-child,
+.fortuna-system-grid .creative-reveal:first-child,
+.fortuna-masonry .creative-reveal:first-child {
+  transform: translate3d(-8rem, 0, 0);
+}
+
+.fortuna-before-after-grid .creative-reveal:last-child,
+.fortuna-system-grid .creative-reveal:last-child,
+.fortuna-masonry .creative-reveal:last-child {
+  transform: translate3d(8rem, 0, 0);
+}
+
+.fortuna-editorial .creative-reveal.is-visible {
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 760px) {
+  .fortuna-editorial-shell { width: min(100% - 2rem, 1180px); }
+  .fortuna-editorial-hero { grid-template-columns: 1fr; min-height: auto; }
+  .creative-collection-header { grid-template-columns: 1fr; }
+  .creative-collection-header span { grid-column: 1; grid-row: auto; margin-top: 1rem; }
+  .fortuna-editorial-lead { grid-column: 1; grid-row: auto; }
+  .fortuna-section-heading { grid-template-columns: 1fr; }
+  .fortuna-before-after-grid,
+  .fortuna-system-grid,
+  .fortuna-masonry { grid-template-columns: 1fr; min-height: auto; }
+  .fortuna-masonry { transform: none; }
+  .fortuna-original,
+  .fortuna-redesign,
+  .fortuna-system-grid .fortuna-editorial-figure,
+  .fortuna-mockup-main,
+  .fortuna-mockup-secondary { height: auto; margin-bottom: 0; }
+  .fortuna-editorial-figure img { height: auto; }
+  .fortuna-primary-pair { grid-column: 1; height: auto; }
+  .fortuna-split-logo { height: auto; aspect-ratio: 1 / 1; }
+  .fortuna-before-after-grid .fortuna-original img { transform: none; }
 }
 
 .back-link {
@@ -3097,6 +3916,7 @@ p {
 .lumina-case.lumina-layout {
   position: relative;
   isolation: isolate;
+  overflow-x: clip;
   background-color: #c8a98d;
   background-image:
     radial-gradient(ellipse 62% 48% at 43% 52%, rgb(247 229 211 / 94%) 0%, rgb(231 203 176 / 66%) 42%, transparent 72%),

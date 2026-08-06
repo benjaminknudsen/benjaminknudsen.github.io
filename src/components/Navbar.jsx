@@ -3,7 +3,7 @@ import logo from "../assets/images/BKlogoooo.svg";
 
 function Navbar() {
   const { pathname } = useLocation();
-  const projectTheme = pathname === "/projects/lynk"
+  const projectTheme = pathname === "/projects/lynk" || pathname === "/projects/sideprojekter"
     ? "site-header--lynk"
     : pathname === "/projects/lumina"
       ? "site-header--lumina"

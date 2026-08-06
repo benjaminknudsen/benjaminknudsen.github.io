@@ -80,6 +80,9 @@ function HomePage() {
       <section className="section featured-projects" ref={projectsSectionRef}>
         <div className="section-heading" data-reveal>
           <h2>Udvalgte projekter</h2>
+          <Link className="view-all-projects" to="/projects">
+            Se alle
+          </Link>
         </div>
 
         <div className="project-grid">
@@ -91,23 +94,22 @@ function HomePage() {
               style={{
                 "--project-accent": project.accent,
                 "--project-background": project.coverBackground,
+                "--project-category-color": project.categoryColor,
               }}
             >
               <Link
-                className="project-cover"
+                className="project-card-link"
                 to={`/projects/${project.slug}`}
                 aria-label={`Se projektet ${project.title}`}
               >
-                <img src={project.image} alt={`Preview af ${project.title}`} />
-              </Link>
-              <Link
-                className="project-card-content project-card-content-link"
-                to={`/projects/${project.slug}`}
-                aria-label={`Læs mere om ${project.title}`}
-              >
-                <p className="eyebrow">{project.category}</p>
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
+                <div className="project-cover">
+                  <img src={project.image} alt={`Preview af ${project.title}`} />
+                </div>
+                <div className="project-card-content">
+                  <p className="eyebrow">{project.category}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                </div>
               </Link>
             </article>
           ))}
