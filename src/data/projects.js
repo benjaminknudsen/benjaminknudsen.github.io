@@ -1,5 +1,6 @@
 import bluntImage from "../assets/images/blunt.svg";
-import fortunaImage from "../assets/images/rigtigfortunahj.svg";
+import fortunaImage from "../assets/images/forsidekreativ.svg";
+import landingConceptVideo from "../assets/images/hjemmehygge.mov";
 import luminaImage from "../assets/images/lumina2.svg";
 import lynkImage from "../assets/images/lynk.svg";
 
@@ -10,6 +11,7 @@ const projects = [
     year: "2026",
     category: "Web app",
     accent: "#ff725e",
+    categoryColor: "#315a45",
     summary:
       "En social platform, der gør det nemt at finde og deltage i lokale sportsaktiviteter.",
     description:
@@ -38,6 +40,7 @@ const projects = [
     year: "2026",
     category: "Landingpage",
     accent: "#72b9f4",
+    categoryColor: "#8d6a52",
     coverBackground: "#ffffff",
     summary:
       "En stilren landingpage med fokus på produktpræsentation, æstetik og brugeroplevelse.",
@@ -49,17 +52,35 @@ const projects = [
   },
   {
     slug: "sideprojekter",
-    title: "Kreative projekter",
+    title: "Fortuna Hjørring",
     year: "2026",
-    category: "EKSPERIMENTER",
-    accent: "#bda0e8",
-    coverBackground: "#f5f5f5",
+    category: "Logo redesign",
+    accent: "#2a8638",
+    categoryColor: "#315a45",
+    coverBackground: "transparent",
     summary:
-      "Personlige projekter, hvor jeg udforsker nye idéer, visuelle identiteter og digitale koncepter.",
+      "Et redesign af Fortuna Hjørrings visuelle identitet med fokus på et moderne, enkelt og tidløst udtryk.",
     description:
-      "En samling af mindre projekter og eksperimenter, hvor nye værktøjer, teknikker og visuelle idéer bliver afprøvet.",
-    tags: ["Kreativ kodning", "Design", "Eksperimenter"],
+      "Et editorial case study af et nyt og mere tidssvarende logo til Fortuna Hjørring.",
+    tags: ["Branding", "Logo", "Visuel identitet"],
     image: fortunaImage,
+    links: [],
+  },
+  {
+    slug: "landingpage-koncept",
+    title: "Landingpage-koncept",
+    year: "2026",
+    category: "Koncept",
+    accent: "#5a466c",
+    categoryColor: "#5a466c",
+    coverBackground: "#f8f6f2",
+    summary:
+      "Et interaktivt landingpage-koncept udviklet som et visuelt eksperiment i Figma.",
+    description:
+      "Et selvstændigt landingpage-koncept med fokus på bevægelse, stemning og digital formidling.",
+    tags: ["Figma", "UI", "Koncept"],
+    image: fortunaImage,
+    previewVideo: landingConceptVideo,
     links: [],
   },
 ];

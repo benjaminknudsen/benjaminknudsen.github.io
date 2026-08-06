@@ -20,20 +20,27 @@ function ProjectsPage() {
             style={{
               "--project-accent": project.accent,
               "--project-background": project.coverBackground,
+              "--project-category-color": project.categoryColor,
             }}
           >
             <Link
-              className="project-cover"
+              className="project-card-link"
               to={`/projects/${project.slug}`}
               aria-label={`Se projektet ${project.title}`}
             >
-              <img src={project.image} alt={`Preview af ${project.title}`} />
+              <div className="project-cover">
+                {project.previewVideo ? (
+                  <video src={project.previewVideo} autoPlay loop muted playsInline preload="metadata" />
+                ) : (
+                  <img src={project.image} alt={`Preview af ${project.title}`} />
+                )}
+              </div>
+              <div className="project-card-content">
+                <p className="eyebrow">{project.category}</p>
+                <h2>{project.title}</h2>
+                <p>{project.summary}</p>
+              </div>
             </Link>
-            <div className="project-card-content">
-              <p className="eyebrow">{project.category}</p>
-              <h2>{project.title}</h2>
-              <p>{project.summary}</p>
-            </div>
           </article>
         ))}
       </section>
