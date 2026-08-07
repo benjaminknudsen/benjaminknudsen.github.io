@@ -3,10 +3,12 @@ import { Link, useParams } from "react-router";
 import oldFortunaLogo from "../assets/images/gammellogo.svg";
 import homeHyggeVideo from "../assets/images/hjemmehygge.mov";
 import negativeFortunaLogo from "../assets/images/logonegativt.svg";
-import primaryFortunaLogo from "../assets/images/logofortuna.svg";
-import blackPrimaryFortunaLogo from "../assets/images/logofortunasort.svg";
+import primaryFortunaLogo from "../assets/images/normallogoudenbaggrund.svg";
+import blackPrimaryFortunaLogo from "../assets/images/logosortudenbaggrund.svg";
 import officeMockup from "../assets/images/kontorrigtig.svg";
 import businessCardMockup from "../assets/images/logovisitkortrigtig.svg";
+import scarfMockup from "../assets/images/mockupscarf.svg";
+import tribuneMockup from "../assets/images/mockuptribune.svg";
 import newFortunaLogo from "../assets/images/nytlogo.svg";
 import blackFortunaLogo from "../assets/images/logosortheltrigtig.svg";
 import projects from "../data/projects";
@@ -179,6 +181,10 @@ function ProjectPage() {
               <h2 id="in-use-title">Identiteten møder virkeligheden.</h2>
             </header>
             <div className="fortuna-masonry">
+              <figure className="fortuna-editorial-figure fortuna-mockup-tribune creative-reveal">
+                <figcaption>Tribune</figcaption>
+                <img src={tribuneMockup} alt="Fortuna-identiteten vist på tribunen" />
+              </figure>
               <figure className="fortuna-editorial-figure fortuna-mockup-main creative-reveal">
                 <figcaption>Klubmiljø</figcaption>
                 <img src={officeMockup} alt="Fortuna-identiteten vist i et kontormiljø" />
@@ -186,6 +192,10 @@ function ProjectPage() {
               <figure className="fortuna-editorial-figure fortuna-mockup-secondary creative-reveal">
                 <figcaption>Visitkort</figcaption>
                 <img src={businessCardMockup} alt="Fortuna-identiteten på visitkort" />
+              </figure>
+              <figure className="fortuna-editorial-figure fortuna-mockup-scarf creative-reveal">
+                <figcaption>Halstørklæde</figcaption>
+                <img src={scarfMockup} alt="Fortuna-identiteten på et halstørklæde" />
               </figure>
             </div>
           </section>
