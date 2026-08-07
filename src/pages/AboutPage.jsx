@@ -49,15 +49,16 @@ function AboutPage() {
         </figure>
         <div className="about-copy about-reveal">
           <p className="about-kicker">Design og samarbejde</p>
-          <h2 id="about-work-title">Fra idé til noget, der virker.</h2>
+          <h2 id="about-work-title">Sådan arbejder jeg</h2>
           <p>
-            Jeg arbejder i krydsfeltet mellem UX/UI, grafisk design og frontend.
-            For mig begynder et godt resultat med nysgerrighed: at forstå behovet,
-            stille de rigtige spørgsmål og omsætte indsigter til et tydeligt visuelt koncept.
+            Jeg interesserer mig for at skabe løsninger, der både fungerer visuelt og giver mening
+            for brugeren. Et godt projekt starter for mig med at forstå behovet og omsætte det til
+            et tydeligt visuelt koncept.
           </p>
           <p>
-            I samarbejder bidrager jeg med struktur, åben sparring og lysten til at afprøve idéer.
-            Mine projekter spænder fra digitale produkter og webshops til branding og visuelle identiteter.
+            Jeg trives i samarbejde, hvor idéer udvikles gennem sparring og feedback, men jeg sætter
+            også pris på at arbejde selvstændigt og tage ansvar for at føre en idé hele vejen fra
+            koncept til færdig løsning.
           </p>
         </div>
       </section>
@@ -67,18 +68,25 @@ function AboutPage() {
           <p className="about-kicker">Mine kompetencer med AI</p>
           <h2 id="about-ai-title">Et værktøj til at tænke bredere.</h2>
           <p>
-            Jeg bruger AI som en kreativ og teknisk sparringspartner gennem designprocessen.
-            Det kan være til research, idéudvikling, struktur, tekst, prototyper og som støtte,
-            når et design skal omsættes til kode.
+            AI er en naturlig del af min designproces og fungerer som en sparringspartner gennem hele
+            projektet. Jeg bruger det til at udforske idéer, udvikle brandkoncepter, udfordre designvalg
+            og finde nye perspektiver tidligt i processen. Derudover er det en kompetence for mig at
+            skrive målrettede prompts, så AI leverer brugbare og relevante resultater, som understøtter
+            projektets retning.
           </p>
           <p>
-            Værktøjet erstatter ikke mine valg. Jeg vurderer, tilpasser og samler outputtet,
-            så løsningen stadig har en tydelig retning og passer til brugeren og brandet.
+            AI hjælper mig også med at effektivisere mine arbejdsprocesser – fra research og idéudvikling
+            til struktur, kodning og dokumentation – så jeg kan bruge mere tid på de kreative og strategiske
+            beslutninger.
+          </p>
+          <p>
+            Værktøjet erstatter ikke mine valg. Jeg vurderer, tilpasser og samler outputtet, så løsningen
+            stadig har en tydelig retning og passer til brugeren og brandet.
           </p>
           <ul className="about-skills" aria-label="AI-kompetencer">
             <li>Idé og research</li>
             <li>Visuel udforskning</li>
-            <li>Prototyping</li>
+            <li>Konceptudvikling</li>
             <li>Kode og iteration</li>
           </ul>
         </div>
@@ -95,12 +103,14 @@ function AboutPage() {
           <p className="about-kicker">Når jeg ikke går i skole</p>
           <h2 id="about-spare-time-title">Fodbold, mennesker og nye indtryk.</h2>
           <p>
-            I min fritid fylder fodbold meget. Interessen for sporten er også blevet til
-            kreative projekter, blandt andet mit redesign af Fortuna Hjørrings visuelle identitet.
+            Fodbold fylder en stor del af min fritid, og jeg bruger også gerne tid på løb, padel og
+            anden sport. Jeg kan godt lide at være aktiv og sætter stor pris på det sociale omkring
+            sporten. Uden for banen nyder jeg at være sammen med venner, tage en tur i byen og opdage
+            ny musik.
           </p>
           <p>
-            Jeg finder energi i at være sammen med andre og inspiration i de visuelle detaljer,
-            jeg møder i hverdagen – fra mode og musik til digitale produkter og branding.
+            Samtidig værdsætter jeg også alenetid, hvor jeg kan koble af og lade op. Den balance mellem
+            et aktivt socialt liv og tid til mig selv betyder meget for mig og giver mig energi i hverdagen.
           </p>
         </div>
       </section>

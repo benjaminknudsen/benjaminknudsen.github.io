@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import portraitImage from "../assets/images/portfolio-billede3.jpeg";
+import leisurePortrait from "../assets/images/bkbk.svg";
 import projects from "../data/projects";
 
 function HomePage() {
@@ -113,6 +114,32 @@ function HomePage() {
               </Link>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section
+        className="about-story about-shell home-about-teaser"
+        aria-labelledby="home-spare-time-title"
+      >
+        <figure className="about-visual about-visual-contain">
+          <img src={leisurePortrait} alt="Benjamin i sin fritid" />
+        </figure>
+        <div className="about-copy">
+          <p className="about-kicker">Når jeg ikke går i skole</p>
+          <h2 id="home-spare-time-title">Fodbold, mennesker og nye indtryk.</h2>
+          <p>
+            Fodbold fylder en stor del af min fritid, og jeg bruger også gerne tid på løb, padel og
+            anden sport. Jeg kan godt lide at være aktiv og sætter stor pris på det sociale omkring
+            sporten. Uden for banen nyder jeg at være sammen med venner, tage en tur i byen og opdage
+            ny musik.
+          </p>
+          <p>
+            Samtidig værdsætter jeg også alenetid, hvor jeg kan koble af og lade op. Den balance mellem
+            et aktivt socialt liv og tid til mig selv betyder meget for mig og giver mig energi i hverdagen.
+          </p>
+          <Link className="about-more-link" to="/about">
+            Læs mere om mig
+          </Link>
         </div>
       </section>
     </div>

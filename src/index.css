@@ -1637,7 +1637,13 @@ textarea {
 }
 
 .featured-projects {
+  width: min(92%, 1080px);
+  margin-inline: auto;
   margin-top: clamp(3rem, 8vw, 7rem);
+}
+
+.featured-projects .project-cover {
+  min-height: clamp(15rem, 30vw, 21rem);
 }
 
 .featured-projects .section-heading {
@@ -1923,6 +1929,10 @@ p {
 }
 
 @media (max-width: 700px) {
+  .featured-projects {
+    width: 94%;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
   }
@@ -2662,33 +2672,40 @@ p {
 
 .fortuna-masonry {
   display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  align-items: end;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: clamp(2rem, 5vw, 5rem);
-  transform: translateX(-3rem);
+  width: min(76%, 840px);
+  margin-inline: auto;
+  transform: none;
 }
 
-.fortuna-mockup-main {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  height: min(58svh, 600px);
+.fortuna-masonry .fortuna-editorial-figure:nth-child(even) {
+  margin-top: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.fortuna-mockup-main,
+.fortuna-mockup-secondary {
+  grid-column: auto;
+  grid-row: auto;
+  height: auto;
+  margin-bottom: 0;
+}
+
+.fortuna-mockup-scarf,
+.fortuna-mockup-tribune {
+  grid-column: auto;
+  grid-row: auto;
+  height: auto;
 }
 
 .fortuna-mockup-main img,
-.fortuna-mockup-main figcaption {
-  width: 68%;
-  justify-self: end;
-}
-
-.fortuna-mockup-main figcaption {
-  padding-left: 3rem;
-}
-
-.fortuna-mockup-secondary {
-  grid-column: 2;
-  grid-row: 1;
-  height: min(28svh, 290px);
-  margin-bottom: 0;
+.fortuna-mockup-secondary img,
+.fortuna-mockup-scarf img,
+.fortuna-mockup-tribune img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .fortuna-before-after-grid .creative-reveal:first-child,
@@ -2718,13 +2735,19 @@ p {
   .fortuna-system-grid,
   .fortuna-masonry { grid-template-columns: 1fr; min-height: auto; }
   .fortuna-masonry { transform: none; }
+  .fortuna-masonry { width: 82%; }
+  .fortuna-masonry .fortuna-editorial-figure:nth-child(even) { margin-top: 0.75rem; }
   .fortuna-original,
   .fortuna-redesign,
   .fortuna-system-grid .fortuna-editorial-figure,
   .fortuna-mockup-main,
-  .fortuna-mockup-secondary { height: auto; margin-bottom: 0; }
+  .fortuna-mockup-secondary,
+  .fortuna-mockup-scarf,
+  .fortuna-mockup-tribune { height: auto; margin-bottom: 0; }
   .fortuna-mockup-main,
-  .fortuna-mockup-secondary { grid-column: 1; grid-row: auto; width: 100%; height: auto; margin-top: 0; }
+  .fortuna-mockup-secondary,
+  .fortuna-mockup-scarf,
+  .fortuna-mockup-tribune { grid-column: 1; grid-row: auto; width: 100%; height: auto; margin-top: 0; }
   .fortuna-editorial-figure img { height: auto; }
   .fortuna-primary-pair { grid-column: 1; height: auto; }
   .fortuna-split-logo { height: auto; aspect-ratio: 1 / 1; }
@@ -3128,8 +3151,9 @@ p {
 .lynk-process-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(2rem, 5vw, 5rem) 1.5rem;
-  margin-top: 3rem;
+  gap: clamp(2rem, 5vw, 5rem) clamp(3rem, 6vw, 5.5rem);
+  width: min(84%, 860px);
+  margin: 3rem auto 0;
 }
 
 .lynk-process-card .lynk-placeholder {
@@ -3137,6 +3161,20 @@ p {
   aspect-ratio: 1;
   margin-bottom: 0.75rem;
   border-radius: 1rem;
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 480ms ease;
+}
+
+.lynk-process-card:nth-child(1) .lynk-placeholder {
+  aspect-ratio: 1440 / 1024;
+}
+
+.lynk-process-card:nth-child(2) .lynk-placeholder {
+  aspect-ratio: 1402 / 1122;
+}
+
+.lynk-process-card:nth-child(-n + 2) .lynk-process-image img {
+  object-fit: contain;
+  transform: none;
 }
 
 .lynk-process-image::after,
@@ -3150,6 +3188,23 @@ p {
 
 .lynk-process-image img {
   object-fit: cover;
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), object-position 480ms ease;
+}
+
+.lynk-process-card:hover .lynk-placeholder {
+  z-index: 2;
+  box-shadow: 0 1.5rem 3rem rgb(31 48 39 / 18%);
+  transform: scale(1.18);
+}
+
+.lynk-process-card:nth-child(-n + 2):hover .lynk-placeholder {
+  transform: scale(1.28);
+}
+
+.lynk-process-card:hover .lynk-process-image img {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1);
 }
 
 .lynk-process-image-zoom img {
@@ -3395,6 +3450,7 @@ p {
   .lynk-placeholder,
   .lynk-screen-row .lynk-placeholder { min-height: 18rem; }
   .lynk-process-card .lynk-placeholder { min-height: auto; }
+  .lynk-process-grid { width: 88%; }
   .lynk-about-image,
   .lynk-screen-row .lynk-screen-image-small {
     width: min(82%, 19rem);
@@ -3584,6 +3640,7 @@ p {
   width: 100%;
   min-height: 0;
   aspect-ratio: 796 / 1584;
+  overflow: visible;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -3592,6 +3649,16 @@ p {
 .blunt-social-grid .blunt-image img {
   object-fit: contain;
   border-radius: 0;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease;
+}
+
+.blunt-social-grid .blunt-image:hover {
+  z-index: 2;
+}
+
+.blunt-social-grid .blunt-image:hover img {
+  filter: drop-shadow(0 1.4rem 1.8rem rgb(0 0 0 / 24%));
+  transform: scale(1.14);
 }
 
 .blunt-social-grid .blunt-image:nth-child(even) {
@@ -3702,6 +3769,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
   min-height: 0;
   border-radius: 0;
   background: transparent;
@@ -3715,6 +3783,16 @@ p {
   transform: scale(1);
   border-radius: 0.75rem;
   clip-path: inset(0 round 0.75rem);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease;
+}
+
+.blunt-product-grid .blunt-image:hover {
+  z-index: 3;
+}
+
+.blunt-product-grid .blunt-image:hover img {
+  filter: drop-shadow(0 1.4rem 1.8rem rgb(0 0 0 / 24%));
+  transform: scale(1.14);
 }
 
 .blunt-product-view-1 {
@@ -3991,6 +4069,56 @@ p {
   color: var(--about-muted);
   font-size: clamp(0.95rem, 1.05vw, 1.04rem);
   line-height: 1.75;
+}
+
+.home-about-teaser {
+  --about-coral: #e6654f;
+  --about-ink: #272320;
+  --about-muted: #6f655e;
+  margin-top: clamp(5rem, 10vw, 9rem);
+  font-family: "Avenir Next", Avenir, "Segoe UI", ui-sans-serif, sans-serif;
+  color: var(--about-ink);
+}
+
+.home-about-teaser .about-more-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  color: var(--about-ink);
+  padding: 0.35rem 0 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 220ms ease;
+}
+
+.home-about-teaser .about-more-link::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: color-mix(in srgb, var(--about-coral) 55%, transparent);
+  content: "";
+  transform-origin: left;
+  transition: width 420ms cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease;
+}
+
+.home-about-teaser .about-more-link:hover {
+  color: var(--about-coral);
+}
+
+.home-about-teaser .about-more-link:hover::after {
+  width: 145%;
+  background: var(--about-coral);
+}
+
+.home-about-teaser .about-more-link:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid var(--about-coral);
+  outline-offset: 0.3rem;
 }
 
 .about-skills {
