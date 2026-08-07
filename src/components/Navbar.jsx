@@ -5,6 +5,8 @@ function Navbar() {
   const { pathname } = useLocation();
   const projectTheme = pathname === "/projects/lynk" || pathname === "/projects/sideprojekter"
     ? "site-header--lynk"
+    : pathname === "/projects/blunt"
+      ? "site-header--blunt"
     : pathname === "/projects/lumina"
       ? "site-header--lumina"
       : pathname === "/projects/landingpage-koncept"

@@ -10,6 +10,7 @@ import businessCardMockup from "../assets/images/logovisitkortrigtig.svg";
 import newFortunaLogo from "../assets/images/nytlogo.svg";
 import blackFortunaLogo from "../assets/images/logosortheltrigtig.svg";
 import projects from "../data/projects";
+import BluntProjectPage from "./BluntProjectPage";
 import LynkProjectPage from "./LynkProjectPage";
 import LuminaProjectPage from "./LuminaProjectPage";
 
@@ -61,6 +62,10 @@ function ProjectPage() {
 
   if (slug === "lynk") {
     return <LynkProjectPage />;
+  }
+
+  if (slug === "blunt") {
+    return <BluntProjectPage />;
   }
 
   if (slug === "lumina") {
