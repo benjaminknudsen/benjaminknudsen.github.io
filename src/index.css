@@ -3827,6 +3827,245 @@ p {
   .blunt-case.scroll-reveal-ready .blunt-reveal { opacity: 1; transform: none; transition: none; }
 }
 
+/* About page */
+.about-editorial {
+  --about-coral: #e6654f;
+  --about-ink: #272320;
+  --about-muted: #6f655e;
+  overflow: hidden;
+  font-family: "Avenir Next", Avenir, "Segoe UI", ui-sans-serif, sans-serif;
+  color: var(--about-ink);
+  background:
+    radial-gradient(circle at 88% 9%, rgb(230 101 79 / 10%), transparent 22rem),
+    #f8f5f0;
+}
+
+.about-shell {
+  width: min(100% - 3rem, 920px);
+  margin-inline: auto;
+}
+
+.about-reveal {
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition:
+    opacity 850ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1050ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.about-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.45fr) minmax(0, 1.5fr);
+  gap: 0.75rem clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
+  min-height: 0;
+  padding-block: clamp(2.5rem, 4vw, 3.75rem);
+}
+
+.about-index,
+.about-kicker {
+  margin: 0;
+  color: var(--about-coral);
+  font-size: 0.78rem;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "Avenir Next", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.about-hero h1 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 0;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "Avenir Next", sans-serif;
+  font-size: clamp(3.5rem, 6.2vw, 5.8rem);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  white-space: nowrap;
+}
+
+.about-hero > p:last-child {
+  grid-column: 1 / -1;
+  max-width: 35rem;
+  margin: 0;
+  color: var(--about-muted);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.82fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
+  padding-block: clamp(3.75rem, 7vw, 6rem);
+  border-top: 1px solid rgb(39 35 32 / 12%);
+}
+
+.about-hero + .about-story {
+  padding-top: clamp(2.5rem, 4vw, 3.75rem);
+}
+
+.about-story-reverse {
+  grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.05fr);
+}
+
+.about-visual {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  max-height: 34rem;
+  margin: 0;
+  border-radius: 0.8rem;
+  background: #eee5dc;
+}
+
+.about-visual::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 26%;
+  background: linear-gradient(transparent, rgb(32 27 24 / 24%));
+  content: "";
+  pointer-events: none;
+}
+
+.about-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-visual-contain {
+  width: 135%;
+  max-height: 44rem;
+  justify-self: center;
+  background: transparent;
+}
+
+.about-visual-contain::after {
+  display: none;
+}
+
+.about-visual-contain img {
+  object-fit: contain;
+}
+
+.about-visual-coral {
+  box-shadow: 0.8rem 0.8rem 0 var(--about-coral);
+}
+
+.about-visual > span {
+  position: absolute;
+  z-index: 1;
+  right: 1.25rem;
+  bottom: 1rem;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.about-copy h2,
+.about-cv h2 {
+  max-width: 11ch;
+  margin: 1rem 0 2rem;
+  font-size: clamp(2.2rem, 3.8vw, 3.75rem);
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "Avenir Next", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.about-copy > p:not(.about-kicker) {
+  max-width: 36rem;
+  margin: 0 0 1.2rem;
+  color: var(--about-muted);
+  font-size: clamp(0.95rem, 1.05vw, 1.04rem);
+  line-height: 1.75;
+}
+
+.about-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgb(39 35 32 / 15%);
+}
+
+.about-skills li {
+  padding: 0.85rem 0;
+  color: var(--about-ink);
+  font-size: 0.85rem;
+  font-weight: 650;
+  border-bottom: 1px solid rgb(39 35 32 / 15%);
+}
+
+.about-cv {
+  padding-block: clamp(4rem, 7vw, 7rem);
+  border-top: 1px solid rgb(39 35 32 / 12%);
+}
+
+.about-cv > div:first-child {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.about-cv h2 {
+  margin-bottom: 1.5rem;
+}
+
+.about-cv-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: clamp(18rem, 40vw, 28rem);
+  border: 1px dashed rgb(230 101 79 / 65%);
+  border-radius: 0.8rem;
+  color: #8f756d;
+  background:
+    linear-gradient(135deg, rgb(230 101 79 / 7%), transparent 45%),
+    rgb(255 255 255 / 42%);
+}
+
+.about-cv-placeholder span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .about-shell { width: min(100% - 2rem, 1120px); }
+  .about-hero { grid-template-columns: 1fr; min-height: auto; padding-block: 2.75rem; }
+  .about-hero h1,
+  .about-hero > p:last-child { grid-column: 1; }
+  .about-hero h1 { font-size: clamp(2rem, 9.5vw, 3rem); }
+  .about-story,
+  .about-story-reverse { grid-template-columns: 1fr; gap: 2.25rem; }
+  .about-story-reverse .about-copy { order: 2; }
+  .about-story-reverse .about-visual { order: 1; }
+  .about-visual { max-height: 75svh; }
+  .about-visual-coral { width: calc(100% - 0.6rem); box-shadow: 0.55rem 0.55rem 0 var(--about-coral); }
+  .about-visual-contain { width: 100%; }
+  .about-skills { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-reveal { opacity: 1; transform: none; transition: none; }
+}
+
 .info-list {
   display: grid;
   gap: 1rem;
