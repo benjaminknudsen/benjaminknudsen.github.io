@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import placeholderImage from "../assets/images/lynk.svg";
-import homepageImage from "../assets/images/Homepage.svg";
-import moodboardImage from "../assets/images/Moodboard.svg";
-import prototypeImage from "../assets/images/Prototype.png";
+import homepageImage from "../assets/images/homepage.svg";
+import moodboardImage from "../assets/images/moodboard.svg";
+import prototypeImage from "../assets/images/prototype.png";
 import userTestImage from "../assets/images/thinkaloud.svg";
 import designSystemImage from "../assets/images/designsystem2.svg";
 import wireframeImage from "../assets/images/wireframe.svg";
@@ -25,7 +25,7 @@ const facts = [
 ];
 
 const roles = [
-  "UI-design", "UX-design", "React-udvikling", "Komponentstruktur",
+  "UI-design", "UX-design", "React-udvikling", "Interaktionsdesign",
   "Supabase", "Prototyping", "Brugertest", "Responsivt design",
 ];
 
@@ -191,7 +191,7 @@ function LynkProjectPage() {
 
       <section className="lynk-section lynk-container lynk-about">
         <div>
-          <p className="lynk-kicker">01 — Introduktion</p>
+          <p className="lynk-kicker">Introduktion</p>
           <h2>Om projektet</h2>
           <p>Lynk er en social webapp udviklet som eksamensprojekt på multimediedesigneruddannelsen. Formålet var at gøre det lettere at finde andre mennesker at dyrke sport med og skabe nye fællesskaber gennem lokale aktiviteter.</p>
           <p>Idéen udsprang af min egen interesse for sport og de sociale fællesskaber, der opstår gennem fysisk aktivitet.</p>
@@ -203,8 +203,8 @@ function LynkProjectPage() {
       </section>
 
       <section className="lynk-section lynk-container">
-        <p className="lynk-kicker">02 — Ansvarsområder</p>
-        <div className="lynk-heading-row"><h2>Min rolle</h2><p>Jeg arbejdede med både det visuelle design og den tekniske implementering. Mit fokus var særligt på navigation, genbrugelige komponenter, eventvisning og en tydelig brugeroplevelse.</p></div>
+        <p className="lynk-kicker">Ansvarsområder</p>
+        <div className="lynk-heading-row"><h2>Min rolle</h2><p>Jeg var involveret i hele projektforløbet og arbejdede med alt fra idéudvikling og design til frontend og implementering. Jeg tog ansvar for en stor del af projektet og bidrog på tværs af de fleste områder, hvilket gav mig et godt indblik i hele processen fra start til slut.</p></div>
         <ul className="lynk-pill-grid">{roles.map((role) => <li key={role}>{role}</li>)}</ul>
       </section>
 
@@ -216,7 +216,7 @@ function LynkProjectPage() {
       </section>
 
       <section className="lynk-section lynk-container">
-        <p className="lynk-kicker">03 — Proces</p><h2>Fra idé til løsning</h2>
+        <p className="lynk-kicker">Proces</p><h2>Fra idé til løsning</h2>
         <p className="lynk-section-intro">Projektet blev udviklet gennem en iterativ designproces med fokus på brugerbehov, struktur, test og løbende forbedringer.</p>
         <div className="lynk-process-grid">
           {processSteps.map((step) => (
@@ -231,7 +231,7 @@ function LynkProjectPage() {
       </section>
 
       <section className="lynk-section lynk-container">
-        <p className="lynk-kicker">04 — Visuel retning</p><h2>Designsystem</h2>
+        <p className="lynk-kicker">Visuel retning</p><h2>Designsystem</h2>
         <p className="lynk-section-intro">Der blev udviklet et simpelt designsystem for at sikre konsistens på tværs af platformens skærme og komponenter.</p>
         <div className="lynk-placeholder lynk-design-image">
           <img src={designSystemImage} alt="Lynks designsystem" />
@@ -239,19 +239,19 @@ function LynkProjectPage() {
       </section>
 
       <section className="lynk-section lynk-screens">
-        <div className="lynk-container"><p className="lynk-kicker">05 — Produktet</p><h2>Udvalgte skærme</h2></div>
+        <div className="lynk-container"><p className="lynk-kicker">Produktet</p><h2>Udvalgte skærme</h2></div>
         {screens.map(([title, text, image], index) => (
           <div className={`lynk-screen-row lynk-container${index === 2 ? " lynk-screen-row-flow" : ""}`} key={title}>
             {index === 2
               ? <EventFlowCarousel />
               : <ScreenImage src={image} alt={`${title} i Lynk`} className={index === 1 ? "lynk-screen-image-filtering" : ""} />}
-            <div><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></div>
+            <div><h3>{title}</h3><p>{text}</p></div>
           </div>
         ))}
       </section>
 
       <section className="lynk-section lynk-container">
-        <p className="lynk-kicker">06 — Stack</p>
+        <p className="lynk-kicker">Stack</p>
         <div className="lynk-heading-row"><div><h2>Teknologier</h2><p>Løsningen blev udviklet som en single-page application med React. Supabase blev brugt til datahåndtering, mens React Router styrede navigationen mellem platformens sider.</p></div><ul className="lynk-tech-list">{technologies.map((item) => <li key={item}>{item}</li>)}</ul></div>
       </section>
 
@@ -264,7 +264,7 @@ function LynkProjectPage() {
       </section>
 
       <section className="lynk-section lynk-reflection">
-        <div className="lynk-container"><p className="lynk-kicker">07 — Refleksion</p><h2>Hvad lærte jeg?</h2><p>Projektet lærte mig at arbejde mere struktureret med en større digital løsning og holde fokus på brugerens behov gennem hele processen. Jeg blev særligt bedre til at omsætte indsigter og feedback til konkrete designvalg og skabe en tydelig sammenhæng mellem koncept, visuel identitet og brugeroplevelse.</p><Link to="/projects">Se flere projekter <span>→</span></Link></div>
+        <div className="lynk-container"><p className="lynk-kicker">Refleksion</p><h2>Hvad lærte jeg?</h2><p>Projektet lærte mig at arbejde mere struktureret med en større digital løsning og holde fokus på brugerens behov gennem hele processen. Jeg blev særligt bedre til at omsætte indsigter og feedback til konkrete designvalg og skabe en tydelig sammenhæng mellem koncept, visuel identitet og brugeroplevelse.</p><Link to="/projects">Se flere projekter <span>→</span></Link></div>
       </section>
     </article>
   );

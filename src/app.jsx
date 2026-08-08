@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import HomePage from "./pages/HomePage";
-import NotFoundPage from "./pages/NotFoundPage";
-import ProjectPage from "./pages/ProjectPage";
-import ProjectsPage from "./pages/ProjectsPage";
+import Footer from "./components/footer";
+import Navbar from "./components/navbar";
+import AboutPage from "./pages/about-page";
+import ContactPage from "./pages/contact-page";
+import HomePage from "./pages/home-page";
+import NotFoundPage from "./pages/not-found-page";
+import ProjectPage from "./pages/project-page";
+import ProjectsPage from "./pages/projects-page";
 
 function ScrollToTop() {
   const { pathname } = useLocation();

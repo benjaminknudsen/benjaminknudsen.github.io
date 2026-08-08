@@ -7,18 +7,19 @@ import projects from "../data/projects";
 function HomePage() {
   const featuredProjects = projects.slice(0, 4);
   const projectsSectionRef = useRef(null);
+  const spareTimeSectionRef = useRef(null);
 
   useEffect(() => {
-    const section = projectsSectionRef.current;
+    const sections = [projectsSectionRef.current, spareTimeSectionRef.current].filter(Boolean);
 
-    if (!section) return undefined;
+    if (!sections.length) return undefined;
 
-    const elements = section.querySelectorAll("[data-reveal]");
+    const elements = sections.flatMap((section) => [...section.querySelectorAll("[data-reveal]")]);
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    section.classList.add("scroll-reveal-ready");
+    sections.forEach((section) => section.classList.add("scroll-reveal-ready"));
 
     if (reducedMotion) {
       elements.forEach((element) => element.classList.add("is-visible"));
@@ -120,24 +121,25 @@ function HomePage() {
       <section
         className="about-story about-shell home-about-teaser"
         aria-labelledby="home-spare-time-title"
+        ref={spareTimeSectionRef}
       >
-        <figure className="about-visual about-visual-contain">
+        <figure className="about-visual about-visual-contain" data-reveal>
           <img src={leisurePortrait} alt="Benjamin i sin fritid" />
         </figure>
         <div className="about-copy">
-          <p className="about-kicker">Når jeg ikke går i skole</p>
-          <h2 id="home-spare-time-title">Fodbold, mennesker og nye indtryk.</h2>
-          <p>
+          <p className="about-kicker" data-reveal>Når jeg ikke går i skole</p>
+          <h2 id="home-spare-time-title" data-reveal>Fodbold, mennesker og nye indtryk.</h2>
+          <p data-reveal>
             Fodbold fylder en stor del af min fritid, og jeg bruger også gerne tid på løb, padel og
             anden sport. Jeg kan godt lide at være aktiv og sætter stor pris på det sociale omkring
             sporten. Uden for banen nyder jeg at være sammen med venner, tage en tur i byen og opdage
             ny musik.
           </p>
-          <p>
+          <p data-reveal>
             Samtidig værdsætter jeg også alenetid, hvor jeg kan koble af og lade op. Den balance mellem
             et aktivt socialt liv og tid til mig selv betyder meget for mig og giver mig energi i hverdagen.
           </p>
-          <Link className="about-more-link" to="/about">
+          <Link className="about-more-link" to="/about" data-reveal>
             Læs mere om mig
           </Link>
         </div>
