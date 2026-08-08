@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router";
-import logo from "../assets/images/BKlogoooo.svg";
+import logo from "../assets/images/bk-logo.svg";
 
 function Navbar() {
   const { pathname } = useLocation();

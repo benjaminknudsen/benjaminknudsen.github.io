@@ -12,9 +12,9 @@ import tribuneMockup from "../assets/images/mockuptribune.svg";
 import newFortunaLogo from "../assets/images/nytlogo.svg";
 import blackFortunaLogo from "../assets/images/logosortheltrigtig.svg";
 import projects from "../data/projects";
-import BluntProjectPage from "./BluntProjectPage";
-import LynkProjectPage from "./LynkProjectPage";
-import LuminaProjectPage from "./LuminaProjectPage";
+import BluntProjectPage from "./blunt-project-page";
+import LynkProjectPage from "./lynk-project-page";
+import LuminaProjectPage from "./lumina-project-page";
 
 function ProjectPage() {
   const { slug } = useParams();
@@ -132,7 +132,7 @@ function ProjectPage() {
 
           <section className="fortuna-editorial-section fortuna-before-after" aria-labelledby="before-after-title">
             <header className="fortuna-section-heading creative-reveal">
-              <p>01 · Før og efter</p>
+              <p>Før og efter</p>
               <h2 id="before-after-title">Fra tradition til et tydeligere udtryk.</h2>
             </header>
             <div className="fortuna-before-after-grid">
@@ -149,7 +149,7 @@ function ProjectPage() {
 
           <section className="fortuna-editorial-section fortuna-system" aria-labelledby="system-title">
             <header className="fortuna-section-heading creative-reveal">
-              <p>02 · Designsystem</p>
+              <p>Designsystem</p>
               <h2 id="system-title">Én identitet. Flere udtryk.</h2>
             </header>
             <div className="fortuna-system-grid">
@@ -177,7 +177,7 @@ function ProjectPage() {
 
           <section className="fortuna-editorial-section fortuna-in-use" aria-labelledby="in-use-title">
             <header className="fortuna-section-heading creative-reveal">
-              <p>03 · Brand i brug</p>
+              <p>Brand i brug</p>
               <h2 id="in-use-title">Identiteten møder virkeligheden.</h2>
             </header>
             <div className="fortuna-masonry">
