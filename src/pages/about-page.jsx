@@ -115,14 +115,65 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="about-cv about-shell about-reveal" aria-labelledby="about-cv-title">
-        <div>
-          <p className="about-kicker">Erfaring og uddannelse</p>
-          <h2 id="about-cv-title">Grafisk CV</h2>
+      <section className="about-timeline-section about-shell about-reveal" aria-label="Erfaring og uddannelse">
+        <div className="about-timeline-origin">
+          <span>2012</span>
+          <p>Som 10-årig fik jeg mit første arbejde – og har siden prøvet kræfter med lidt af hvert.</p>
         </div>
-        <div className="about-cv-placeholder" role="img" aria-label="Plads til grafisk CV">
-          <span>Grafisk CV indsættes her</span>
-        </div>
+        <ol className="about-timeline">
+          <li className="about-timeline-item">
+            <p className="about-timeline-date">2022 – 2023</p>
+            <span className="about-timeline-marker" aria-hidden="true" />
+            <div className="about-timeline-copy">
+              <h3>Lagerarbejder</h3>
+              <p>Hos Minimum</p>
+              <ul>
+                <li>Struktur</li>
+                <li>Ansvar</li>
+                <li>Samarbejde</li>
+              </ul>
+            </div>
+          </li>
+          <li className="about-timeline-item">
+            <p className="about-timeline-date">2023 – 2024</p>
+            <span className="about-timeline-marker" aria-hidden="true" />
+            <div className="about-timeline-copy">
+              <h3>Håndværker</h3>
+              <p>Hos Eltel Networks</p>
+              <ul>
+                <li>Menneskekontakt</li>
+                <li>Selvstændighed</li>
+                <li>Praktisk problemløsning</li>
+              </ul>
+            </div>
+          </li>
+          <li className="about-timeline-item">
+            <p className="about-timeline-date">2025 – 2025</p>
+            <span className="about-timeline-marker" aria-hidden="true" />
+            <div className="about-timeline-copy">
+              <h3>Vikar</h3>
+              <p>Hos Bech Personale</p>
+              <ul>
+                <li>Omstillingsparat</li>
+                <li>Fleksibilitet</li>
+                <li>Nye arbejdsmiljøer</li>
+              </ul>
+            </div>
+          </li>
+          <li className="about-timeline-item">
+            <p className="about-timeline-date">2025 – nu</p>
+            <span className="about-timeline-marker" aria-hidden="true" />
+            <div className="about-timeline-copy">
+              <h3>Multimediedesigner</h3>
+              <p>Erhvervsakademiet Aarhus</p>
+              <ul>
+                <li>Kreativitet</li>
+                <li>Nysgerrighed</li>
+                <li>Idéudvikling</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
       </section>
     </div>
   );

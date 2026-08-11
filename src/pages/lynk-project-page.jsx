@@ -76,7 +76,7 @@ function Placeholder({ label, className = "" }) {
   return (
     <div className={`lynk-placeholder ${className}`}>
       <img src={placeholderImage} alt="" />
-      <span>{label}</span>
+      {label && <span>{label}</span>}
     </div>
   );
 }
@@ -180,8 +180,7 @@ function LynkProjectPage() {
           <h1>Lynk</h1>
           <p className="lynk-intro">En social platform, der gør det nemt at finde, oprette og deltage i lokale sportsaktiviteter.</p>
         </div>
-        {/* Udskift med: stort Lynk hero-mockup */}
-        <Placeholder label="Hero mockup" className="lynk-hero-image" />
+        <Placeholder className="lynk-hero-image" />
         <dl className="lynk-facts">
           {facts.map(([term, description]) => (
             <div key={term}><dt>{term}</dt><dd>{description}</dd></div>
