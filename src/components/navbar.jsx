@@ -3,14 +3,12 @@ import logo from "../assets/images/bk-logo.svg";
 
 function Navbar() {
   const { pathname } = useLocation();
-  const projectTheme = pathname === "/projects/lynk" || pathname === "/projects/sideprojekter"
+  const projectTheme = pathname === "/projects/lynk"
     ? "site-header--lynk"
     : pathname === "/projects/blunt"
       ? "site-header--blunt"
     : pathname === "/projects/lumina"
       ? "site-header--lumina"
-      : pathname === "/projects/landingpage-koncept"
-        ? "site-header--concept"
       : "";
 
   return (
