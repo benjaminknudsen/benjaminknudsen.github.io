@@ -5297,3 +5297,129 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
 .vuuh-finding .vuuh-image-open img { width: 100%; height: 100%; object-fit: contain; }
 .vuuh-finding:nth-child(2) .vuuh-image-open img { object-fit: cover; transform: scale(1.08); }
 .vuuh-finding .vuuh-image figcaption { min-height: 3rem; padding-block: .5rem; }
+
+/* A unified, screen-led introduction to the Vuuh project. */
+.vuuh-hero {
+  width: min(100% - 3rem, 1240px);
+  margin-top: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  border: 1px solid #e5dcff;
+  border-radius: 1.5rem;
+  background: radial-gradient(ellipse at 95% 40%, #703bf12b, transparent 65%), linear-gradient(120deg, #fcfaff, #f0eaff);
+  overflow: hidden;
+}
+.vuuh-hero::before { display: none; }
+.vuuh-hero > .vuuh-back { margin-bottom: 2.5rem; position: relative; z-index: 2; }
+.vuuh-hero-layout { display: grid; grid-template-columns: 1fr 1.12fr; align-items: center; gap: 2rem; }
+.vuuh-hero-copy { position: relative; z-index: 2; }
+.vuuh-hero-copy h1 { margin: 0 0 1.1rem; }
+.vuuh-hero-copy .vuuh-title-logo { width: 8rem; padding: .8rem 1rem; border-radius: .75rem; margin-bottom: 1.5rem; }
+.vuuh-hero-copy h1 span { font-size: clamp(2.3rem, 4.3vw, 3.7rem); line-height: 1.07; font-weight: 600; margin: 0; }
+.vuuh-hero-copy > .vuuh-eyebrow { display: inline-block; font-size: .7rem; letter-spacing: 0; padding: .55rem .8rem; border-radius: 999px; border: 1px solid #dfd3ff; background: #ece4ff; margin: .4rem 0; }
+.vuuh-hero-copy .vuuh-intro { max-width: 440px; font-size: 1rem; margin-block: 1.2rem; }
+.vuuh-hero-highlights { display: flex; flex-wrap: wrap; gap: .55rem 1rem; padding: 0; margin: 1.5rem 0; list-style: none; }
+.vuuh-hero-highlights li { display: flex; align-items: center; gap: .4rem; font-size: .72rem; color: #48345f; }
+.vuuh-hero-highlights li > span { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: .45rem; background: #e5daff; color: #703bf1; font-size: .6rem; }
+.vuuh-hero-copy .vuuh-links { gap: .65rem; margin-bottom: .5rem; }
+.vuuh-hero-copy .vuuh-resource { font-size: .78rem; padding: .85rem 1rem; }
+.vuuh-hero-copy .vuuh-resource:first-child { background: #703bf1; color: #ffffff; }
+.vuuh-hero-copy .vuuh-resource:last-child { background: transparent; color: #703bf1; }
+.vuuh-hero-copy .vuuh-resource:first-child:hover { background: #5c28d5; }
+.vuuh-hero-copy .vuuh-resource:last-child:hover { background: #e6dcff; }
+.vuuh-hero-visual { position: relative; height: 430px; min-width: 0; isolation: isolate; }
+.vuuh-hero-orbit { position: absolute; width: 440px; height: 440px; top: -1rem; left: 5%; border: 1px solid #ffffffaa; border-radius: 50%; background: linear-gradient(150deg, #ffffff60, #703bf10c); z-index: -1; }
+.vuuh-hero-screen { position: absolute; margin: 0; padding: .45rem; background: #ffffff; border: 1px solid #e7ddff; border-radius: .9rem; box-shadow: 0 20px 45px #44208c26; }
+.vuuh-hero-screen img { width: 100%; height: auto; border-radius: .5rem; }
+.vuuh-hero-screen-back { width: 85%; left: -1%; top: 1.5rem; transform: rotate(-7deg); }
+.vuuh-hero-screen-front { width: 94%; right: -6%; top: 8rem; transform: rotate(5deg); }
+.vuuh-hero-note { position: absolute; display: flex; align-items: center; gap: .75rem; left: 6%; bottom: .5rem; padding: .8rem 1.2rem; border-radius: .8rem; border: 1px solid #e5dcff; background: #ffffffed; box-shadow: 0 12px 28px #44208c16; color: #493761; font-size: .8rem; line-height: 1.5; }
+.vuuh-hero-note > span { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; color: #703bf1; background: #ede5ff; font-size: 1rem; }
+@media (max-width: 900px) {
+  .vuuh-hero-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .vuuh-hero-copy h1 span { font-size: clamp(2.4rem, 6vw, 3.7rem); }
+  .vuuh-hero-visual { width: min(100%, 620px); height: clamp(290px, 62vw, 450px); margin-inline: auto; }
+  .vuuh-hero-screen-front { right: 0; top: 6rem; width: 88%; }
+  .vuuh-hero-screen-back { left: 0; width: 80%; }
+  .vuuh-hero-orbit { width: 90%; height: auto; aspect-ratio: 1; }
+}
+@media (max-width: 480px) {
+  .vuuh-hero { width: calc(100% - 2rem); padding: 1.25rem; border-radius: 1rem; margin-top: 1rem; }
+  .vuuh-hero > .vuuh-back { margin-bottom: 1.5rem; }
+  .vuuh-hero-note { bottom: 0; left: 0; }
+  .vuuh-hero-copy > .vuuh-eyebrow { font-size: .63rem; }
+}
+
+/* Let the introduction span the full page. */
+.vuuh-hero {
+  width: 100%;
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  padding: clamp(2rem, 5vw, 4rem) max(1.5rem, calc((100% - 1120px) / 2));
+}
+@media (max-width: 480px) {
+  .vuuh-hero { width: 100%; margin-top: 0; border-radius: 0; padding: 2rem 1rem; }
+}
+
+.vuuh-flow-heading {
+  position: relative;
+  margin-block: 4rem 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 4px solid #703BF1;
+}
+.vuuh-flow-label {
+  display: block;
+  color: #321253;
+  font-size: .75rem;
+  letter-spacing: .06em;
+  margin-bottom: 1rem;
+}
+.vuuh-case .vuuh-flow-heading h3 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+  margin: 0;
+  color: #211335;
+}
+.vuuh-flow-heading h3 span { color: #4c1da0; }
+.vuuh-flow-heading p { max-width: 540px; font-size: .95rem; color: #2c1b43; margin-bottom: 0; }
+
+.vuuh-case .vuuh-challenge-statement {
+  max-width: 900px;
+  margin: 0 0 2.5rem 4rem;
+  padding: 1.5rem 1.75rem;
+  border-left: 4px solid #703BF1;
+  border-radius: 0 .8rem .8rem 0;
+  background: #f0eaff;
+  color: #321253;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.4;
+  letter-spacing: -.025em;
+}
+@media (max-width: 760px) {
+  .vuuh-case .vuuh-challenge-statement { margin-left: 0; padding: 1.25rem; }
+}
+
+.vuuh-case p.vuuh-challenge-statement:not(.vuuh-eyebrow) {
+  max-width: 760px;
+  padding: .25rem 0 .25rem 1.25rem;
+  border-left: 2px solid #703BF1;
+  border-radius: 0;
+  background: transparent;
+  color: #514075;
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+/* A compact, paired conclusion to the case study. */
+.vuuh-closing { padding-block: clamp(3.5rem, 6vw, 5rem); }
+.vuuh-closing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 4rem); }
+.vuuh-closing-section { min-width: 0; }
+.vuuh-closing-section .vuuh-section-heading { grid-template-columns: 2.5rem 1fr; gap: .85rem; margin-bottom: 1.5rem; }
+.vuuh-closing-section .vuuh-section-heading h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.vuuh-closing-section .vuuh-copy { margin-left: 0; max-width: none; }
+.vuuh-closing .vuuh-end { margin-top: 2rem; }
+@media (max-width: 760px) {
+  .vuuh-closing-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}

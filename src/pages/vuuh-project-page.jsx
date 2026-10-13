@@ -80,26 +80,35 @@ export default function VuuhProjectPage() {
   return <article className="lynk-case vuuh-case" ref={caseRef}>
     <header className="vuuh-hero vuuh-container">
       <Link className="vuuh-back" to="/projects">← Alle projekter</Link>
-      <h1><img className="vuuh-title-logo" src={vuuhLogo} alt="Vuuh" /><span>Design Better Onboarding</span></h1>
-      <p className="vuuh-eyebrow">UX/UI Design · Product Optimization · 3. semester</p>
-      <p className="vuuh-intro">Et mere overskueligt onboarding-flow med synlig progression, hjælp i den rigtige situation og tydelig feedback.</p>
-      <ResourceLinks />
-      <ProjectImage src={welcomeImage} caption="Vuuh-redesignet · Velkommen til onboarding" hero />
+      <div className="vuuh-hero-layout">
+        <div className="vuuh-hero-copy">
+          <h1><img className="vuuh-title-logo" src={vuuhLogo} alt="Vuuh" /><span>Design Better<br />Onboarding</span></h1>
+          <p className="vuuh-eyebrow">UX/UI Design · Product Optimization · 3. semester</p>
+          <p className="vuuh-intro">Et mere overskueligt onboarding-flow med synlig progression, hjælp i den rigtige situation og tydelig feedback.</p>
+          <ResourceLinks />
+        </div>
+        <div className="vuuh-hero-visual" aria-label="Udvalgte skærme fra Vuuh-redesignet">
+          <div className="vuuh-hero-orbit" aria-hidden="true" />
+          <figure className="vuuh-hero-screen vuuh-hero-screen-back"><img src={welcomeImage} alt="Velkomstskærmen i Vuuh-redesignet" /></figure>
+          <figure className="vuuh-hero-screen vuuh-hero-screen-front"><img src={onboarding1} alt="Onboarding med synlig progression og Shopify-forbindelse" /></figure>
+        </div>
+      </div>
     </header>
 
     <section className="vuuh-section vuuh-container">
       <SectionHeading number="01">Projekt og udfordring</SectionHeading>
+      <p className="vuuh-challenge-statement" data-vuuh-reveal>Hvordan kan vi gøre Vuuhs onboarding mere overskuelig og selvforklarende for nye brugere?</p>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>Vuuh er en digital platform, der hjælper webshops med at håndtere produktdata og integrationer til blandt andet Shopify. Opgaven var at undersøge og forbedre Vuuhs eksisterende onboarding, så nye brugere lettere kan komme i gang med platformen.</p>
-        <p>Udfordringen var, at onboardingen flere steder skabte usikkerhed om, hvad brugeren skulle gøre, hvilke oplysninger der skulle anvendes, og om en handling var gennemført korrekt.</p>
-        <p>Projektet blev lavet i samarbejde med en medstuderende. Vi stod sammen for analysearbejdet, identificering af problemer og udvikling af løsningsforslag. Mit primære ansvar var at omsætte vores fælles indsigter til en interaktiv Figma-prototype.</p>
+        <p>Vuuh hjælper webshops med at håndtere produktdata og integrationer til blandt andet Shopify. Opgaven var at forbedre platformens onboarding, så nye brugere lettere kunne komme i gang.</p>
+        <p>Onboardingen skabte usikkerhed om næste handling, de nødvendige oplysninger og om en handling var gennemført korrekt.</p>
+        <p>Jeg lavede projektet med en medstuderende. Analyse, problemidentifikation og løsningsforslag var fælles arbejde. Mit primære ansvar var at omsætte vores indsigter til en interaktiv Figma-prototype.</p>
       </div>
     </section>
 
     <section className="vuuh-band"><div className="vuuh-section vuuh-container">
       <SectionHeading number="02">Undersøgelse og prioritering</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>Vi gennemførte en UX-audit med udgangspunkt i <strong>Heuristic Evaluation og Cognitive Walkthrough</strong> for at identificere problemer i det eksisterende onboarding-flow.</p>
+        <p>Vi gennemførte en UX-audit med <strong>Heuristic Evaluation og Cognitive Walkthrough</strong> for at identificere problemer i onboarding-flowet.</p>
         <p>Undersøgelsen førte til tre centrale findings:</p>
       </div>
       <div className="vuuh-findings">
@@ -112,8 +121,8 @@ export default function VuuhProjectPage() {
         </article>)}
       </div>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>Vi prioriterede alle tre problemer højt, da de kunne skabe usikkerhed hos førstegangsbrugere og gøre det sværere at gennemføre onboardingen selvstændigt.</p>
-        <p>Samtidig arbejdede vi med to personas med forskellige behov: Charlotte, der har begrænset digital erfaring, og Emma, der er vant til Shopify. Det understregede behovet for en løsning, der både tilbyder hjælp og giver erfarne brugere mulighed for at komme hurtigt videre.</p>
+        <p>Vi prioriterede alle tre problemer højt, fordi de kunne gøre det svært for førstegangsbrugere at gennemføre onboardingen selvstændigt.</p>
+        <p>Vi arbejdede med to personas: Charlotte med begrænset digital erfaring og Emma, der er vant til Shopify. Løsningen skulle derfor tilbyde hjælp uden at forsinke erfarne brugere.</p>
       </div>
     </div></section>
 
@@ -121,7 +130,7 @@ export default function VuuhProjectPage() {
       <SectionHeading number="03">Løsning og designbeslutninger</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
         <p>Med udgangspunkt i analysen udviklede vi et redesign med fokus på <strong>progression, kontekstbaseret hjælp og tydelig systemfeedback</strong>.</p>
-        <p>Jeg arbejdede primært med at visualisere og sammenkoble løsningerne i Figma, så de fungerede som et samlet onboarding-flow.</p>
+        <p>Jeg visualiserede og sammenkoblede vores løsninger i Figma til et samlet onboarding-flow.</p>
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
         <ProjectImage src={onboarding1} caption="Figma · 4-trins stepper" />
@@ -133,49 +142,53 @@ export default function VuuhProjectPage() {
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
         <ProjectImage src={successImage} caption="Figma · Success-state og næste handling" />
-        <div><span className="vuuh-eyebrow">Forbedring 3</span><h3>Feedback og UI-states</h3><p>Jeg designede loading-, success- og error-states, der kommunikerer systemets status og hjælper brugeren videre. Ved en vellykket Shopify-forbindelse vises eksempelvis en tydelig bekræftelse og en CTA til næste trin.</p><p>Det understøtter Normans <em>Feedback</em> og <em>Gulf of Evaluation</em>, hvor brugeren skal kunne forstå resultatet af sine handlinger.</p></div>
+        <div><span className="vuuh-eyebrow">Forbedring 3</span><h3>Feedback og UI-states</h3><p>Jeg designede loading-, success- og error-states, der viser systemets status og hjælper brugeren videre. En vellykket Shopify-forbindelse giver en tydelig bekræftelse og en CTA til næste trin.</p><p>Det understøtter Normans <em>Feedback</em> og <em>Gulf of Evaluation</em>, hvor brugeren skal kunne forstå resultatet af sine handlinger.</p></div>
       </div>
     </section>
 
     <section className="vuuh-band"><div className="vuuh-section vuuh-container">
       <SectionHeading number="04">Resultat og dokumentation</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>Resultatet blev en interaktiv Figma-prototype, der demonstrerer et sammenhængende onboarding-flow fra introduktion og Shopify-forbindelse til afsluttet opsætning.</p>
-        <p>Som en del af vores Accessibility Design Check arbejdede vi med fejlidentifikation og mulighed for at rette fejl. Error-staten gør det tydeligt, når en handling ikke lykkes, og hjælper brugeren med at rette fejlen og forsøge igen.</p>
+        <p>Den interaktive Figma-prototype viser et sammenhængende onboarding-flow fra introduktion og Shopify-forbindelse til afsluttet opsætning.</p>
+        <p>I vores Accessibility Design Check arbejdede vi med fejlidentifikation og mulighed for at rette fejl. Error-staten viser, når en handling mislykkes, og hjælper brugeren med at rette fejlen og prøve igen.</p>
       </div>
       <div className="vuuh-result-image vuuh-error-image" data-vuuh-reveal>
         <ProjectImage src={errorImage} caption="Error-state · Fejlidentifikation og mulighed for at prøve igen" />
       </div>
-      <div className="vuuh-flow-heading" data-vuuh-reveal><h3>Det samlede onboarding-flow</h3></div>
+      <div className="vuuh-flow-heading" data-vuuh-reveal>
+        <h3>Det samlede<br /><span>onboarding-flow</span></h3>
+        <p>Seks skærme viser vejen gennem onboardingen med progression, hjælp og feedback undervejs.</p>
+      </div>
       <div className="vuuh-result-image vuuh-welcome-image" data-vuuh-reveal>
         <ProjectImage src={welcomeImage} caption="Vuuh · Velkomstskærm" />
       </div>
       <div className="vuuh-flow-grid">
         {onboardingScreens.map((image, index) => <div data-vuuh-reveal key={image}><ProjectImage src={image} caption={`Onboarding · Skærm ${index + 1}`} /></div>)}
       </div>
-      <div className="vuuh-copy" data-vuuh-reveal><p>Prototypen demonstrerer vores foreslåede forbedringer, men vi har ikke dokumenteret, at redesignet øger gennemførelsesgraden hos rigtige brugere. Det vil kræve efterfølgende brugertests.</p><ResourceLinks /></div>
+      <div className="vuuh-copy" data-vuuh-reveal><p>Prototypen viser de foreslåede forbedringer. Vi har ikke dokumenteret en øget gennemførelsesgrad hos rigtige brugere; det kræver efterfølgende brugertests.</p><ResourceLinks /></div>
     </div></section>
 
-    <section className="vuuh-section vuuh-container">
+    <div className="vuuh-closing vuuh-container">
+      <div className="vuuh-closing-grid">
+    <section className="vuuh-closing-section">
       <SectionHeading number="05">Faglig refleksion</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>En vigtig læring var, at god onboarding ikke nødvendigvis handler om at tilføje flere forklaringer, men om at præsentere den rigtige information på det rigtige tidspunkt.</p>
-        <p>Vi valgte derfor en løsning, hvor brugeren får tydelig progression og mulighed for ekstra hjælp uden at blive tvunget gennem unødvendige instruktioner.</p>
-        <p>Arbejdet med prototypen gav mig især erfaring med at omsætte UX-principper til konkrete designbeslutninger og tænke i sammenhængende flows frem for isolerede skærme.</p>
-        <p>Et naturligt næste skridt ville være at teste prototypen med både nye og erfarne Shopify-brugere for at undersøge, om de kan gennemføre onboardingen uden hjælp.</p>
+        <p>Jeg lærte, at onboarding kræver den rigtige information på det rigtige tidspunkt. Flere forklaringer gør ikke nødvendigvis processen lettere.</p>
+        <p>Vi valgte synlig progression og valgfri hjælp, så brugeren kan komme videre uden unødvendige instruktioner.</p>
+        <p>I Figma fik jeg erfaring med at omsætte UX-principper til konkrete komponenter og sammenkoble skærmene. Jeg skulle tænke over, hvad der sker både før og efter hver handling.</p>
+        <p>Næste skridt er at teste, om både nye og erfarne Shopify-brugere kan gennemføre prototypens onboarding uden hjælp.</p>
       </div>
     </section>
 
-    <section className="vuuh-section vuuh-container">
+    <section className="vuuh-closing-section">
       <SectionHeading number="06">Forretningspotentiale</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>En mere overskuelig onboarding kan skabe værdi for både Vuuh og deres kunder.</p>
-        <p>Hvis flere brugere kan gennemføre opsætningen selvstændigt, kan det potentielt reducere behovet for support og gøre det lettere for nye kunder at komme i gang med platformen.</p>
-        <p>For Vuuh kan en mere effektiv onboarding dermed bidrage til en bedre første brugeroplevelse og øge sandsynligheden for, at nye kunder får aktiveret og anvendt produktet.</p>
-        <p>Potentialet bygger på de identificerede UX-problemer og vores designmæssige forbedringer, men skal valideres gennem brugertests og data fra den faktiske onboarding.</p>
+        <p>En mere overskuelig onboarding kan give nye kunder en bedre første oplevelse og gøre det lettere at tage Vuuh i brug. Hvis flere gennemfører opsætningen selvstændigt, kan supportbehovet potentielt falde. Forretningspotentialet bygger på vores identificerede UX-problemer og designforslag; det skal valideres gennem brugertests og data fra den faktiske onboarding.</p>
+      </div>
+    </section>
       </div>
       <div className="vuuh-end" data-vuuh-reveal><ResourceLinks /><Link className="vuuh-back" to="/projects">← Tilbage til projekter</Link></div>
-    </section>
+    </div>
     <dialog className="vuuh-lightbox" ref={dialogRef} aria-label="Forstørret finding-billede"
       onCancel={() => setExpandedImage(null)}
       onClick={(event) => { if (event.target === event.currentTarget) setExpandedImage(null); }}>
