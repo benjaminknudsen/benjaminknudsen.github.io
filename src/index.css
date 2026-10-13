@@ -5102,3 +5102,83 @@ p {
     object-fit: contain;
   }
 }
+
+/* Vuuh onboarding case study */
+.vuuh-case { --vuuh-purple: #703BF1; --vuuh-line: #ded0ff; background: #fcfaff; color: #272333; overflow: clip; }
+.vuuh-container { width: min(100% - 3rem, 1120px); margin-inline: auto; }
+.vuuh-hero { padding-block: clamp(3rem, 7vw, 6rem) 1rem; }
+.vuuh-back { display: inline-block; font-size: .9rem; text-decoration: none; margin-bottom: 2rem; }
+.vuuh-back:hover { text-decoration: underline; }
+.vuuh-eyebrow { color: var(--vuuh-purple); font-size: .8rem; font-weight: 600; letter-spacing: .06em; }
+.vuuh-hero h1 { font-size: clamp(3.5rem, 9vw, 7rem); letter-spacing: -.065em; line-height: 1.06; margin: 1.5rem 0; }
+.vuuh-hero h1 span { display: block; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -.045em; margin-top: .65rem; font-weight: 500; }
+.vuuh-intro { max-width: 650px; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.7; color: #655f6f; }
+.vuuh-links { display: flex; flex-wrap: wrap; gap: .8rem; margin-block: 1.75rem; }
+.vuuh-resource { display: inline-flex; flex-direction: column; justify-content: center; gap: .25rem; padding: .9rem 1.3rem; border: 1px solid var(--vuuh-purple); border-radius: .65rem; background: var(--vuuh-purple); color: #ffffff; font-size: .9rem; font-weight: 600; text-decoration: none; }
+a.vuuh-resource:hover { background: #5c28d5; border-color: #5c28d5; }
+.vuuh-resource small { font-size: .7rem; font-weight: 400; }
+.vuuh-resource-pending { background: transparent; }
+.vuuh-image { margin: 0; min-width: 0; border: 1px solid var(--vuuh-line); border-radius: .9rem; overflow: hidden; background: #eee7ff; }
+.vuuh-image img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.vuuh-image-hero { margin-top: 3rem; }
+.vuuh-image-hero img { aspect-ratio: 16 / 8; }
+.vuuh-image figcaption { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem 1.1rem; font-size: .75rem; line-height: 1.5; color: #514075; background: #f0eaff; }
+.vuuh-image figcaption small { font-size: .65rem; white-space: nowrap; opacity: .8; }
+.vuuh-section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.vuuh-section-heading { display: grid; grid-template-columns: 3rem 1fr; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+.vuuh-section-heading > span { font-size: .85rem; color: var(--vuuh-purple); }
+.vuuh-section-heading h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; letter-spacing: -.04em; margin: 0; }
+.vuuh-copy { max-width: 760px; margin-left: 4rem; }
+.vuuh-case p:not(.vuuh-eyebrow):not(.vuuh-contrast-value) { line-height: 1.85; }
+.vuuh-copy p, .vuuh-solution p, .vuuh-finding p { color: #625d69; }
+.vuuh-copy strong { color: #322a41; }
+.vuuh-band { background: #b095f8; }
+.vuuh-findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-block: 2.75rem; }
+.vuuh-finding .vuuh-eyebrow { display: block; margin-top: 1.5rem; }
+.vuuh-case h3 { font-size: 1.35rem; letter-spacing: -.025em; margin-block: .6rem 1rem; }
+.vuuh-finding p { font-size: .95rem; }
+.vuuh-solution { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 4rem); margin-top: 4rem; }
+.vuuh-solution:nth-of-type(odd) .vuuh-image { order: 2; }
+.vuuh-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-block: 3rem; }
+.vuuh-contrast-value { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.04em; margin: 0 0 1rem; color: var(--vuuh-purple); }
+.vuuh-contrast-value span { display: block; font-size: .8rem; letter-spacing: .08em; margin-bottom: .5rem; }
+.vuuh-end { border-top: 1px solid var(--vuuh-line); margin-top: 3rem; padding-top: 1rem; }
+@media (max-width: 760px) {
+  .vuuh-container { width: calc(100% - 2rem); }
+  .vuuh-copy { margin-left: 0; }
+  .vuuh-section-heading { grid-template-columns: 2rem 1fr; gap: .5rem; }
+  .vuuh-findings, .vuuh-solution, .vuuh-comparison { grid-template-columns: 1fr; }
+  .vuuh-findings { gap: 2rem; }
+  .vuuh-solution:nth-of-type(odd) .vuuh-image { order: 0; }
+  .vuuh-image-hero img { aspect-ratio: 4 / 3; }
+  .vuuh-hero h1 { overflow-wrap: anywhere; }
+}
+
+.site-header--vuuh { --contact-accent: #703BF1; }
+.site-header--vuuh .site-nav .contact-link:hover,
+.site-header--vuuh .site-nav .contact-link.active { color: #ffffff; }
+.vuuh-hero { position: relative; isolation: isolate; }
+.vuuh-hero::before { content: ""; position: absolute; z-index: -1; inset: 0 -10vw 20%; pointer-events: none; background: radial-gradient(ellipse at 85% 15%, #703bf11c, transparent 55%); }
+.vuuh-hero h1 { color: var(--vuuh-purple); }
+.vuuh-hero h1 span { color: #272333; }
+.vuuh-hero > .vuuh-eyebrow { display: inline-block; border: 1px solid var(--vuuh-line); border-radius: 999px; padding: .6rem 1rem; background: #f0eaff; }
+.vuuh-resource { transition: background 180ms ease, border-color 180ms ease; }
+.vuuh-resource:first-child { background: transparent; color: var(--vuuh-purple); }
+a.vuuh-resource:first-child:hover { background: #e6dcff; }
+.vuuh-resource:focus-visible, .vuuh-back:focus-visible { outline: 3px solid var(--vuuh-purple); outline-offset: 4px; }
+.vuuh-image-hero { border-top: 4px solid var(--vuuh-purple); box-shadow: 0 18px 55px #703bf118; }
+.vuuh-section-heading > span { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: .65rem; background: var(--vuuh-purple); color: #ffffff; font-weight: 600; }
+.vuuh-finding { padding: 1rem; border: 1px solid var(--vuuh-line); border-radius: 1rem; background: #fcfaff; }
+.vuuh-finding .vuuh-eyebrow { border-left: 3px solid var(--vuuh-purple); padding-left: .65rem; }
+.vuuh-comparison > div:last-child .vuuh-image { border-color: var(--vuuh-purple); }
+.vuuh-end { border-top: 3px solid var(--vuuh-purple); }
+@media (max-width: 760px) {
+  .vuuh-section-heading { grid-template-columns: 2.5rem 1fr; gap: .75rem; }
+}
+
+/* More readable text on the purple section backgrounds. */
+.vuuh-band { color: #211335; }
+.vuuh-band .vuuh-copy p { color: #2c1b43; }
+.vuuh-band .vuuh-copy strong { color: #211335; }
+.vuuh-band .vuuh-contrast-value { color: #321253; }
+.vuuh-band .vuuh-resource:first-child { color: #321253; }

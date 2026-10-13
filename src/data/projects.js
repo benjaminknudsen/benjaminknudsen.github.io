@@ -2,6 +2,8 @@ import bluntImage from "../assets/images/blunt.svg";
 import luminaImage from "../assets/images/lumina2.svg";
 import lynkImage from "../assets/images/lynk.svg";
 
+import vuuhImage from "../assets/images/prototype.png";
+
 const projects = [
   {
     slug: "lynk",
@@ -46,6 +48,20 @@ const projects = [
       "Lumina undersøger, hvordan stemning og funktion kan spille sammen i en overskuelig og indbydende weboplevelse.",
     tags: ["Webdesign", "Prototyping", "Frontend"],
     image: luminaImage,
+    links: [],
+  },
+  {
+    slug: "vuuh",
+    title: "Vuuh",
+    year: "2026",
+    category: "UX/UI Design",
+    accent: "#703BF1",
+    categoryColor: "#703BF1",
+    coverBackground: "#eee7ff",
+    summary: "Et redesign af onboarding med fokus på progression, kontekstbaseret hjælp og tydelig feedback.",
+    description: "Vuuh – Design Better Onboarding. UX/UI Design · Product Optimization · 3. semester.",
+    tags: ["UX-audit", "UI/UX", "Figma", "Prototyping"],
+    image: vuuhImage,
     links: [],
   },
 ];

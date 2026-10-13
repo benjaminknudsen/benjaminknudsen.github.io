@@ -4,6 +4,8 @@ import BluntProjectPage from "./blunt-project-page";
 import LynkProjectPage from "./lynk-project-page";
 import LuminaProjectPage from "./lumina-project-page";
 
+import VuuhProjectPage from "./vuuh-project-page";
+
 function ProjectPage() {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
@@ -17,6 +19,10 @@ function ProjectPage() {
 
   if (slug === "lumina") {
     return <LuminaProjectPage />;
+  }
+
+  if (slug === "vuuh") {
+    return <VuuhProjectPage />;
   }
 
   if (!project) {
