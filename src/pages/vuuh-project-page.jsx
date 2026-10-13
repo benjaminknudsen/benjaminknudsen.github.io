@@ -1,6 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-import placeholderImage from "../assets/images/prototype.png";
+import vuuhLogo from "../assets/images/vuuh.logo.svg";
+import welcomeImage from "../assets/images/welcometovuuhjaja.svg";
+import shopNameGuide from "../assets/images/shopnameguide.svg";
+import successImage from "../assets/images/succesconnection.svg";
+import errorImage from "../assets/images/errorstate.svg";
+import dashboardImage from "../assets/images/vuuhdashboard.svg";
+import originalShopImage from "../assets/images/oprindeligfindbutik.png";
+import originalConnectionImage from "../assets/images/oprindeligforbindelse.png";
+import onboarding1 from "../assets/images/Onboarding 1.png";
+import onboarding2 from "../assets/images/onboarding2.svg";
+import onboarding3 from "../assets/images/onboarding3.svg";
+import onboarding4 from "../assets/images/onboardingsucces.png";
+import onboarding5 from "../assets/images/onboarding5.svg";
+import onboarding6 from "../assets/images/onboarding6.svg";
+
+const onboardingScreens = [onboarding1, onboarding2, onboarding3, onboarding4, onboarding5, onboarding6];
 
 const resources = [
   { label: "Se UX Audit Summary", href: "https://efif-my.sharepoint.com/:p:/g/personal/eaa25bssk_students_eaaa_dk/cQrVQvoJ-4MrSLvNFVu_sUp8EgUCawc7P6locnO5cZa6y1MtJg" },
@@ -14,10 +29,12 @@ function ResourceLinks() {
   )}</div>;
 }
 
-function ProjectImage({ caption, hero = false }) {
+function ProjectImage({ src, caption, hero = false, onOpen }) {
   return <figure className={`vuuh-image${hero ? " vuuh-image-hero" : ""}`}>
-    <img src={placeholderImage} alt="Midlertidigt placeholderbillede" loading={hero ? "eager" : "lazy"} />
-    <figcaption><span>{caption}</span><small>Placeholder</small></figcaption>
+    {onOpen ? <button className="vuuh-image-open" type="button" onClick={onOpen} aria-label={`Åbn stort billede: ${caption}`} aria-haspopup="dialog">
+      <img src={src} alt={caption} loading="lazy" />
+    </button> : <img src={src} alt={caption} loading={hero ? "eager" : "lazy"} />}
+    <figcaption><span>{caption}</span></figcaption>
   </figure>;
 }
 
@@ -27,6 +44,20 @@ function SectionHeading({ number, children }) {
 
 export default function VuuhProjectPage() {
   const caseRef = useRef(null);
+  const dialogRef = useRef(null);
+  const [expandedImage, setExpandedImage] = useState(null);
+
+  useEffect(() => {
+    if (!expandedImage) return undefined;
+    const dialog = dialogRef.current;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [expandedImage]);
   useEffect(() => {
     const page = caseRef.current;
     const elements = page.querySelectorAll("[data-vuuh-reveal]");
@@ -49,11 +80,11 @@ export default function VuuhProjectPage() {
   return <article className="lynk-case vuuh-case" ref={caseRef}>
     <header className="vuuh-hero vuuh-container">
       <Link className="vuuh-back" to="/projects">← Alle projekter</Link>
+      <h1><img className="vuuh-title-logo" src={vuuhLogo} alt="Vuuh" /><span>Design Better Onboarding</span></h1>
       <p className="vuuh-eyebrow">UX/UI Design · Product Optimization · 3. semester</p>
-      <h1>Vuuh <span>Design Better Onboarding</span></h1>
       <p className="vuuh-intro">Et mere overskueligt onboarding-flow med synlig progression, hjælp i den rigtige situation og tydelig feedback.</p>
       <ResourceLinks />
-      <ProjectImage caption="Vuuh-redesignet · Et sammenhængende onboarding-flow" hero />
+      <ProjectImage src={welcomeImage} caption="Vuuh-redesignet · Velkommen til onboarding" hero />
     </header>
 
     <section className="vuuh-section vuuh-container">
@@ -73,11 +104,11 @@ export default function VuuhProjectPage() {
       </div>
       <div className="vuuh-findings">
         {[
-          ["Uklar retning", "Brugeren manglede et tydeligt overblik over progression og næste relevante handling.", "UX Audit Summary · Progression og næste handling"],
-          ["Uklar butiksidentifikation", 'Sammenhængen mellem Shopifys oplysninger og Vuuhs begreb "Shop name" var svær at forstå.', "UX Audit Summary · Shop name"],
-          ["Utilstrækkelig feedback", "Det var ikke tydeligt nok, hvornår Shopify-forbindelsen var gennemført.", "UX Audit Summary · Shopify-forbindelse"],
-        ].map(([title, text, caption], index) => <article className="vuuh-finding" data-vuuh-reveal key={title}>
-          <ProjectImage caption={caption} /><span className="vuuh-eyebrow">Finding 0{index + 1}</span><h3>{title}</h3><p>{text}</p>
+          ["Uklar retning", "Brugeren manglede et tydeligt overblik over progression og næste relevante handling.", "Vuuh-dashboard · Overblik og næste handling", dashboardImage],
+          ["Uklar butiksidentifikation", 'Sammenhængen mellem Shopifys oplysninger og Vuuhs begreb "Shop name" var svær at forstå.', "Oprindelig onboarding · Find butik", originalShopImage],
+          ["Utilstrækkelig feedback", "Det var ikke tydeligt nok, hvornår Shopify-forbindelsen var gennemført.", "Oprindelig onboarding · Shopify-forbindelse", originalConnectionImage],
+        ].map(([title, text, caption, image], index) => <article className="vuuh-finding" data-vuuh-reveal key={title}>
+          <ProjectImage src={image} caption={caption} onOpen={() => setExpandedImage({ src: image, caption })} /><span className="vuuh-eyebrow">Finding {index + 1}</span><h3>{title}</h3><p>{text}</p>
         </article>)}
       </div>
       <div className="vuuh-copy" data-vuuh-reveal>
@@ -93,16 +124,16 @@ export default function VuuhProjectPage() {
         <p>Jeg arbejdede primært med at visualisere og sammenkoble løsningerne i Figma, så de fungerede som et samlet onboarding-flow.</p>
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
-        <ProjectImage caption="Figma · 4-trins stepper" />
-        <div><span className="vuuh-eyebrow">Forbedring 01</span><h3>Synlig progression</h3><p>Jeg implementerede en stepper med fire trin, hvor brugeren kan se sin aktuelle placering, afsluttede trin og det videre forløb. Designet tager udgangspunkt i Normans <em>Conceptual Model</em> og <em>Gulf of Execution</em>, da brugeren lettere skal kunne forstå processen og identificere næste handling.</p></div>
+        <ProjectImage src={onboarding1} caption="Figma · 4-trins stepper" />
+        <div><span className="vuuh-eyebrow">Forbedring 1</span><h3>Synlig progression</h3><p>Jeg implementerede en stepper med fire trin, hvor brugeren kan se sin aktuelle placering, afsluttede trin og det videre forløb. Designet tager udgangspunkt i Normans <em>Conceptual Model</em> og <em>Gulf of Execution</em>, da brugeren lettere skal kunne forstå processen og identificere næste handling.</p></div>
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
-        <ProjectImage caption="Figma · Kontekstbaseret Shop name-vejledning" />
-        <div><span className="vuuh-eyebrow">Forbedring 02</span><h3>Kontekstbaseret hjælp</h3><p>Ved indtastning af "Shop name" tilføjede vi en vejledning, der viser, hvor oplysningen findes i Shopify. Hjælpen er tilgængelig direkte i den relevante situation frem for at sende brugeren videre til en separat hjælpeside. Det understøtter <em>Mapping</em> og reducerer behovet for at gætte.</p></div>
+        <ProjectImage src={shopNameGuide} caption="Figma · Kontekstbaseret Shop name-vejledning" />
+        <div><span className="vuuh-eyebrow">Forbedring 2</span><h3>Kontekstbaseret hjælp</h3><p>Ved indtastning af "Shop name" tilføjede vi en vejledning, der viser, hvor oplysningen findes i Shopify. Hjælpen er tilgængelig direkte i den relevante situation frem for at sende brugeren videre til en separat hjælpeside. Det understøtter <em>Mapping</em> og reducerer behovet for at gætte.</p></div>
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
-        <ProjectImage caption="Figma · Success-state og næste handling" />
-        <div><span className="vuuh-eyebrow">Forbedring 03</span><h3>Feedback og UI-states</h3><p>Jeg designede loading-, success- og error-states, der kommunikerer systemets status og hjælper brugeren videre. Ved en vellykket Shopify-forbindelse vises eksempelvis en tydelig bekræftelse og en CTA til næste trin.</p><p>Det understøtter Normans <em>Feedback</em> og <em>Gulf of Evaluation</em>, hvor brugeren skal kunne forstå resultatet af sine handlinger.</p></div>
+        <ProjectImage src={successImage} caption="Figma · Success-state og næste handling" />
+        <div><span className="vuuh-eyebrow">Forbedring 3</span><h3>Feedback og UI-states</h3><p>Jeg designede loading-, success- og error-states, der kommunikerer systemets status og hjælper brugeren videre. Ved en vellykket Shopify-forbindelse vises eksempelvis en tydelig bekræftelse og en CTA til næste trin.</p><p>Det understøtter Normans <em>Feedback</em> og <em>Gulf of Evaluation</em>, hvor brugeren skal kunne forstå resultatet af sine handlinger.</p></div>
       </div>
     </section>
 
@@ -110,12 +141,17 @@ export default function VuuhProjectPage() {
       <SectionHeading number="04">Resultat og dokumentation</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
         <p>Resultatet blev en interaktiv Figma-prototype, der demonstrerer et sammenhængende onboarding-flow fra introduktion og Shopify-forbindelse til afsluttet opsætning.</p>
-        <p>Som en del af vores Accessibility Design Check arbejdede vi med fejlidentifikation, mulighed for at rette fejl og forbedret tekstkontrast.</p>
-        <p>Et konkret eksempel var en kontrastforbedring fra <strong>1,87:1 til 6,58:1</strong>, så den pågældende tekst opfylder WCAG AA's kontrastkrav for almindelig tekst.</p>
+        <p>Som en del af vores Accessibility Design Check arbejdede vi med fejlidentifikation og mulighed for at rette fejl. Error-staten gør det tydeligt, når en handling ikke lykkes, og hjælper brugeren med at rette fejlen og forsøge igen.</p>
       </div>
-      <div className="vuuh-comparison">
-        <div data-vuuh-reveal><p className="vuuh-contrast-value"><span>Før</span>1,87:1</p><ProjectImage caption="Oprindelig tekstkontrast" /></div>
-        <div data-vuuh-reveal><p className="vuuh-contrast-value"><span>Efter</span>6,58:1</p><ProjectImage caption="Forbedret tekstkontrast · WCAG AA" /></div>
+      <div className="vuuh-result-image vuuh-error-image" data-vuuh-reveal>
+        <ProjectImage src={errorImage} caption="Error-state · Fejlidentifikation og mulighed for at prøve igen" />
+      </div>
+      <div className="vuuh-flow-heading" data-vuuh-reveal><h3>Det samlede onboarding-flow</h3></div>
+      <div className="vuuh-result-image vuuh-welcome-image" data-vuuh-reveal>
+        <ProjectImage src={welcomeImage} caption="Vuuh · Velkomstskærm" />
+      </div>
+      <div className="vuuh-flow-grid">
+        {onboardingScreens.map((image, index) => <div data-vuuh-reveal key={image}><ProjectImage src={image} caption={`Onboarding · Skærm ${index + 1}`} /></div>)}
       </div>
       <div className="vuuh-copy" data-vuuh-reveal><p>Prototypen demonstrerer vores foreslåede forbedringer, men vi har ikke dokumenteret, at redesignet øger gennemførelsesgraden hos rigtige brugere. Det vil kræve efterfølgende brugertests.</p><ResourceLinks /></div>
     </div></section>
@@ -140,5 +176,14 @@ export default function VuuhProjectPage() {
       </div>
       <div className="vuuh-end" data-vuuh-reveal><ResourceLinks /><Link className="vuuh-back" to="/projects">← Tilbage til projekter</Link></div>
     </section>
+    <dialog className="vuuh-lightbox" ref={dialogRef} aria-label="Forstørret finding-billede"
+      onCancel={() => setExpandedImage(null)}
+      onClick={(event) => { if (event.target === event.currentTarget) setExpandedImage(null); }}>
+      <button className="vuuh-lightbox-close" type="button" aria-label="Luk billede" onClick={() => setExpandedImage(null)}>×</button>
+      {expandedImage && <figure className="vuuh-lightbox-content">
+        <img src={expandedImage.src} alt={expandedImage.caption} />
+        <figcaption>{expandedImage.caption}</figcaption>
+      </figure>}
+    </dialog>
   </article>;
 }

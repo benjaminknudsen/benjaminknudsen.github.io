@@ -5182,3 +5182,118 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
 .vuuh-band .vuuh-copy strong { color: #211335; }
 .vuuh-band .vuuh-contrast-value { color: #321253; }
 .vuuh-band .vuuh-resource:first-child { color: #321253; }
+
+.vuuh-title-logo { width: clamp(10rem, 23vw, 18rem); height: auto; margin-bottom: 1.5rem; }
+.vuuh-image img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.vuuh-image-hero img { aspect-ratio: auto; }
+.vuuh-result-image { margin-block: 3rem; }
+.vuuh-flow-heading { margin-top: 3rem; }
+.vuuh-flow-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-block: 2rem; }
+
+@media (max-width: 760px) {
+  .vuuh-flow-grid { grid-template-columns: 1fr; }
+}
+.project-card-link[href="/projects/vuuh"] .project-cover img {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+.vuuh-title-logo {
+  box-sizing: content-box;
+  padding: 1.25rem 1.75rem;
+  border-radius: .9rem;
+  background: #703BF1;
+}
+.vuuh-hero > .vuuh-back { display: block; width: fit-content; }
+
+.vuuh-error-image { width: min(100%, 560px); margin-inline: auto; }
+
+.vuuh-welcome-image { width: min(100%, 560px); margin-inline: auto; }
+
+/* Expand case images above surrounding content without moving the layout. */
+@media (hover: hover) and (pointer: fine) {
+  .vuuh-image {
+    position: relative;
+    z-index: 1;
+    transform-origin: center;
+    transition: transform 320ms cubic-bezier(.22, .61, .36, 1), box-shadow 320ms ease;
+    cursor: zoom-in;
+  }
+  .vuuh-image:hover {
+    z-index: 20;
+    transform: scale(1.04);
+    box-shadow: 0 16px 45px #21133540;
+  }
+  .vuuh-finding:hover,
+  .vuuh-solution:hover,
+  .vuuh-result-image:hover,
+  .vuuh-flow-grid > div:hover {
+    position: relative;
+    z-index: 30;
+  }
+  .vuuh-finding .vuuh-image:hover { transform: scale(1.45); }
+  .vuuh-solution .vuuh-image:hover,
+  .vuuh-flow-grid .vuuh-image:hover { transform: scale(1.35); }
+  .vuuh-error-image .vuuh-image:hover,
+  .vuuh-welcome-image .vuuh-image:hover { transform: scale(1.45); }
+  .vuuh-finding:first-child .vuuh-image { transform-origin: left center; }
+  .vuuh-finding:last-child .vuuh-image { transform-origin: right center; }
+  .vuuh-flow-grid > div:nth-child(odd) .vuuh-image { transform-origin: left center; }
+  .vuuh-flow-grid > div:nth-child(even) .vuuh-image { transform-origin: right center; }
+  .vuuh-solution .vuuh-image { transform-origin: left center; }
+  .vuuh-solution:nth-of-type(odd) .vuuh-image { transform-origin: right center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vuuh-image { transition: none; }
+}
+
+.vuuh-image-hero { width: 92%; margin-inline: auto; }
+.vuuh-image-hero:hover {
+  transform: none;
+  box-shadow: 0 18px 55px #703bf118;
+  cursor: default;
+}
+.vuuh-image-hero { cursor: default; }
+
+.vuuh-image-open { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.vuuh-image-open:focus-visible { outline: 3px solid #703BF1; outline-offset: -3px; }
+.vuuh-lightbox { position: fixed; inset: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 4rem 3vw 2rem; border: 0; background: transparent; color: #ffffff; }
+.vuuh-lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.vuuh-lightbox::backdrop { background: rgb(18 10 35 / 92%); }
+.vuuh-lightbox-content { margin: 0; max-width: 94vw; text-align: center; }
+.vuuh-lightbox-content img { width: auto; height: auto; max-width: 94vw; max-height: calc(100dvh - 9rem); margin-inline: auto; object-fit: contain; border-radius: .5rem; }
+.vuuh-lightbox-content figcaption { margin-top: 1rem; font-size: .9rem; }
+.vuuh-lightbox-close { position: absolute; top: 1rem; right: 1.25rem; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid #ffffff70; border-radius: 50%; background: #703BF1; color: #ffffff; font-size: 2rem; cursor: pointer; }
+.vuuh-lightbox-close:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .vuuh-finding .vuuh-image:hover { transform: scale(1.15); }
+}
+.vuuh-finding .vuuh-image-open,
+.vuuh-finding .vuuh-image-open img { cursor: zoom-in; }
+
+.vuuh-image,
+.vuuh-image:hover { cursor: default; }
+.vuuh-finding .vuuh-image-open,
+.vuuh-finding .vuuh-image-open img { cursor: zoom-in; }
+
+/* Align the text rows across the three finding cards. */
+@media (min-width: 761px) {
+  .vuuh-findings { row-gap: 0; }
+  .vuuh-finding {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+  }
+  .vuuh-finding .vuuh-image { align-self: start; }
+  .vuuh-finding .vuuh-eyebrow,
+  .vuuh-finding h3,
+  .vuuh-finding > p { align-self: start; }
+}
+
+/* Match the finding frames, cropping the middle screenshot to fit. */
+.vuuh-finding .vuuh-image-open { aspect-ratio: 1932 / 1214; overflow: hidden; }
+.vuuh-finding .vuuh-image-open img { width: 100%; height: 100%; object-fit: contain; }
+.vuuh-finding:nth-child(2) .vuuh-image-open img { object-fit: cover; transform: scale(1.08); }
+.vuuh-finding .vuuh-image figcaption { min-height: 3rem; padding-block: .5rem; }

@@ -2,7 +2,7 @@ import bluntImage from "../assets/images/blunt.svg";
 import luminaImage from "../assets/images/lumina2.svg";
 import lynkImage from "../assets/images/lynk.svg";
 
-import vuuhImage from "../assets/images/prototype.png";
+import vuuhImage from "../assets/images/vuuh.logo.svg";
 
 const projects = [
   {
@@ -57,7 +57,7 @@ const projects = [
     category: "UX/UI Design",
     accent: "#703BF1",
     categoryColor: "#703BF1",
-    coverBackground: "#eee7ff",
+    coverBackground: "#703BF1",
     summary: "Et redesign af onboarding med fokus på progression, kontekstbaseret hjælp og tydelig feedback.",
     description: "Vuuh – Design Better Onboarding. UX/UI Design · Product Optimization · 3. semester.",
     tags: ["UX-audit", "UI/UX", "Figma", "Prototyping"],
