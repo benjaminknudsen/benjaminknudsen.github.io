@@ -9,7 +9,9 @@ function Navbar() {
       ? "site-header--blunt"
     : pathname === "/projects/lumina"
       ? "site-header--lumina"
-      : "";
+      : pathname === "/projects/vuuh"
+        ? "site-header--vuuh"
+        : "";
 
   return (
     <header className={`site-header ${projectTheme}`.trim()}>
