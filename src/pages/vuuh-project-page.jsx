@@ -138,7 +138,7 @@ export default function VuuhProjectPage() {
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
         <ProjectImage src={shopNameGuide} caption="Figma · Kontekstbaseret Shop name-vejledning" />
-        <div><span className="vuuh-eyebrow">Forbedring 2</span><h3>Kontekstbaseret hjælp</h3><p>Ved indtastning af "Shop name" tilføjede vi en vejledning, der viser, hvor oplysningen findes i Shopify. Hjælpen er tilgængelig direkte i den relevante situation frem for at sende brugeren videre til en separat hjælpeside. Det understøtter <em>Mapping</em> og reducerer behovet for at gætte.</p></div>
+        <div><span className="vuuh-eyebrow">Forbedring 2</span><h3>Kontekstbaseret hjælp</h3><p>Ved indtastning af "Shop name" tilføjede vi en vejledning, der viser, hvor oplysningen findes i Shopify. Hjælpen vises direkte i den relevante situation, så brugeren ikke skal forlade flowet for at finde informationen. Det reducerer usikkerhed og gør handlingen lettere at gennemføre.</p></div>
       </div>
       <div className="vuuh-solution" data-vuuh-reveal>
         <ProjectImage src={successImage} caption="Figma · Success-state og næste handling" />
@@ -150,7 +150,8 @@ export default function VuuhProjectPage() {
       <SectionHeading number="04">Resultat og dokumentation</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
         <p>Den interaktive Figma-prototype viser et sammenhængende onboarding-flow fra introduktion og Shopify-forbindelse til afsluttet opsætning.</p>
-        <p>I vores Accessibility Design Check arbejdede vi med fejlidentifikation og mulighed for at rette fejl. Error-staten viser, når en handling mislykkes, og hjælper brugeren med at rette fejlen og prøve igen.</p>
+        <p>I vores Accessibility Design Check arbejdede vi med tekstkontrast, fejlidentifikation og mulighed for at rette fejl. Vi forbedrede blandt andet kontrastforholdet på et tekstområde fra <strong>1,87:1 til 6,58:1</strong>, så det opfylder WCAG AA's kontrastkrav for almindelig tekst.</p>
+        <p>Derudover designede jeg en error-state, der tydeligt viser, når en handling mislykkes, og hjælper brugeren med at rette fejlen og prøve igen.</p>
       </div>
       <div className="vuuh-result-image vuuh-error-image" data-vuuh-reveal>
         <ProjectImage src={errorImage} caption="Error-state · Fejlidentifikation og mulighed for at prøve igen" />

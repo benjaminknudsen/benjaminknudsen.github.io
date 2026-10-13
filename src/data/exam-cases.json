@@ -1,0 +1,122 @@
+{
+  "rouge-again": {
+    "title": "Rouge Again",
+    "subtitle": "Re-commerce & Brand Experience",
+    "badge": "Subbranding · UX/UI · Figma",
+    "intro": "Et re-commerce-koncept til La Rouge, hvor secondhand-styles får et nyt liv i et digitalt univers med genkendelig brandidentitet.",
+    "sections": [
+      {
+        "title": "Projekt og udfordring",
+        "paragraphs": [
+          "Rouge Again by La Rouge er udviklet som et subbrand til La Rouge. Konceptet samler køb og salg af secondhand-styles i en oplevelse, der viderefører modebrandets identitet. Opgaven omfattede konceptudvikling, målgruppe, subbranding, visuel identitet, brugerflows og en interaktiv Figma-prototype.",
+          "Udfordringen var at give re-commerce sin egen plads uden at bryde forbindelsen til hovedbrandet. Køberen skal kunne orientere sig, og sælgeren skal kunne præsentere en brugt style. De to roller skal møde samme univers."
+        ]
+      },
+      {
+        "title": "Undersøgelse og konceptudvikling",
+        "paragraphs": [
+          "Konceptets målgruppe er brugere, der vil købe eller sælge secondhand-styles i et univers knyttet til La Rouge. For køberen er produktinformation og overblik centrale behov. For sælgeren er opgaven at oprette et produkt og forstå, hvordan det fremstår før publicering.",
+          "Marked og konkurrenter er relevante for positioneringen. Konceptet bygger på forbindelsen til La Rouge frem for et udvalg på tværs af brands. Konkrete konkurrentfund og målgruppeindsigter skal dokumenteres, før de kan bruges som belæg for efterspørgslen."
+        ]
+      },
+      {
+        "title": "Brandidentitet og designbeslutninger",
+        "paragraphs": [
+          "Navnet Rouge Again forbinder konceptet med La Rouge og peger på, at tøjet kan bruges igen. Subbrandet skal kunne genkendes som en del af hovedbrandet, men samtidig gøre secondhand-formålet tydeligt. Det er en balance mellem genkendelighed og en selvstændig identitet.",
+          "Den visuelle retning kombinerer skandinavisk minimalisme og fransk femininitet. Varme brune og neutrale farver, serif-overskrifter og sans-serif brødtekst giver plads til produkterne. På casesiden bruges denne retning som foreløbig præsentation; de endelige farver og typografier skal afstemmes med Figma-materialet.",
+          "Et roligt hierarki holder fokus på produktbilleder, pris og handlinger. Også et redaktionelt udtryk kræver tydelige funktioner: Brandoplevelsen skal understøtte navigationen."
+        ],
+        "image": "identity"
+      },
+      {
+        "title": "Brugeroplevelse og prototype",
+        "paragraphs": [
+          "Figma-prototypen omfatter en landingpage og et køberflow fra produktoversigt og produktdetaljer til kurv, checkout og ordrebekræftelse. Forløbet forbinder inspiration med en konkret handel. Produktdetaljerne er et vigtigt led, fordi køberen her skal kunne vurdere en style, før den lægges i kurven.",
+          "Sælgerflowet omfatter oprettelse af produkt, produktinformation, pris, preview og publicering. Opdelingen gør det muligt at arbejde med én del af oprettelsen ad gangen. Preview giver en anledning til at kontrollere præsentationen før publicering og skaber en forbindelse mellem sælgerens indtastninger og det, køberen møder.",
+          "Profilen og oversigten over brugerens produkter samler den personlige del af oplevelsen. QR-kodefunktionen indgår også i konceptet. Dens konkrete anvendelse og sammenhæng med de øvrige flows skal forklares ud fra projektmaterialet; den beskrives derfor ikke her som en færdig teknisk integration."
+        ],
+        "images": [
+          "buyer",
+          "seller"
+        ]
+      },
+      {
+        "title": "Resultat og dokumentation",
+        "paragraphs": [
+          "Resultatet er et re-commerce-koncept med en interaktiv Figma-prototype, der samler landingpage, køberflow, sælgerflow og profil. Designleverancerne omfatter subbrandets visuelle identitet og de centrale skærme. Prototypen viser, hvordan funktionerne tænkes forbundet, men er ikke en implementeret handelsplatform.",
+          "Dokumentationslinks og screenshots skal underbygge designbeslutningerne. Der foreligger ikke dokumentation her for brugertests, konvertering eller faktiske handler. Effekten på brugeroplevelse og salg skal vurderes gennem efterfølgende test og drift."
+        ],
+        "image": "profile"
+      },
+      {
+        "title": "Faglig refleksion",
+        "paragraphs": [
+          "Projektet giver anledning til at se branding og brugeroplevelse som én samlet opgave. Et subbrand skal både udtrykke et tilhørsforhold og forklare sin funktion. I et re-commerce-univers bliver den forbindelse konkret i mødet mellem produktpræsentation, navigation og køb eller salg.",
+          "Næste skridt er at afprøve begge flows: Kan køberen finde relevante oplysninger, og kan sælgeren oprette en style uden hjælp? Testene skal også undersøge, om forbindelsen til La Rouge er forståelig. Min individuelle rolle skal præciseres i den endelige case."
+        ]
+      },
+      {
+        "title": "Forretningspotentiale",
+        "paragraphs": [
+          "Rouge Again kan potentielt forlænge tøjets brugstid og give kunderne en ny anledning til at møde La Rouge. Et samlet univers for køb og salg kan understøtte relationen til brandet, også efter det første køb. Værdien afhænger dog af efterspørgsel, tillid og en praktisk model for handel. Prototypen dokumenterer et koncept, ikke omsætning eller en målbar miljøeffekt."
+        ]
+      }
+    ]
+  },
+  "mellemrum": {
+    "title": "Mellemrum",
+    "subtitle": "Optimering af React-applikation",
+    "badge": "React · Vite · Supabase",
+    "intro": "Videreudvikling af en eksisterende React-applikation med fokus på tilmeldinger, datamodel og en mere sammenhængende brugeroplevelse.",
+    "sections": [
+      {
+        "title": "Projekt og udfordring",
+        "paragraphs": [
+          "Mellemrum er en eksisterende React-applikation, som jeg fik til opgave at optimere. Formålet var at forbedre funktionalitet, datamodel, brugeroplevelse og teknisk kvalitet. Applikationen er udviklet med React og Vite og bruger Supabase som backend.",
+          "Jeg videreudviklede eksisterende kode. Udfordringen var at få data, navigation og brugerhandlinger til at hænge sammen. Tilmeldingsflowet skulle være forankret i relationer mellem venues, events og registrations."
+        ]
+      },
+      {
+        "title": "Undersøgelse og prioritering",
+        "paragraphs": [
+          "Jeg arbejdede med databasens struktur, tilmeldingsflowet, CRUD og UI-states. Sammenhængen mellem data og handlinger var central: Den valgte aktivitet og den registrerede tilmelding skal høre sammen.",
+          "Søgning, sortering, navigation og komponentstruktur indgik også. Prioriteringen omfattede funktionelle og tekniske forbedringer. Der er ikke angivet førmålinger eller brugertests; vurderingen bygger på de områder, jeg arbejdede med."
+        ]
+      },
+      {
+        "title": "Løsning og implementering",
+        "paragraphs": [
+          "Jeg normaliserede Supabase-databasen med relationer mellem venues, events og registrations. Opdelingen giver oplysningerne en tydelig plads og gør relationerne mellem sted, aktivitet og tilmelding eksplicitte. Strukturen skal dokumenteres med et diagram fra projektet.",
+          "Jeg forbedrede tilmeldingsflowet og håndteringen af tilmeldinger og arbejdede med CRUD. Grænsefladen skal afspejle data, der oprettes, læses, ændres eller slettes. Komponenterne skal reagere på resultatet, så brugeren kan forstå, om handlingen lykkedes.",
+          "Loading-, error-, empty- og success-states gør situationerne synlige. Loading viser, at data er på vej; empty adskiller en tom visning fra en fejl. Error og success kommunikerer handlingens udfald. Tilstandene skal tænkes sammen med den almindelige visning.",
+          "Søgning og sortering understøtter overblik, mens forbedringer af komponentstruktur og navigation gør applikationen lettere at videreudvikle. Jeg arbejdede desuden med billedoptimering og lazy loading. Det er tekniske tiltag, men der er ikke dokumenteret en bestemt forbedring af indlæsningstiden."
+        ],
+        "images": [
+          "database",
+          "registration"
+        ]
+      },
+      {
+        "title": "Resultat og dokumentation",
+        "paragraphs": [
+          "Applikationen er publiceret og kan åbnes via linket i casen. Optimeringen omfatter databaserelationer, tilmeldinger, CRUD, UI-states, søgning, sortering og billeder. Screenshots skal dokumentere funktionerne i den faktiske applikation.",
+          "Der er ikke dokumenteret en målbar effekt på hastighed eller gennemførelse af tilmeldinger. Det kræver sammenlignelige målinger og brugertests. Kode og skærmbilleder skal underbygge implementeringen og forklare valgene."
+        ],
+        "image": "states"
+      },
+      {
+        "title": "Faglig refleksion",
+        "paragraphs": [
+          "Eksisterende kode kræver, at jeg forstår sammenhængene, før jeg ændrer dem. I React og Supabase forbinder datamodellen komponenternes ansvar: En ændret tilmelding kan påvirke hentning, visning og fejlhåndtering.",
+          "Et næste skridt er at kontrollere hele tilmeldingsflowet i både normale og uventede situationer. Jeg vil også dokumentere databasens relationer og de vigtigste kodeændringer, så løsningen kan vurderes og overtages uden kun at være afhængig af min forklaring."
+        ]
+      },
+      {
+        "title": "Forretningspotentiale",
+        "paragraphs": [
+          "En stabil applikation kan lette søgning og tilmelding. Datamodel og komponentstruktur kan lette vedligeholdelsen. Potentialet skal valideres med data fra brug og drift."
+        ]
+      }
+    ]
+  }
+}

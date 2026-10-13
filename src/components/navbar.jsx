@@ -11,7 +11,11 @@ function Navbar() {
       ? "site-header--lumina"
       : pathname === "/projects/vuuh"
         ? "site-header--vuuh"
-        : "";
+        : pathname === "/projects/rouge-again"
+          ? "site-header--rouge"
+          : pathname === "/projects/mellemrum"
+            ? "site-header--mellemrum"
+            : "";
 
   return (
     <header className={`site-header ${projectTheme}`.trim()}>
