@@ -6,6 +6,9 @@ import LuminaProjectPage from "./lumina-project-page";
 
 import VuuhProjectPage from "./vuuh-project-page";
 
+import ExamCasePage from "../components/exam-case-page";
+import RougeAgainProjectPage from "./rouge-again-project-page";
+
 function ProjectPage() {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
@@ -23,6 +26,14 @@ function ProjectPage() {
 
   if (slug === "vuuh") {
     return <VuuhProjectPage />;
+  }
+
+  if (slug === "rouge-again") {
+    return <RougeAgainProjectPage />;
+  }
+
+  if (slug === "mellemrum") {
+    return <ExamCasePage key={slug} slug={slug} />;
   }
 
   if (!project) {

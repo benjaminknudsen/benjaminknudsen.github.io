@@ -4,6 +4,9 @@ import lynkImage from "../assets/images/lynk.svg";
 
 import vuuhImage from "../assets/images/vuuh.logo.svg";
 
+import rougeImage from "../assets/images/rouge-again/prototype-hero.svg";
+import mellemrumImage from "../assets/images/mellemrum/applikation-hero.svg";
+
 const projects = [
   {
     slug: "lynk",
@@ -35,6 +38,35 @@ const projects = [
     links: [],
   },
   {
+    slug: "vuuh",
+    title: "Vuuh",
+    year: "2026",
+    category: "UX/UI Design",
+    accent: "#703BF1",
+    categoryColor: "#703BF1",
+    coverBackground: "#703BF1",
+    summary: "Et redesign af onboarding med fokus på progression, kontekstbaseret hjælp og tydelig feedback.",
+    description: "Vuuh – Design Better Onboarding. UX/UI Design · Product Optimization · 3. semester.",
+    tags: ["UX-audit", "UI/UX", "Figma", "Prototyping"],
+    image: vuuhImage,
+    links: [],
+  },
+  {
+    slug: "rouge-again", title: "Rouge Again", year: "2026",
+    category: "Re-commerce & Branding", accent: "#A89585", categoryColor: "#5C4A43", coverBackground: "#E0D6CC",
+    summary: "Et re-commerce-subbrand til La Rouge med visuel identitet og en Figma-prototype til køb og salg af secondhand-styles.",
+    description: "Rouge Again – Re-commerce & Brand Experience",
+    tags: ["Branding", "UX/UI", "Figma"], image: rougeImage, links: [],
+  },
+  {
+    slug: "mellemrum", title: "Mellemrum", year: "2026",
+    category: "React & Optimering", accent: "#7f9884", categoryColor: "#385441", coverBackground: "#e8ede5",
+    summary: "Optimering af en React-applikation med Supabase, databaserelationer og et forbedret tilmeldingsflow.",
+    description: "Mellemrum – Optimering af React-applikation",
+    tags: ["React", "Supabase", "UX"], image: mellemrumImage,
+    links: [{ label: "Åbn applikationen", href: "https://benjaminknudsen.github.io/mellemrum-react-optimering-3sem/" }],
+  },
+  {
     slug: "lumina",
     title: "Lumina",
     year: "2026",
@@ -50,20 +82,8 @@ const projects = [
     image: luminaImage,
     links: [],
   },
-  {
-    slug: "vuuh",
-    title: "Vuuh",
-    year: "2026",
-    category: "UX/UI Design",
-    accent: "#703BF1",
-    categoryColor: "#703BF1",
-    coverBackground: "#703BF1",
-    summary: "Et redesign af onboarding med fokus på progression, kontekstbaseret hjælp og tydelig feedback.",
-    description: "Vuuh – Design Better Onboarding. UX/UI Design · Product Optimization · 3. semester.",
-    tags: ["UX-audit", "UI/UX", "Figma", "Prototyping"],
-    image: vuuhImage,
-    links: [],
-  },
 ];
+
+export const featuredProjectSlugs = ["lynk", "blunt", "rouge-again", "vuuh"];
 
 export default projects;

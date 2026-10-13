@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import portraitImage from "../assets/images/portfolio-billede3.jpeg";
 import leisurePortrait from "../assets/images/bkbk.svg";
-import projects from "../data/projects";
+import projects, { featuredProjectSlugs } from "../data/projects";
 
 function HomePage() {
-  const featuredProjects = projects.slice(0, 4);
+  const featuredProjects = featuredProjectSlugs.map((slug) => projects.find((project) => project.slug === slug));
   const projectsSectionRef = useRef(null);
   const spareTimeSectionRef = useRef(null);
 

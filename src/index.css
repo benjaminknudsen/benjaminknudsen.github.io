@@ -5423,3 +5423,546 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
 @media (max-width: 760px) {
   .vuuh-closing-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
+
+/* New exam cases use the portfolio's spacing, navigation and reveal language. */
+.exam-case { --case-accent: #385441; --case-ink: #253c2e; --case-paper: #fafbf7; --case-wash: #e8ede5; --case-line: #ced8ca; background: var(--case-paper); color: var(--case-ink); overflow: clip; }
+.exam-case--rouge-again { --case-accent: #684b39; --case-ink: #3b2a22; --case-paper: #fbf8f4; --case-wash: #eee5db; --case-line: #ded0c3; }
+.exam-case-shell { width: min(100% - 2rem, 1120px); margin-inline: auto; }
+.exam-case-hero { padding-block: 2.5rem 1rem; }
+.exam-case-hero > .back-link { display: inline-block; margin-bottom: 2rem; }
+.exam-case-badge { font-size: .75rem; letter-spacing: .06em; color: var(--case-accent); }
+.exam-case h1 { margin-block: 1rem; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1; letter-spacing: -.05em; }
+.exam-case h1 > span { display: block; font-family: "Avenir Next", Avenir, sans-serif; font-size: clamp(1.1rem, 2.5vw, 1.7rem); line-height: 1.4; letter-spacing: -.015em; margin-top: 1rem; font-weight: 400; }
+.exam-case--rouge-again h1, .exam-case--rouge-again h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.exam-case-intro { max-width: 650px; font-size: 1.1rem; line-height: 1.8; }
+.exam-case-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: 1.75rem; }
+.exam-case-links a, .exam-case-links > span { padding: .85rem 1rem; border: 1px solid var(--case-line); border-radius: .55rem; font-size: .8rem; text-decoration: none; }
+.exam-case-links a { background: var(--case-accent); color: #ffffff; transition: filter 180ms ease; }
+.exam-case-links a:hover { filter: brightness(.85); }
+.exam-case-links > span { color: var(--case-accent); background: var(--case-wash); }
+.exam-case a:focus-visible { outline: 3px solid var(--case-accent); outline-offset: 4px; }
+.exam-case-image { margin: 2rem 0 0; min-width: 0; overflow: hidden; border: 1px solid var(--case-line); border-radius: .75rem; background: var(--case-wash); }
+.exam-case-image img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; }
+.exam-case-image figcaption { padding: .85rem 1rem; font-size: .75rem; line-height: 1.5; }
+.exam-case-section { padding-block: 3rem; border-bottom: 1px solid var(--case-line); }
+.exam-case-heading { display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1.5rem; }
+.exam-case-heading > span { font-size: .8rem; color: var(--case-accent); }
+.exam-case-heading h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -.025em; }
+.exam-case-copy { max-width: 760px; }
+.exam-case-copy p { font-size: 1rem; line-height: 1.85; margin-block: 0 1.1rem; }
+.exam-case-image-pair { display: grid; gap: 1.25rem; }
+.exam-case-end { padding-block: 1rem 4rem; }
+.exam-reveal-ready [data-case-reveal] { opacity: 0; transform: translateY(2rem); transition: opacity 900ms ease, transform 1100ms cubic-bezier(.22,.61,.36,1); }
+.exam-reveal-ready [data-case-reveal].is-visible { opacity: 1; transform: none; }
+.site-header--rouge { --contact-accent: #684b39; }
+.site-header--mellemrum { --contact-accent: #385441; }
+.site-header--rouge .contact-link:hover, .site-header--mellemrum .contact-link:hover { color: #ffffff; }
+@media (min-width: 761px) {
+  .exam-case-shell { width: min(100% - 3rem, 1120px); }
+  .exam-case-hero { padding-top: 4rem; }
+  .exam-case-section { padding-block: 4rem; }
+  .exam-case-image-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .exam-case--rouge-again .exam-case-section:nth-child(3) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; align-items: center; }
+  .exam-case--rouge-again .exam-case-section:nth-child(3) .exam-case-heading { grid-column: 1 / -1; }
+  .exam-case--rouge-again .exam-case-section:nth-child(3) > .exam-case-image { margin-top: 0; }
+  .exam-case-conclusion { display: inline-block; width: calc(50% - 1.5rem); vertical-align: top; border: 0; }
+  .exam-case-conclusion + .exam-case-conclusion { margin-left: 3rem; }
+  .exam-case-conclusion h2 { font-size: 1.8rem; }
+  .exam-case-end { border-top: 1px solid var(--case-line); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exam-reveal-ready [data-case-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* Rouge Again: image-led editorial storytelling, scoped to this case. */
+.rouge-case { --rouge-ink: #3b2a22; --rouge-brown: #684b39; --rouge-paper: #fbf8f4; --rouge-wash: #eee5db; background: var(--rouge-paper); color: var(--rouge-ink); overflow: clip; }
+.rouge-shell { width: min(100% - 2rem, 1200px); margin-inline: auto; }
+.rouge-section { padding-block: clamp(3.5rem, 8vw, 7rem); }
+.rouge-label { display: block; font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; line-height: 1.6; color: var(--rouge-brown); margin-bottom: 1.2rem; }
+.rouge-heading h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.08; letter-spacing: -.04em; margin: 0 0 1.5rem; }
+.rouge-copy { max-width: 680px; }
+.rouge-copy p, .rouge-intro { line-height: 1.85; font-size: .97rem; }
+.rouge-copy p { margin: 0 0 1.2rem; }
+.rouge-back { display: inline-block; text-decoration: none; font-size: .85rem; }
+.rouge-back:hover { text-decoration: underline; }
+.rouge-case a:focus-visible { outline: 3px solid #997459; outline-offset: 5px; }
+.rouge-hero { padding-block: 2rem 3rem; }
+.rouge-hero > .rouge-back { margin-bottom: 3rem; }
+.rouge-hero-grid { display: grid; gap: 2rem; }
+.rouge-hero-copy h1 { font-family: Georgia, serif; font-size: clamp(3.1rem, 6.2vw, 5.5rem); font-weight: 400; line-height: 1; letter-spacing: -.05em; margin: 2rem 0 1.4rem; }
+.rouge-hero-copy h1 span { display: block; font-size: clamp(1.3rem, 2.5vw, 1.9rem); line-height: 1.3; letter-spacing: -.02em; margin-top: 1.25rem; }
+.rouge-intro { max-width: 430px; }
+.rouge-image { margin: 0; min-width: 0; background: #e4d6c8; }
+.rouge-image img { display: block; width: 100%; height: auto; object-fit: contain; }
+.rouge-image figcaption { padding: .7rem .85rem; font-size: .7rem; line-height: 1.4; color: #684b39; background: #f3ece4; }
+.rouge-logo { max-width: 210px; margin-top: 1.75rem; }
+.rouge-logo img { aspect-ratio: 3 / 1; object-fit: cover; }
+.rouge-logo figcaption { font-size: .65rem; }
+.rouge-hero-collage { position: relative; padding: 0 0 3rem; }
+.rouge-hero-detail { width: 68%; margin: -2rem 0 0 auto; position: relative; border: 8px solid var(--rouge-paper); box-shadow: 0 18px 40px #3b2a2217; }
+.rouge-challenge h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 400; line-height: 1.6; max-width: 900px; margin: 0 0 2rem; }
+.rouge-split { display: grid; gap: 1rem; margin-bottom: 3rem; }
+.rouge-wash { background: var(--rouge-wash); }
+.rouge-digital { background: #e4d6c8; }
+.rouge-brand-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rouge-brand-mood, .rouge-brand-use { grid-column: 1 / -1; }
+.rouge-brand-photo img { height: calc(100% - 2.5rem); object-fit: contain; }
+.rouge-system-grid { display: grid; gap: 1rem; }
+.rouge-ui-grid { display: grid; gap: 1.5rem; }
+.rouge-buyer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.rouge-buyer-grid > :last-child { grid-column: 1 / -1; width: 60%; justify-self: center; }
+.rouge-seller-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.rouge-decisions { display: grid; gap: 2rem; align-items: center; }
+.rouge-finale { background: #4e372b; color: #fff8ef; }
+.rouge-finale .rouge-label { color: #dfc7b2; }
+.rouge-conclusions { display: grid; gap: 2rem; margin-block: 3rem; }
+.rouge-conclusions h3 { font-size: .95rem; margin: 0 0 1.25rem; }
+.rouge-finale .rouge-copy p { color: #f0e3d8; font-size: .9rem; }
+.rouge-case .exam-case-links > span { color: #684b39; border-color: #d7c4b2; background: #eee5db; }
+.rouge-finale .exam-case-links { border-top: 1px solid #8c6b54; padding-top: 1.5rem; }
+.rouge-reveal-ready [data-rouge-reveal] { opacity: 0; transform: translateY(2rem); transition: opacity 900ms ease, transform 1100ms cubic-bezier(.22,.61,.36,1); }
+.rouge-reveal-ready [data-rouge-reveal].is-visible { opacity: 1; transform: none; }
+@media (min-width: 761px) {
+  .rouge-shell { width: min(100% - 3rem, 1200px); }
+  .rouge-hero { padding-top: 3rem; }
+  .rouge-hero-grid { grid-template-columns: .85fr 1.15fr; gap: 4rem; align-items: center; }
+  .rouge-hero-main img { aspect-ratio: 4 / 5; object-fit: contain; }
+  .rouge-hero-detail { margin-top: -5rem; margin-right: -1rem; }
+  .rouge-split { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .rouge-challenge { display: grid; grid-template-columns: .9fr 1.1fr; gap: 0 4rem; }
+  .rouge-challenge .rouge-heading { grid-row: span 2; }
+  .rouge-brand-grid { grid-template-columns: repeat(12, minmax(0,1fr)); gap: 1.5rem; }
+  .rouge-brand-mood { grid-column: 1 / 8; grid-row: span 2; }
+  .rouge-brand-mood img { aspect-ratio: 4 / 5; }
+  .rouge-brand-photo { grid-column: 8 / -1; }
+  .rouge-brand-logo { grid-column: 8 / -1; }
+  .rouge-brand-graphic { grid-column: 1 / 5; }
+  .rouge-brand-use { grid-column: 5 / -1; }
+  .rouge-system-grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 1.5rem; }
+  .rouge-ui-grid { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 3rem; }
+  .rouge-ui-grid > :last-child { margin-top: 5rem; }
+  .rouge-buyer-grid { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 1.25rem; }
+  .rouge-buyer-grid > :nth-child(even) { margin-top: 3rem; }
+  .rouge-buyer-grid > :last-child { grid-column: auto; width: 100%; }
+  .rouge-seller-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; }
+  .rouge-seller-grid > :nth-child(3n+2) { transform: translateY(1.5rem); }
+  .rouge-decisions { grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .rouge-conclusions { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rouge-reveal-ready [data-rouge-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* Actual Rouge Again material: preserve native image proportions. */
+.rouge-logo.rouge-image-real { max-width: 190px; background: transparent; }
+.rouge-logo.rouge-image-real img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.rouge-logo.rouge-image-real figcaption { display: none; }
+.rouge-hero-main.rouge-image-real img,
+.rouge-brand-mood.rouge-image-real img,
+.rouge-brand-photo.rouge-image-real img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.rouge-hero-detail.rouge-image-real { width: 34%; }
+.rouge-brand-logo.rouge-image-real img { width: min(65%, 230px); margin-inline: auto; padding: 1.5rem 0; }
+.rouge-ui-grid .rouge-image-real { width: min(100%, 380px); justify-self: center; }
+.rouge-system-grid .rouge-image-real { display: flex; flex-direction: column; justify-content: center; }
+.rouge-system-grid .rouge-image-real figcaption { margin-top: auto; }
+.rouge-decisions > .rouge-image-real { width: min(100%, 340px); justify-self: center; }
+.rouge-result-image { margin-block: 3rem; }
+.rouge-result-image img { max-height: 650px; object-fit: contain; }
+@media (max-width: 760px) {
+  .rouge-hero-detail.rouge-image-real { width: 40%; }
+}
+
+/* Phone-shaped prototypes and gentle image interaction. */
+.rouge-image-visual { position: relative; transition: transform 300ms ease, box-shadow 300ms ease; }
+.rouge-image-phone { background: transparent; }
+.rouge-image-phone .rouge-image-visual {
+  overflow: hidden;
+  border-radius: clamp(.5rem, 1vw, .8rem);
+  border: 1px solid #684b3926;
+  background: #f8f6f2;
+  box-shadow: 0 8px 24px #3b2a2212;
+}
+.rouge-image-phone figcaption { background: transparent; }
+.rouge-reveal-ready [data-rouge-reveal].from-left { transform: translateX(-2.75rem); }
+.rouge-reveal-ready [data-rouge-reveal].from-right { transform: translateX(2.75rem); }
+.rouge-reveal-ready [data-rouge-reveal].from-bottom { transform: translateY(2rem); }
+.rouge-reveal-ready [data-rouge-reveal].is-visible { transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  .rouge-image-hover:hover { position: relative; z-index: 5; }
+  .rouge-image-hover:hover .rouge-image-visual { transform: scale(1.035); box-shadow: 0 14px 35px #3b2a2226; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rouge-reveal-ready [data-rouge-reveal] { opacity: 1; transform: none !important; transition: none; }
+  .rouge-image-visual { transition: none; }
+}
+
+/* Keep complete Rouge Again visuals within the viewport. */
+.rouge-image .rouge-image-visual img {
+  width: 100%;
+  height: auto;
+  max-height: min(620px, 65svh);
+  object-fit: contain;
+}
+.rouge-image-phone .rouge-image-visual img { max-height: min(540px, 62svh); }
+.rouge-seller-grid .rouge-image { width: min(100%, 230px); justify-self: center; }
+.rouge-result-image { width: min(100%, 820px); margin-inline: auto; }
+.rouge-result-image .rouge-image-visual img { max-height: min(460px, 58svh); }
+.rouge-brand-mood.rouge-image-real .rouge-image-visual img,
+.rouge-hero-main.rouge-image-real .rouge-image-visual img { aspect-ratio: auto; }
+@media (min-width: 761px) {
+  .rouge-seller-grid { column-gap: 1.5rem; row-gap: 2.5rem; }
+}
+
+/* Show the complete assets without background panels or clipping. */
+.rouge-image,
+.rouge-image-visual,
+.rouge-image-phone .rouge-image-visual {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.rouge-image figcaption { background: transparent; }
+.rouge-image .rouge-image-visual img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  margin-inline: auto;
+}
+.rouge-image-phone .rouge-image-visual { border-radius: 0; }
+.rouge-image-phone .rouge-image-visual img { border-radius: clamp(.5rem, 1vw, .8rem); }
+.rouge-hero-detail { border: 0; box-shadow: none; }
+.rouge-image-hover:hover .rouge-image-visual { box-shadow: none; }
+
+/* A crisp logo-led hero in the existing warm brand palette. */
+.rouge-hero-brand {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 340px;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 18%, #fffaf2b3, transparent 55%),
+    radial-gradient(ellipse at 95% 90%, #99745940, transparent 65%),
+    linear-gradient(135deg, #f4eee6, #e4d6c8);
+}
+.rouge-hero-brand::before,
+.rouge-hero-brand::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  aspect-ratio: 1;
+  border: 1px solid #99745930;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.rouge-hero-brand::before { top: -40%; right: -25%; }
+.rouge-hero-brand::after { bottom: -50%; left: -25%; }
+.rouge-hero-brand > img { width: 52%; height: auto; position: relative; z-index: 1; }
+@media (max-width: 480px) {
+  .rouge-hero-brand { min-height: 260px; }
+}
+
+@media (min-width: 761px) {
+  .rouge-ui-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+}
+
+/* Rouge Again's documented brand palette. */
+.rouge-case {
+  --rouge-black: #1A1A1A;
+  --rouge-paper: #F7F6F3;
+  --rouge-brown: #5C4A43;
+  --rouge-muted: #A89585;
+  --rouge-wash: #E0D6CC;
+  --rouge-ink: #1A1A1A;
+}
+.rouge-label, .rouge-heading h2, .rouge-hero-copy h1,
+.rouge-challenge h3, .rouge-image figcaption { color: #5C4A43; }
+.rouge-digital { background: #E0D6CC; }
+.rouge-brand-grid .rouge-image,
+.rouge-image-visual { background: transparent; }
+.rouge-hero-brand {
+  background:
+    radial-gradient(ellipse at 18% 18%, #F7F6F3, transparent 65%),
+    radial-gradient(ellipse at 95% 90%, #A8958533, transparent 65%),
+    linear-gradient(135deg, #F7F6F3, #E0D6CC);
+}
+.rouge-hero-brand::before,
+.rouge-hero-brand::after { border-color: #A8958540; }
+.rouge-case .exam-case-links > span { color: #5C4A43; border-color: #A89585; background: #F7F6F3; }
+.rouge-case a:focus-visible { outline-color: #5C4A43; }
+.rouge-finale { background: #5C4A43; color: #F7F6F3; }
+.rouge-finale .rouge-heading h2,
+.rouge-finale .rouge-label,
+.rouge-finale .rouge-copy p { color: #F7F6F3; }
+.rouge-finale .exam-case-links { border-color: #A89585; }
+.site-header--rouge { --contact-accent: #5C4A43; }
+
+.rouge-case .exam-case-links a { background: #5C4A43; border-color: #5C4A43; color: #F7F6F3; }
+.rouge-case .exam-case-links a + a { background: transparent; color: #5C4A43; }
+.rouge-finale .exam-case-links a { background: #F7F6F3; border-color: #F7F6F3; color: #5C4A43; }
+.rouge-finale .exam-case-links a + a { background: transparent; color: #F7F6F3; }
+
+/* Editorial identity carried through the page, using the official palette. */
+.rouge-hero {
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+  border-bottom: 1px solid #A89585;
+}
+.rouge-hero-copy h1 {
+  font-size: clamp(3.6rem, 8vw, 7rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+.rouge-hero-copy h1 span { font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin-top: 1.75rem; }
+.rouge-heading h2 {
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+.rouge-label { display: flex; align-items: center; gap: .85rem; font-size: .68rem; letter-spacing: .17em; }
+.rouge-label::before { content: ""; width: 2.25rem; height: 1px; background: currentColor; flex-shrink: 0; }
+.rouge-challenge { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.rouge-challenge h3 { color: #5C4A43; }
+.rouge-wash { background: #E0D6CC; }
+.rouge-wash .rouge-section { border-top: 1px solid #A89585; }
+.rouge-brand-grid { padding-top: 1.5rem; border-top: 1px solid #A89585; }
+.rouge-image figcaption { font-size: .68rem; letter-spacing: .02em; padding-top: .9rem; }
+.rouge-digital { background: #5C4A43; color: #F7F6F3; }
+.rouge-digital .rouge-heading h2,
+.rouge-digital .rouge-label,
+.rouge-digital .rouge-image figcaption { color: #F7F6F3; }
+.rouge-digital .rouge-ui-grid { border-top: 1px solid #A89585; padding-top: 2.5rem; }
+.rouge-system-grid { align-items: center; gap: 2rem; }
+.rouge-system-grid > :nth-child(2) { order: 3; }
+.rouge-system-grid > :nth-child(3) { order: 2; }
+.rouge-system-grid > :nth-child(2) .rouge-image-visual img { width: 100%; max-height: none; }
+.rouge-system-grid > :nth-child(1) .rouge-image-visual img { max-height: 240px; }
+.rouge-system-grid > :nth-child(3) .rouge-image-visual { padding-block: 3rem; }
+.rouge-decisions { border-top: 1px solid #A89585; }
+.rouge-finale .rouge-heading h2 { font-size: clamp(2.7rem, 6.7vw, 5.8rem); }
+.rouge-conclusions h3 { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 400; }
+.rouge-conclusions > section { border-top: 1px solid #A89585; padding-top: 1.5rem; }
+.rouge-case .exam-case-links a { border-radius: 0; padding: 1rem 1.25rem; transition: background 180ms ease, color 180ms ease; }
+.rouge-case .exam-case-links a:hover { filter: none; background: #1A1A1A; border-color: #1A1A1A; color: #F7F6F3; }
+.rouge-finale .exam-case-links a:hover { background: #E0D6CC; border-color: #E0D6CC; color: #1A1A1A; }
+@media (min-width: 761px) {
+  .rouge-system-grid { grid-template-columns: 1fr 1fr; column-gap: 4rem; row-gap: 3rem; }
+  .rouge-system-grid > :nth-child(2) { grid-column: 1 / -1; }
+}
+
+.rouge-system-grid > :nth-child(2) .rouge-image-visual img {
+  border: 0;
+  outline: 0;
+  clip-path: inset(2px);
+}
+
+/* La Rouge photography is identified as reference material, alongside our work. */
+.rouge-reference { margin: 0; min-width: 0; }
+.rouge-reference > img { display: block; width: 100%; height: auto; object-fit: contain; object-position: center; }
+.rouge-reference figcaption { color: #5C4A43; font-size: .62rem; line-height: 1.5; padding-top: .7rem; }
+.rouge-hero-fashion { position: relative; padding-bottom: 0; }
+.rouge-reference-hero { width: 75%; margin-left: auto; }
+.rouge-reference-hero > img { max-height: min(540px, 65svh); width: auto; max-width: 100%; margin-left: auto; }
+.rouge-hero-fashion .rouge-hero-brand { position: absolute; left: 0; bottom: 15%; width: 45%; min-height: 0; aspect-ratio: 1.2; }
+.rouge-hero-fashion .rouge-hero-brand > img { width: 70%; }
+.rouge-brand-with-references .rouge-reference-paris { grid-column: 1 / -1; width: min(100%, 440px); justify-self: center; }
+.rouge-brand-with-references .rouge-reference-dunes { grid-column: 1 / -1; width: min(100%, 340px); justify-self: center; }
+.rouge-digital .rouge-reference figcaption { color: #E0D6CC; }
+.rouge-reference-digital { width: min(100%, 300px); justify-self: center; align-self: center; }
+.rouge-reference-digital > img { max-height: min(460px, 58svh); width: auto; max-width: 100%; margin-inline: auto; }
+@media (min-width: 761px) {
+  .rouge-brand-with-references { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; align-items: center; }
+  .rouge-brand-with-references .rouge-reference-paris { grid-column: 1 / 5; grid-row: 1 / 3; width: 100%; }
+  .rouge-brand-with-references .rouge-brand-mood { grid-column: 5 / 10; grid-row: 1 / 3; }
+  .rouge-brand-with-references .rouge-brand-photo { grid-column: 10 / -1; grid-row: 1; }
+  .rouge-brand-with-references .rouge-brand-logo { grid-column: 10 / -1; grid-row: 2; }
+  .rouge-brand-with-references .rouge-reference-dunes { grid-column: 1 / 5; grid-row: 3; width: 80%; justify-self: start; }
+  .rouge-brand-with-references .rouge-brand-graphic { grid-column: 5 / 8; grid-row: 3; }
+  .rouge-brand-with-references .rouge-brand-use { grid-column: 8 / -1; grid-row: 3; }
+  .rouge-ui-with-reference { grid-template-columns: repeat(2, minmax(0,1fr)); align-items: start; }
+  .rouge-ui-with-reference > :last-child { margin-top: 0; }
+}
+@media (min-width: 1050px) {
+  .rouge-ui-with-reference { grid-template-columns: .85fr repeat(3, minmax(0,1fr)); gap: 1.75rem; }
+  .rouge-ui-with-reference .rouge-reference-digital { margin-top: 3rem; }
+}
+@media (max-width: 480px) {
+  .rouge-reference-hero { width: 80%; }
+  .rouge-hero-fashion .rouge-hero-brand { width: 44%; }
+}
+
+.rouge-hero-title-logo { width: min(100%, 300px); height: auto; }
+.rouge-reference-hero { width: 100%; }
+.rouge-reference-hero > img { margin-inline: auto; }
+@media (max-width: 480px) {
+  .rouge-reference-hero { width: 100%; }
+}
+
+/* Compact Rouge Again hero; all changes stay within the hero. */
+.rouge-hero {
+  padding-block: 1.75rem 2.5rem;
+}
+.rouge-hero > .rouge-back { margin-bottom: 1.5rem; }
+.rouge-hero-grid { gap: 2rem; align-items: center; }
+.rouge-hero-copy .rouge-label { margin-bottom: .5rem; }
+.rouge-hero-copy h1 { margin: 0 0 1rem; font-size: inherit; line-height: 1; }
+.rouge-hero-title-logo { width: 180px; max-width: 100%; height: auto; }
+.rouge-hero-copy h1 span {
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  margin-top: .5rem;
+}
+.rouge-hero-copy .rouge-intro { max-width: 430px; font-size: .95rem; line-height: 1.7; margin: 0 0 1.25rem; }
+.rouge-hero-copy .exam-case-links { margin: 0; gap: .65rem; }
+.rouge-hero-copy .exam-case-links a { padding: .85rem 1rem; font-size: .77rem; }
+.rouge-hero-fashion { padding: 0; }
+.rouge-hero .rouge-reference-hero { width: 100%; }
+.rouge-hero .rouge-reference-hero > img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(480px, 67svh);
+  object-fit: contain;
+  margin-inline: auto;
+}
+@media (min-width: 761px) {
+  .rouge-hero-grid { grid-template-columns: 45fr 55fr; gap: clamp(2rem, 4vw, 3.5rem); }
+  .rouge-hero .rouge-reference-hero > img { margin-right: 0; }
+}
+@media (max-width: 760px) {
+  .rouge-hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .rouge-hero-title-logo { width: 145px; }
+  .rouge-hero .rouge-reference-hero > img { max-height: 420px; }
+}
+
+/* An editorial cover: one composition with overlapping type and photography. */
+.rouge-hero {
+  width: 100%;
+  background: #F7F6F3;
+  padding: 1.5rem max(1rem, calc((100% - 1200px) / 2)) 3rem;
+  border-bottom: 0;
+}
+.rouge-hero > .rouge-back { margin-bottom: 1rem; font-size: .75rem; }
+.rouge-hero-grid { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 0; align-items: center; }
+.rouge-hero-copy { grid-column: 1 / 9; grid-row: 1; position: relative; z-index: 2; padding-block: .5rem 1rem; }
+.rouge-hero-signature { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
+.rouge-hero-signature .rouge-hero-title-logo { width: 100px; height: auto; }
+.rouge-hero-signature > span { color: #5C4A43; font-size: .62rem; letter-spacing: .09em; }
+.rouge-hero-copy .rouge-editorial-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 5.7vw, 5.1rem);
+  font-weight: 400;
+  line-height: .99;
+  letter-spacing: -.055em;
+  margin: 0 0 1.5rem;
+  color: #5C4A43;
+  padding-block: .1rem;
+  background: linear-gradient(90deg, #F7F6F3 0%, #F7F6F3 65%, #F7F6F3e6 80%, #F7F6F300 100%);
+}
+.rouge-hero-copy .rouge-editorial-title > span { display: inline; font-size: inherit; line-height: inherit; letter-spacing: inherit; margin: 0; }
+.rouge-editorial-title em { font-weight: 400; }
+.rouge-hero-copy .rouge-intro { max-width: 360px; font-size: .9rem; line-height: 1.75; margin-bottom: 1.5rem; }
+.rouge-hero-copy .exam-case-links { gap: 1.75rem; }
+.rouge-hero-copy .exam-case-links a,
+.rouge-hero-copy .exam-case-links a + a {
+  background: transparent;
+  color: #5C4A43;
+  border: 0;
+  border-bottom: 1px solid #A89585;
+  padding: .35rem 0;
+  font-size: .77rem;
+}
+.rouge-hero-copy .exam-case-links a:hover { background: transparent; color: #1A1A1A; border-color: #1A1A1A; }
+.rouge-hero-fashion { grid-column: 7 / -1; grid-row: 1; align-self: stretch; display: flex; align-items: center; }
+.rouge-hero .rouge-reference-hero { width: 100%; }
+.rouge-hero .rouge-reference-hero > img { width: 100%; height: auto; max-height: 560px; object-fit: contain; object-position: right center; margin: 0; }
+@media (min-width: 761px) and (max-width: 1050px) {
+  .rouge-hero-copy { grid-column: 1 / 9; }
+  .rouge-hero-fashion { grid-column: 7 / -1; }
+  .rouge-hero-copy .rouge-editorial-title { font-size: clamp(2.8rem, 5.6vw, 3.7rem); }
+  .rouge-hero-copy .rouge-intro { max-width: 290px; }
+  .rouge-hero-copy .exam-case-links { gap: 1rem; }
+}
+@media (max-width: 760px) {
+  .rouge-hero { padding-bottom: 2.5rem; }
+  .rouge-hero-grid { grid-template-columns: repeat(12, minmax(0,1fr)); align-items: start; }
+  .rouge-hero-copy { grid-column: 1 / -1; grid-row: 1; padding-bottom: 0; }
+  .rouge-hero-signature { margin-bottom: .75rem; }
+  .rouge-hero-signature .rouge-hero-title-logo { width: 85px; }
+  .rouge-hero-copy .rouge-editorial-title { font-size: clamp(2.1rem, 7.9vw, 3.8rem); margin-bottom: 1.25rem; background: none; }
+  .rouge-hero-copy .rouge-intro { max-width: 420px; }
+  .rouge-hero-fashion { grid-column: 3 / -1; grid-row: 2; margin-top: 1.5rem; }
+  .rouge-hero .rouge-reference-hero > img { max-height: 420px; object-position: right; }
+}
+
+/* Centralize the four identity assets in the design system presentation. */
+.rouge-system-grid > :nth-child(2),
+.rouge-system-grid > :nth-child(3),
+.rouge-system-grid > :nth-child(4) { order: 0; }
+.rouge-system-grid > :nth-child(2) .rouge-image-visual img { width: auto; max-width: 100%; max-height: 200px; clip-path: none; }
+.rouge-system-grid > :nth-child(3) .rouge-image-visual { padding-block: 0; }
+.rouge-system-grid > :nth-child(3) .rouge-image-visual img { width: 100%; max-height: none; clip-path: inset(2px); }
+.rouge-system-grid > :nth-child(4) .rouge-image-visual { padding-block: 2rem; }
+@media (min-width: 761px) {
+  .rouge-system-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .rouge-system-grid > :nth-child(2) { grid-column: auto; }
+  .rouge-system-grid > :nth-child(3) { grid-column: 1 / -1; order: 4; }
+  .rouge-brand-with-references .rouge-brand-photo { grid-row: 1 / 3; }
+}
+
+/* Readable supporting typography, scoped to Rouge Again. */
+.rouge-case .rouge-label { font-size: .8125rem; letter-spacing: .1em; }
+.rouge-case .rouge-copy p { font-size: 1.0625rem; line-height: 1.8; }
+.rouge-case .rouge-image figcaption { font-size: .875rem; line-height: 1.5; letter-spacing: 0; }
+.rouge-case .rouge-back { font-size: .9375rem; }
+.rouge-case .exam-case-links a { font-size: 1rem; }
+.rouge-case .exam-case-links > span { font-size: .9375rem; }
+.rouge-case .rouge-hero-signature { margin-bottom: 1.5rem; }
+.rouge-case .rouge-hero-signature > span { font-size: .8125rem; letter-spacing: .09em; color: #5C4A43; }
+.rouge-case .rouge-hero-copy .rouge-editorial-title { font-size: clamp(2.5rem, 5.3vw, 4.7rem); line-height: 1.04; }
+.rouge-case .rouge-hero-copy .rouge-intro { font-size: 1.0625rem; line-height: 1.7; max-width: 400px; }
+.rouge-case .rouge-hero-copy .exam-case-links { gap: 1rem 1.5rem; }
+.rouge-case .rouge-hero-copy .exam-case-links a { font-size: .9375rem; }
+@media (max-width: 760px) {
+  .rouge-case .rouge-copy p,
+  .rouge-case .rouge-hero-copy .rouge-intro { font-size: 1rem; }
+  .rouge-case .rouge-hero-copy .rouge-editorial-title { font-size: clamp(2.25rem, 8vw, 3.6rem); }
+  .rouge-case .rouge-label,
+  .rouge-case .rouge-hero-signature > span { font-size: .75rem; }
+  .rouge-case .rouge-image figcaption { font-size: .8125rem; }
+}
+
+@keyframes rouge-hero-copy-enter {
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rouge-hero-photo-enter {
+  from { opacity: 0; transform: translateX(1.5rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.rouge-hero-signature { animation: rouge-hero-copy-enter 850ms ease both; }
+.rouge-hero-copy .rouge-editorial-title { animation: rouge-hero-copy-enter 1000ms ease 100ms both; }
+.rouge-hero-copy .rouge-intro { animation: rouge-hero-copy-enter 1000ms ease 200ms both; }
+.rouge-hero-copy .exam-case-links { animation: rouge-hero-copy-enter 1000ms ease 300ms both; }
+.rouge-hero-fashion { animation: rouge-hero-photo-enter 1200ms ease 150ms both; }
+@media (prefers-reduced-motion: reduce) {
+  .rouge-hero-signature,
+  .rouge-hero-copy .rouge-editorial-title,
+  .rouge-hero-copy .rouge-intro,
+  .rouge-hero-copy .exam-case-links,
+  .rouge-hero-fashion { animation: none; }
+}
+
+/* Remove decorative rules from the Rouge Again presentation. */
+.rouge-case .rouge-label::before { display: none; }
+.rouge-hero,
+.rouge-wash .rouge-section,
+.rouge-brand-grid,
+.rouge-digital .rouge-ui-grid,
+.rouge-decisions,
+.rouge-conclusions > section,
+.rouge-finale .exam-case-links { border: 0; }
