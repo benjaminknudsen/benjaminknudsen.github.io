@@ -6,7 +6,7 @@ import LuminaProjectPage from "./lumina-project-page";
 
 import VuuhProjectPage from "./vuuh-project-page";
 
-import ExamCasePage from "../components/exam-case-page";
+import MellemrumProjectPage from "./mellemrum-project-page";
 import RougeAgainProjectPage from "./rouge-again-project-page";
 
 function ProjectPage() {
@@ -33,7 +33,7 @@ function ProjectPage() {
   }
 
   if (slug === "mellemrum") {
-    return <ExamCasePage key={slug} slug={slug} />;
+    return <MellemrumProjectPage />;
   }
 
   if (!project) {
