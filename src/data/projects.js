@@ -4,7 +4,7 @@ import lynkImage from "../assets/images/lynk.svg";
 
 import vuuhImage from "../assets/images/vuuh.logo.svg";
 
-import rougeImage from "../assets/images/rouge-again/prototype-hero.svg";
+import rougeImage from "../assets/images/main-logo.svg";
 import mellemrumImage from "../assets/images/mellemrum/applikation-hero.svg";
 
 const projects = [
@@ -53,7 +53,7 @@ const projects = [
   },
   {
     slug: "rouge-again", title: "Rouge Again", year: "2026",
-    category: "Re-commerce & Branding", accent: "#A89585", categoryColor: "#5C4A43", coverBackground: "#E0D6CC",
+    category: "Re-commerce & Branding", accent: "#A89585", categoryColor: "#5C4A43", coverBackground: "#5C4A43",
     summary: "Et re-commerce-subbrand til La Rouge med visuel identitet og en Figma-prototype til køb og salg af secondhand-styles.",
     description: "Rouge Again – Re-commerce & Brand Experience",
     tags: ["Branding", "UX/UI", "Figma"], image: rougeImage, links: [],

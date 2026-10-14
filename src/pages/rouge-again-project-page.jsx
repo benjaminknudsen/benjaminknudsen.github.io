@@ -132,7 +132,7 @@ export default function RougeAgainProjectPage() {
 
     <section className="rouge-section rouge-shell">
       <div className="rouge-split" data-rouge-reveal><Heading label="Visuel identitet">Design med<br />sammenhæng.</Heading><Copy paragraphs={sections[2].paragraphs.slice(0, 2)} /></div>
-      <div className="rouge-system-grid"><Image name="brandidentitet" caption="Primært logo · Rouge Again by La Rouge" /><Image name="logovarianter" caption="RA-monogram" /><Image name="farvepalette" caption="Officiel palette · Offwhite, beige, brun, mørkebrun og sort" /><Image name="typografi" caption="Typografi · Cormorant Garamond" /></div>
+      <div className="rouge-system-grid"><Image name="brandidentitet" caption="Primært logo" /><Image name="logovarianter" caption="RA-monogram" /><Image name="farvepalette" caption="Officiel palette · Offwhite, beige, brun, mørkebrun og sort" /><Image name="typografi" caption="Typografi" /></div>
     </section>
 
     <section className="rouge-wash rouge-brand-universe"><div className="rouge-section rouge-shell">
@@ -166,12 +166,12 @@ export default function RougeAgainProjectPage() {
       </div>
     </div></section>
 
-    <section className="rouge-section rouge-shell">
+    <section className="rouge-buyer-section"><div className="rouge-section rouge-shell">
       <div className="rouge-split rouge-buyer-intro" data-rouge-reveal><Heading label="Køberflow">Fra fund<br />til favorit.</Heading><Copy paragraphs={[sections[3].paragraphs[0]]} /></div>
       <FlowCarousel screens={buyerScreens} label="Køberflowets fem skærme" />
-    </section>
+    </div></section>
 
-    <section className="rouge-wash"><div className="rouge-section rouge-shell">
+    <section className="rouge-wash rouge-seller-section"><div className="rouge-section rouge-shell">
       <div className="rouge-split" data-rouge-reveal><Heading label="Sælgerflow">Giv din style<br />et nyt kapitel.</Heading><Copy paragraphs={[sections[3].paragraphs[1]]} /></div>
       <FlowCarousel screens={sellerScreens} label="Sælgerflowets seks skærme" />
     </div></section>

@@ -6540,3 +6540,19 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
 .rouge-brand-universe .rouge-mockup-gallery .rouge-reference-dunes {
   border-color: #5C4A43;
 }
+
+.rouge-brand-universe .rouge-image-hover:hover .rouge-image-visual {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Separate the two journeys with alternating brand surfaces. */
+.rouge-buyer-section { background: #E0D6CC; }
+.rouge-seller-section { background: #F7F6F3; }
+
+.project-card-link[href="/projects/rouge-again"] .project-cover img {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
