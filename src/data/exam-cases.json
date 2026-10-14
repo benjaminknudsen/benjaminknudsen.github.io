@@ -8,32 +8,32 @@
       {
         "title": "Projekt og udfordring",
         "paragraphs": [
-          "Rouge Again by La Rouge er udviklet som et subbrand til La Rouge. Konceptet samler køb og salg af secondhand-styles i en oplevelse, der viderefører modebrandets identitet. Opgaven omfattede konceptudvikling, målgruppe, subbranding, visuel identitet, brugerflows og en interaktiv Figma-prototype.",
-          "Udfordringen var at give re-commerce sin egen plads uden at bryde forbindelsen til hovedbrandet. Køberen skal kunne orientere sig, og sælgeren skal kunne præsentere en brugt style. De to roller skal møde samme univers."
+          "Vi udviklede Rouge Again by La Rouge som et re-commerce-koncept med et subbrand, en visuel identitet, køber- og sælgerflows og en interaktiv Figma-prototype. Konceptet samler secondhand-styles i et digitalt univers, der tager afsæt i La Rouges eksisterende brand.",
+          "Udfordringen var at skabe en selvstændig identitet med en genkendelig forbindelse til La Rouge. Udtrykket skulle gøre gensalg tydeligt og samtidig understøtte de forskellige opgaver, brugeren møder ved køb og salg.",
+          "[Til kontrol inden aflevering] Projektet blev udviklet i samarbejde med en medstuderende. Vi arbejdede med koncept, visuel identitet og brugeroplevelse. Min konkrete rolle og ansvarsfordeling præciseres inden aflevering."
         ]
       },
       {
         "title": "Undersøgelse og konceptudvikling",
         "paragraphs": [
-          "Konceptets målgruppe er brugere, der vil købe eller sælge secondhand-styles i et univers knyttet til La Rouge. For køberen er produktinformation og overblik centrale behov. For sælgeren er opgaven at oprette et produkt og forstå, hvordan det fremstår før publicering.",
-          "Marked og konkurrenter er relevante for positioneringen. Konceptet bygger på forbindelsen til La Rouge frem for et udvalg på tværs af brands. Konkrete konkurrentfund og målgruppeindsigter skal dokumenteres, før de kan bruges som belæg for efterspørgslen."
+          "Vi arbejdede med re-commerce-markedet, Vinted, Tise, DBA og Trendsales samt målgruppens opgaver ved køb og salg. Det dannede grundlag for Rouge Again: et koncept knyttet til La Rouges brandunivers frem for en bred secondhand-platform.",
+          "I brugerflowene tog vi udgangspunkt i køberens behov for overblik og produktinformation og sælgerens behov for en forståelig oprettelse. Det gav retning for prototypen; behovene er ikke valideret gennem brugertests."
         ]
       },
       {
         "title": "Brandidentitet og designbeslutninger",
         "paragraphs": [
-          "Navnet Rouge Again forbinder konceptet med La Rouge og peger på, at tøjet kan bruges igen. Subbrandet skal kunne genkendes som en del af hovedbrandet, men samtidig gøre secondhand-formålet tydeligt. Det er en balance mellem genkendelighed og en selvstændig identitet.",
-          "Den visuelle retning kombinerer skandinavisk minimalisme og fransk femininitet. Varme brune og neutrale farver, serif-overskrifter og sans-serif brødtekst giver plads til produkterne. På casesiden bruges denne retning som foreløbig præsentation; de endelige farver og typografier skal afstemmes med Figma-materialet.",
-          "Et roligt hierarki holder fokus på produktbilleder, pris og handlinger. Også et redaktionelt udtryk kræver tydelige funktioner: Brandoplevelsen skal understøtte navigationen."
+          "Rouge Again henviser til at give tøjet nyt liv og fastholder forbindelsen til La Rouge. Vi udviklede et primært logo og et RA-monogram til forskellige formater. Målet var et selvstændigt subbrand med en genkendelig forbindelse til hovedbrandet.",
+          "Vi kombinerede varme brune og neutrale farver med serif-typografi og enklere brødtekst. Farverne skulle skabe et roligt, varmt univers; skrifternes kontrast gav plads til både elegance og tydelig information. Retningen var skandinavisk minimalisme og fransk femininitet.",
+          "Vi videreførte brandets farver, typografi og billedstil i Figma-skærmene. Samtidig skulle produktinformation, navigation og handlinger være tydelige. Branding og UX/UI skulle fungere sammen: Det visuelle hierarki skulle guide brugeren, ikke kun skabe stemning."
         ],
         "image": "identity"
       },
       {
         "title": "Brugeroplevelse og prototype",
         "paragraphs": [
-          "Figma-prototypen omfatter en landingpage og et køberflow fra produktoversigt og produktdetaljer til kurv, checkout og ordrebekræftelse. Forløbet forbinder inspiration med en konkret handel. Produktdetaljerne er et vigtigt led, fordi køberen her skal kunne vurdere en style, før den lægges i kurven.",
-          "Sælgerflowet omfatter oprettelse af produkt, produktinformation, pris, preview og publicering. Opdelingen gør det muligt at arbejde med én del af oprettelsen ad gangen. Preview giver en anledning til at kontrollere præsentationen før publicering og skaber en forbindelse mellem sælgerens indtastninger og det, køberen møder.",
-          "Profilen og oversigten over brugerens produkter samler den personlige del af oplevelsen. QR-kodefunktionen indgår også i konceptet. Dens konkrete anvendelse og sammenhæng med de øvrige flows skal forklares ud fra projektmaterialet; den beskrives derfor ikke her som en færdig teknisk integration."
+          "Køberflowet fører brugeren fra produktoversigt og produktdetaljer gennem kurv, checkout og ordrebekræftelse. Vi gjorde produktinformation og næste handling tydelig undervejs. Produktdetaljesiden er central, fordi køberen skal kunne vurdere en brugt styles stand, materiale, størrelse og pris før køb.",
+          "Vi opdelte sælgerflowet i trin, så brugeren kan arbejde med billeder, produktinformation, pris og øvrige oplysninger før publicering. Én opgave ad gangen skulle gøre processen mere overskuelig end en samlet formular. Preview var et vigtigt designvalg, fordi sælgeren kan kontrollere sit opslag, før det bliver synligt for andre."
         ],
         "images": [
           "buyer",
@@ -43,25 +43,26 @@
       {
         "title": "Resultat og dokumentation",
         "paragraphs": [
-          "Resultatet er et re-commerce-koncept med en interaktiv Figma-prototype, der samler landingpage, køberflow, sælgerflow og profil. Designleverancerne omfatter subbrandets visuelle identitet og de centrale skærme. Prototypen viser, hvordan funktionerne tænkes forbundet, men er ikke en implementeret handelsplatform.",
-          "Dokumentationslinks og screenshots skal underbygge designbeslutningerne. Der foreligger ikke dokumentation her for brugertests, konvertering eller faktiske handler. Effekten på brugeroplevelse og salg skal vurderes gennem efterfølgende test og drift."
+          "Resultatet er Rouge Again som subbrand med primært logo, RA-monogram, farver, typografi og brandmockups. Den interaktive Figma-prototype samler køber- og sælgerflow samt centrale skærme som landingpage og profil. Branddeck og prototype viser sammenhængen mellem identitet og brugeroplevelse.",
+          "Leverancen er et designkoncept og en prototype, ikke en færdigudviklet handelsplatform. Et næste skridt er at afprøve prototypen med brugere og undersøge, om de kan forstå konceptet og gennemføre de centrale handlinger."
         ],
         "image": "profile"
       },
       {
         "title": "Faglig refleksion",
         "paragraphs": [
-          "Projektet giver anledning til at se branding og brugeroplevelse som én samlet opgave. Et subbrand skal både udtrykke et tilhørsforhold og forklare sin funktion. I et re-commerce-univers bliver den forbindelse konkret i mødet mellem produktpræsentation, navigation og køb eller salg.",
-          "Næste skridt er at afprøve begge flows: Kan køberen finde relevante oplysninger, og kan sælgeren oprette en style uden hjælp? Testene skal også undersøge, om forbindelsen til La Rouge er forståelig. Min individuelle rolle skal præciseres i den endelige case."
+          "Jeg lærte, at branding og UX/UI skal udvikles sammen. Identiteten skal fungere, når brugeren søger information og handler. Udfordringen var at give Rouge Again sit eget udtryk med tydelige rødder i La Rouge.",
+          "Jeg fik erfaring med at omsætte visuelle valg til Figma-skærme og flows. I en videreudvikling ville vi teste, om brugerne forstår relationen til La Rouge, kan vurdere en style og gennemføre køb og salg uden hjælp. Det kunne kvalificere formidling og navigation."
         ]
       },
       {
         "title": "Forretningspotentiale",
         "paragraphs": [
-          "Rouge Again kan potentielt forlænge tøjets brugstid og give kunderne en ny anledning til at møde La Rouge. Et samlet univers for køb og salg kan understøtte relationen til brandet, også efter det første køb. Værdien afhænger dog af efterspørgsel, tillid og en praktisk model for handel. Prototypen dokumenterer et koncept, ikke omsætning eller en målbar miljøeffekt."
+          "Rouge Again kan potentielt give tøjet længere brugstid og skabe en ny kontaktflade mellem La Rouge og kunderne. Et samlet univers for secondhand kan understøtte relationen til brandet efter det første køb. Værdien afhænger af efterspørgsel, tillid og en praktisk model for handel; prototypen dokumenterer ikke øget omsætning eller en målbar miljøeffekt."
         ]
       }
-    ]
+    ],
+    "brandIntro": "Vi arbejdede med mockups og kampagnemateriale for at undersøge, hvordan identiteten fungerer på tværs af formater. Målet var genkendelighed, uanset hvor brugeren møder Rouge Again."
   },
   "mellemrum": {
     "title": "Mellemrum",
