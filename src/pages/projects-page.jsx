@@ -29,7 +29,9 @@ function ProjectsPage() {
               aria-label={`Se projektet ${project.title}`}
             >
               <div className="project-cover">
-                {project.previewVideo ? (
+                {project.slug === "mellemrum" ? (
+                  <span className="project-mellemrum-wordmark" aria-label="Mellemrum">MELLEMRUM<span aria-hidden="true" /></span>
+                ) : project.previewVideo ? (
                   <video src={project.previewVideo} autoPlay loop muted playsInline preload="metadata" />
                 ) : (
                   <img src={project.image} alt={`Preview af ${project.title}`} />

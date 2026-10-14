@@ -5,7 +5,7 @@ import lynkImage from "../assets/images/lynk.svg";
 import vuuhImage from "../assets/images/vuuh.logo.svg";
 
 import rougeImage from "../assets/images/main-logo.svg";
-import mellemrumImage from "../assets/images/mellemrum/applikation-hero.svg";
+import mellemrumImage from "../assets/images/mellemrum/logo.svg";
 
 const projects = [
   {
@@ -60,7 +60,7 @@ const projects = [
   },
   {
     slug: "mellemrum", title: "Mellemrum", year: "2026",
-    category: "React & Optimering", accent: "#7f9884", categoryColor: "#385441", coverBackground: "#e8ede5",
+    category: "React & Optimering", accent: "#7f9884", categoryColor: "#385441", coverBackground: "#101415",
     summary: "Optimering af en React-applikation med Supabase, databaserelationer og et forbedret tilmeldingsflow.",
     description: "Mellemrum – Optimering af React-applikation",
     tags: ["React", "Supabase", "UX"], image: mellemrumImage,
