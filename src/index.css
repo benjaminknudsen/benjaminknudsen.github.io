@@ -6556,3 +6556,8 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
+
+.site-footer--mellemrum { background: #1B2422; color: #F2F5F2; }
+.site-footer--mellemrum .footer-name small,
+.site-footer--mellemrum .footer-links a { color: #B5C2BA; }
+.site-footer--mellemrum .footer-links a:hover { color: #B6FF7C; }

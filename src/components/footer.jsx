@@ -1,6 +1,10 @@
+import { useLocation } from "react-router";
+
 function Footer() {
+  const { pathname } = useLocation();
+  const isMellemrum = pathname.replace(/\/$/, "") === "/projects/mellemrum";
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer${isMellemrum ? " site-footer--mellemrum" : ""}`}>
       <div className="footer-inner">
         <div className="footer-name">
           <span>Benjamin Knudsen</span>
