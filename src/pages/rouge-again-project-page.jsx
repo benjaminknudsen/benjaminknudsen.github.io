@@ -1,12 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import cases from "../data/exam-cases.json";
 import { CaseLinks } from "../components/exam-case-page";
 
 import mainLogo from "../assets/images/main-logo.svg";
-import brandPalette from "../assets/images/colorpalet.png";
+import brandPalette from "../assets/images/colorpalettry.svg";
 import monogram from "../assets/images/monogram-logo.svg";
-import fontSample from "../assets/images/font-cormorant-garamond.svg";
+import fontSample from "../assets/images/fontcg.svg";
 import mock1 from "../assets/images/mock-up1.png";
 import mock2 from "../assets/images/mock-up2.png";
 import mock3 from "../assets/images/mock-up3.png";
@@ -56,11 +56,30 @@ const sellerScreens = [
 function Image({ name, caption, className = "", eager = false }) {
   const src = actualImages[name] || images[`../assets/images/rouge-again/${name}.svg`];
   const mobile = name.startsWith("koeber-") || name.startsWith("saelger-") || ["ui-landingpage", "ui-produktkort", "ui-navigation", "profil-og-qr"].includes(name);
-  const hover = Boolean(actualImages[name]) && !["logo", "brandidentitet", "logovarianter", "typografi"].includes(name);
+  const hover = Boolean(actualImages[name]) && !["logo", "brandidentitet", "logovarianter", "typografi", "farvepalette"].includes(name);
   return <figure data-rouge-reveal={!eager ? "" : undefined} className={`rouge-image ${actualImages[name] ? "rouge-image-real" : ""} ${mobile ? "rouge-image-phone" : ""} ${hover ? "rouge-image-hover" : ""} ${className}`}><div className="rouge-image-visual"><img src={src} alt={actualImages[name] ? caption : `Billedplads til ${caption}`} loading={eager ? "eager" : "lazy"} /></div><figcaption>{caption}</figcaption></figure>;
 }
+function FlowCarousel({ screens, label }) {
+  const [active, setActive] = useState(0);
+  const total = screens.length;
+  return <div className="rouge-seller-carousel" role="region" aria-roledescription="karrousel" aria-label={label}>
+    <div className="rouge-seller-stage">
+      {screens.map(([name, caption], index) => {
+        const position = (index - active + total) % total;
+        const visible = position >= 0 && position <= 3;
+        return <button key={name} type="button" className={`rouge-seller-slide${position === 0 ? " is-active" : ""}`}
+          style={{ "--slide-position": position, "--slide-distance": Math.abs(position), "--slide-space": position >= 0 ? position * .93 - .07 * position * position : position, zIndex: total - Math.abs(position) }}
+          onClick={() => setActive(index)} aria-label={`Vis skærm ${index + 1}: ${caption}`}
+          aria-current={position === 0 ? "true" : undefined} aria-hidden={!visible} tabIndex={visible ? 0 : -1}>
+          <img src={actualImages[name]} alt={caption} loading="lazy" />
+        </button>;
+      })}
+    </div>
+    <span className="rouge-seller-counter" aria-live="polite" aria-atomic="true" aria-label={`Skærm ${active + 1} af ${total}`}>{active + 1}/{total}</span>
+  </div>;
+}
 function BrandReference({ src, alt, className = "", eager = false }) {
-  return <figure className={`rouge-reference ${className}`}>
+  return <figure data-rouge-reveal={!eager ? "" : undefined} className={`rouge-reference ${className}`}>
     <img src={src} alt={alt} loading={eager ? "eager" : "lazy"} width="1024" height="1280" />
   </figure>;
 }
@@ -88,62 +107,77 @@ export default function RougeAgainProjectPage() {
       <Link className="rouge-back" to="/projects">← Alle projekter</Link>
       <div className="rouge-hero-grid">
         <div className="rouge-hero-copy">
-          <div className="rouge-hero-signature"><span>Re-commerce · Brand Experience</span></div>
-          <h1 className="rouge-editorial-title">Et nyt univers<br /><span>for pre-loved</span><br /><em>fashion.</em></h1>
+          <div className="rouge-hero-signature"><span>Re-commerce · Branding</span></div>
+          <h1 className="rouge-editorial-title">Secondhand styles<br /><em>med nyt liv</em></h1>
           <p className="rouge-intro">{content.intro}</p>
           <CaseLinks slug="rouge-again" />
         </div>
         <div className="rouge-hero-collage rouge-hero-fashion">
           <BrandReference src={model4} alt="La Rouge-model i sort bluse og grå bukser foran varm stenarkitektur" className="rouge-reference-hero" eager />
+          <img className="rouge-hero-overlay-logo" src={mainLogo} alt="Rouge Again by La Rouge" />
         </div>
       </div>
     </header>
 
     <section className="rouge-section rouge-shell rouge-challenge" data-rouge-reveal>
-      <Heading label="01 · Projekt og udfordring">Et nyt univers.<br />Den samme identitet.</Heading>
+      <Heading label="Projekt og udfordring">En ny identitet.<br />Med rødder i La Rouge.</Heading>
       <h3>Hvordan kan La Rouge udvide sit brand med et re-commerce-univers, der viderefører den eksisterende identitet og samtidig tilbyder en intuitiv købs- og salgsoplevelse?</h3>
       <Copy paragraphs={sections[0].paragraphs} />
     </section>
 
     <section className="rouge-wash"><div className="rouge-section rouge-shell">
-      <div className="rouge-split" data-rouge-reveal><Heading label="02 · Undersøgelse og koncept">Secondhand med<br />et tydeligt tilhørsforhold.</Heading><Copy paragraphs={sections[1].paragraphs} /></div>
-      <div className="rouge-brand-grid rouge-brand-with-references">
+      <div className="rouge-split rouge-concept-intro" data-rouge-reveal><Heading label="Undersøgelse og koncept">Secondhand med<br />et tydeligt tilhørsforhold.</Heading><Copy paragraphs={sections[1].paragraphs} /></div>
+
+    </div></section>
+
+    <section className="rouge-section rouge-shell">
+      <div className="rouge-split" data-rouge-reveal><Heading label="Visuel identitet">Design med<br />sammenhæng.</Heading><Copy paragraphs={sections[2].paragraphs.slice(0, 2)} /></div>
+      <div className="rouge-system-grid"><Image name="brandidentitet" caption="Primært logo · Rouge Again by La Rouge" /><Image name="logovarianter" caption="RA-monogram" /><Image name="farvepalette" caption="Officiel palette · Offwhite, beige, brun, mørkebrun og sort" /><Image name="typografi" caption="Typografi · Cormorant Garamond" /></div>
+    </section>
+
+    <section className="rouge-wash rouge-brand-universe"><div className="rouge-section rouge-shell">
+      <Heading label="Brandunivers">Identiteten i brug.</Heading>
+      <Copy paragraphs={[content.brandIntro]} />
+      <div className="rouge-brand-grid rouge-brand-with-references rouge-mockup-gallery">
         <BrandReference src={model1} alt="La Rouge-model i mørk denimkjole ved en metroindgang i Paris" className="rouge-reference-paris" />
         <BrandReference src={model3} alt="La Rouge-model i en lys stribet style blandt klitgræs" className="rouge-reference-dunes" />
         <Image name="moodboard" caption="Editorial mockup · Brandets billedstil" className="rouge-brand-mood" />
         <Image name="billedstil" caption="Kampagnemockup · Busreklame" className="rouge-brand-photo" />
         <Image name="resultat" caption="App-mockup · Brand og mobiloplevelse" className="rouge-brand-graphic" />
         <Image name="brandanvendelse" caption="Brandmockup · Plakat og monogram i byrummet" className="rouge-brand-use" />
+        <BrandReference src={model2} alt="La Rouge-model i lyseblå kjole med baguetter i et bymiljø" className="rouge-reference-city" />
+      </div>
+    </div></section>
+
+    <section className="rouge-digital rouge-ui-showcase"><div className="rouge-section rouge-shell">
+      <div className="rouge-split" data-rouge-reveal><Heading label="Fra brand til UI">Fra brandidentitet<br />til digital oplevelse.</Heading><Copy paragraphs={[sections[2].paragraphs[2]]} /></div>
+      <div className="rouge-ui-grid">
+        {[
+          ["ui-landingpage", "Produktoversigt", "Filtre, produktbilleder og priser samlet i ét overblik."],
+          ["ui-produktkort", "Pop-up til nye brugere", "Introducerer secondhand-konceptet og muligheden for køb og salg."],
+          ["ui-navigation", "Burgermenu", "Samler navigationen og giver en tydelig indgang til salg."],
+          ["profil-og-qr", "Min profil", "Viser styles til salg, solgte produkter og favoritter."],
+        ].map(([name, title, description], index) => <figure className="rouge-ui-screen" key={name} data-rouge-reveal>
+          <img className="rouge-ui-screen-backdrop" src={[model2, mock4, mock5, model1][index]} alt="" aria-hidden="true" loading="lazy" />
+          <span className="rouge-ui-display-number" aria-hidden="true">{["DISCOVER", "WELCOME", "NAVIGATE", "PROFILE"][index]}</span>
+          <div className="rouge-ui-phone"><div className="rouge-ui-phone-frame" style={{ "--screen-ratio": [780 / 1800, 780 / 1504, 780 / 1688, 780 / 1688][index] }}><img src={actualImages[name]} alt={title} loading="lazy" /></div></div>
+          <figcaption><span className="rouge-ui-caption-title">{title}</span><span className="rouge-ui-caption-description">{description}</span></figcaption>
+        </figure>)}
       </div>
     </div></section>
 
     <section className="rouge-section rouge-shell">
-      <div className="rouge-split" data-rouge-reveal><Heading label="03 · Visuel identitet">Design med<br />sammenhæng.</Heading><Copy paragraphs={sections[2].paragraphs.slice(0, 2)} /></div>
-      <div className="rouge-system-grid"><Image name="brandidentitet" caption="Primært logo · Rouge Again by La Rouge" /><Image name="logovarianter" caption="RA-monogram" /><Image name="farvepalette" caption="Officiel palette · Offwhite, beige, brun, mørkebrun og sort" /><Image name="typografi" caption="Typografi · Cormorant Garamond" /></div>
-    </section>
-
-    <section className="rouge-digital"><div className="rouge-section rouge-shell">
-      <div className="rouge-split" data-rouge-reveal><Heading label="04 · Fra brand til UI">Fra brandidentitet<br />til digital oplevelse.</Heading><Copy paragraphs={[sections[2].paragraphs[2]]} /></div>
-      <div className="rouge-ui-grid rouge-ui-with-reference"><BrandReference src={model2} alt="La Rouge-model i lyseblå kjole med baguetter i et bymiljø" className="rouge-reference-digital" /><Image name="ui-landingpage" caption="Secondhand · Produktoversigt" /><Image name="ui-produktkort" caption="Introduktion til konceptet · Om Rouge Again" /><Image name="ui-navigation" caption="Navigation og CTA'er" /></div>
-    </div></section>
-
-    <section className="rouge-section rouge-shell">
-      <div className="rouge-split" data-rouge-reveal><Heading label="05 · Køberflow">Fra fund<br />til favorit.</Heading><Copy paragraphs={[sections[3].paragraphs[0]]} /></div>
-      <div className="rouge-buyer-grid">{buyerScreens.map(([name, caption]) => <Image key={name} name={name} caption={caption} />)}</div>
+      <div className="rouge-split rouge-buyer-intro" data-rouge-reveal><Heading label="Køberflow">Fra fund<br />til favorit.</Heading><Copy paragraphs={[sections[3].paragraphs[0]]} /></div>
+      <FlowCarousel screens={buyerScreens} label="Køberflowets fem skærme" />
     </section>
 
     <section className="rouge-wash"><div className="rouge-section rouge-shell">
-      <div className="rouge-split" data-rouge-reveal><Heading label="06 · Sælgerflow">Giv din style<br />et nyt kapitel.</Heading><Copy paragraphs={[sections[3].paragraphs[1]]} /></div>
-      <div className="rouge-seller-grid">{sellerScreens.map(([name, caption]) => <Image key={name} name={name} caption={caption} />)}</div>
+      <div className="rouge-split" data-rouge-reveal><Heading label="Sælgerflow">Giv din style<br />et nyt kapitel.</Heading><Copy paragraphs={[sections[3].paragraphs[1]]} /></div>
+      <FlowCarousel screens={sellerScreens} label="Sælgerflowets seks skærme" />
     </div></section>
 
-    <section className="rouge-section rouge-shell rouge-decisions" data-rouge-reveal>
-      <div><Heading label="07 · UX/UI-designbeslutninger">To brugerrejser.<br />Ét samlet univers.</Heading><Copy paragraphs={[sections[3].paragraphs[2]]} /></div>
-      <Image name="profil-og-qr" caption="Min profil · Styles til salg" />
-    </section>
-
     <section className="rouge-finale"><div className="rouge-section rouge-shell">
-      <Heading label="08 · Resultat og perspektiv">En identitet, der lever<br />videre i oplevelsen.</Heading>
+      <Heading label="Resultat og perspektiv">En identitet, der lever<br />videre i oplevelsen.</Heading>
       <div className="rouge-conclusions">
         {[sections[4], sections[5], sections[6]].map((section) => <section key={section.title} data-rouge-reveal><h3>{section.title}</h3><Copy paragraphs={section.paragraphs} /></section>)}
       </div>
