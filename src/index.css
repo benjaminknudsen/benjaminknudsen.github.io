@@ -6561,3 +6561,31 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
 .site-footer--mellemrum .footer-name small,
 .site-footer--mellemrum .footer-links a { color: #B5C2BA; }
 .site-footer--mellemrum .footer-links a:hover { color: #B6FF7C; }
+
+.project-card-link[href="/projects/mellemrum"] .project-cover img {
+  width: 75%;
+  height: auto;
+  object-fit: contain;
+}
+
+.project-mellemrum-wordmark {
+  color: #F2F5F2;
+  font-family: "Avenir Next", Avenir, "Segoe UI", ui-sans-serif, sans-serif;
+  font-weight: 750;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -.06em;
+  white-space: nowrap;
+  transition: transform 500ms cubic-bezier(.22,1,.36,1);
+}
+.project-mellemrum-wordmark > span {
+  display: inline-block;
+  width: .14em;
+  height: .14em;
+  margin-left: .06em;
+  border-radius: 50%;
+  background: #B6FF7C;
+  vertical-align: baseline;
+}
+.project-card-link:hover .project-mellemrum-wordmark,
+.project-card-link:focus-visible .project-mellemrum-wordmark { transform: scale(1.03); }

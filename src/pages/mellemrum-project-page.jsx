@@ -14,9 +14,9 @@ const audit = `${import.meta.env.BASE_URL}documents/teknisk-audit-pdf.pdf`;
 function Links({ showAudit = false }) {
   return <div className={styles.links}><a href={live} target="_blank" rel="noreferrer">Se applikationen ↗</a><a href={repository} target="_blank" rel="noreferrer">GitHub ↗</a>{showAudit && <a href={audit} target="_blank" rel="noopener noreferrer">Teknisk audit</a>}</div>;
 }
-function Screenshot({ src, title, alt, eager = false, className = "" }) {
+function Screenshot({ src, title, alt, eager = false, className = "", showBar = true }) {
   return <figure className={`${styles.screenshot} ${className}`}>
-    <div className={styles.screenBar}><span aria-hidden="true">● ● ●</span><span>{title}</span></div>
+    {showBar && <div className={styles.screenBar}><span aria-hidden="true">● ● ●</span><span>{title}</span></div>}
     <img src={src} alt={alt} loading={eager ? "eager" : "lazy"} decoding="async" />
   </figure>;
 }
@@ -88,8 +88,8 @@ export default function MellemrumProjectPage() {
     <header className={`${styles.shell} ${styles.hero}`}>
       <Link className={styles.back} to="/projects">← Alle projekter</Link>
       <div className={styles.heroLayout}>
-        <div><p className={styles.label}>PROJEKTCASE / FRONTEND-OPTIMERING</p><h1>MELLEMRUM<span>_</span></h1><h2 className={styles.subtitle}>Optimering af en eksisterende React-applikation</h2><p>Fra eksisterende kode til bedre data, tilmeldinger og feedback på en lokal kultur- og eventplatform.</p><ul className={styles.tags}>{["REACT", "VITE", "SUPABASE", "REST API", "GITHUB"].map((tag) => <li key={tag}>{tag}</li>)}</ul><Links /></div>
-        <div className={styles.heroVisual}><div className={styles.projectStamp}><span>PROJEKT / 01</span><span>OPTIMERING</span></div><Screenshot src={appOverview} title="Mellemrum / Forside" alt="Mellemrums forside med introduktion til lokale kulturoplevelser og link til kommende events" eager /></div>
+        <div><p className={styles.label}>PROJEKTCASE / FRONTEND-OPTIMERING</p><h1>MELLEMRUM<span className={styles.logoDot} aria-hidden="true" /></h1><h2 className={styles.subtitle}>Optimering af en eksisterende React-applikation</h2><p>Fra eksisterende kode til bedre data, tilmeldinger og feedback<br />på en lokal kultur- og eventplatform.</p><ul className={styles.tags}>{["REACT", "VITE", "SUPABASE", "REST API", "GITHUB"].map((tag) => <li key={tag}>{tag}</li>)}</ul><Links /></div>
+        <div className={styles.heroVisual}><Screenshot src={appOverview} title="Mellemrum / Forside" showBar={false} alt="Mellemrums forside med introduktion til lokale kulturoplevelser og link til kommende events" eager /></div>
       </div>
     </header>
 
@@ -106,7 +106,7 @@ export default function MellemrumProjectPage() {
         ["TILMELDINGSFLOW", "Tilmeldinger blev ikke gemt."],
         ["FEEDBACK I BRUGERFLADEN", "Manglende loading-, error- og empty-states."],
         ["PERFORMANCE", "Billedindlæsning og layoutstabilitet."],
-      ].map(([title, text], index) => <div className={styles.auditItem} key={title}><span className={styles.auditIndex}>0{index + 1}</span><h3>{title}</h3><p>{text}</p></div>)}</div>
+      ].map(([title, text]) => <div className={styles.auditItem} key={title}><h3>{title}</h3><p>{text}</p></div>)}</div>
     </div></section>
 
     <section className={`${styles.shell} ${styles.section}`}>
@@ -124,8 +124,8 @@ export default function MellemrumProjectPage() {
     <section className={styles.performance} ref={performanceRef}><div className={`${styles.shell} ${styles.section}`}>
       <header className={styles.heading}><span><AnimatedValue>04</AnimatedValue></span><h2><AnimatedValue delay={50}>PERFORMANCEOPTIMERING</AnimatedValue></h2></header>
       <div className={styles.metrics}>
-        <div className={styles.mainMetric}><h3><AnimatedValue delay={100}>BILLEDOPTIMERING</AnimatedValue></h3><span className={styles.label}><AnimatedValue delay={150}>LIGHTHOUSE / MOBIL / MEDIAN</AnimatedValue></span><div className={styles.score}><span><AnimatedValue numeric delay={550}>78</AnimatedValue></span><span aria-hidden="true">→</span><strong><AnimatedValue numeric delay={550}>90</AnimatedValue></strong></div><div className={styles.scoreLabels}><span><AnimatedValue delay={200}>FØR</AnimatedValue></span><span><AnimatedValue delay={250}>EFTER</AnimatedValue></span></div></div>
-        <div className={styles.eventMetrics}><h3><AnimatedValue delay={300}>EVENTPAGE / MOBIL</AnimatedValue></h3><dl><div><dt><AnimatedValue delay={350}>PERFORMANCE / FØR</AnimatedValue></dt><dd><AnimatedValue numeric delay={750}>64 / 65 / 65</AnimatedValue></dd></div><div><dt><AnimatedValue delay={400}>PERFORMANCE / EFTER</AnimatedValue></dt><dd><AnimatedValue numeric delay={800}>94 / 93 / 93</AnimatedValue></dd></div><div className={styles.cls}><dt><AnimatedValue delay={450}>CLS / FØR → EFTER</AnimatedValue></dt><dd><AnimatedValue numeric delay={950}>0,671</AnimatedValue> <span>→</span> <strong><AnimatedValue numeric delay={950}>0</AnimatedValue></strong></dd></div></dl></div>
+        <div className={styles.mainMetric}><h3><AnimatedValue delay={100}>BILLEDOPTIMERING</AnimatedValue></h3><span className={styles.label}><AnimatedValue delay={150}>LIGHTHOUSE / MEDIAN</AnimatedValue></span><div className={styles.score}><span><AnimatedValue numeric delay={550}>78</AnimatedValue></span><span aria-hidden="true">→</span><strong><AnimatedValue numeric delay={550}>90</AnimatedValue></strong></div><div className={styles.scoreLabels}><span><AnimatedValue delay={200}>FØR</AnimatedValue></span><span><AnimatedValue delay={250}>EFTER</AnimatedValue></span></div></div>
+        <div className={styles.eventMetrics}><dl><div><dt><AnimatedValue delay={350}>PERFORMANCE / FØR</AnimatedValue></dt><dd><AnimatedValue numeric delay={750}>64 / 65 / 65</AnimatedValue></dd></div><div><dt><AnimatedValue delay={400}>PERFORMANCE / EFTER</AnimatedValue></dt><dd><AnimatedValue numeric delay={800}>94 / 93 / 93</AnimatedValue></dd></div><div className={styles.cls}><dt><AnimatedValue delay={450}>CLS / FØR → EFTER</AnimatedValue></dt><dd><AnimatedValue numeric delay={950}>0,671</AnimatedValue> <span>→</span> <strong><AnimatedValue numeric delay={950}>0</AnimatedValue></strong></dd></div></dl></div>
       </div>
       <p>Tallene stammer fra gentagne Lighthouse Mobile-tests i den tekniske gennemgang, ikke brugerdata. Jeg optimerede billeder, responsive billedstørrelser og EventPages indlæsning for at begrænse layoutskift.</p>
     </div></section>
@@ -138,7 +138,7 @@ export default function MellemrumProjectPage() {
         ["NAVIGATION", "Tilpassede routing til GitHub Pages, så undersider kan åbnes direkte og genindlæses uden 404-fejl."],
       ].map(([title, text]) => <div key={title}><h3>{title}</h3><p>{text}</p></div>)}</div>
       <h3 className={styles.registrationHeading}>Tilmeldingsadministration</h3>
-      <Screenshot src={registrationsImage} title="Tilmeldingsoversigt / Administration" alt="Tilmeldingsoversigt med datosortering, ændring af status og mulighed for at slette tilmeldinger" className={styles.registrationPreview} />
+      <Screenshot src={registrationsImage} title="Tilmeldingsoversigt" alt="Tilmeldingsoversigt med datosortering, ændring af status og mulighed for at slette tilmeldinger" className={styles.registrationPreview} />
     </section>
 
     <section className={styles.final}><div className={`${styles.shell} ${styles.section}`}>

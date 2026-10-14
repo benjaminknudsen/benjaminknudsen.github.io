@@ -166,3 +166,17 @@
 .documentationHeading, .registrationHeading { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: .875rem; font-weight: 500; color: var(--text); }
 .case .documentationHeading { margin-bottom: .75rem; }
 .case .registrationHeading { width: min(100%, 900px); margin: 1.75rem auto -.75rem; }
+
+.hero h1 > .logoDot {
+  display: inline-block;
+  width: .14em;
+  height: .14em;
+  margin-left: .06em;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: baseline;
+}
+
+@media (min-width: 761px) {
+  .heroLayout { grid-template-columns: .9fr 1.1fr; gap: 2.5rem; }
+}
