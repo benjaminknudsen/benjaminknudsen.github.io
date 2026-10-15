@@ -6589,3 +6589,13 @@ a.vuuh-resource:first-child:hover { background: #e6dcff; }
 }
 .project-card-link:hover .project-mellemrum-wordmark,
 .project-card-link:focus-visible .project-mellemrum-wordmark { transform: scale(1.03); }
+
+.rouge-reveal-ready .rouge-conclusions > [data-rouge-reveal] {
+  transition-duration: 900ms, 1100ms;
+}
+.rouge-reveal-ready .rouge-conclusions > :nth-child(1) { transition-delay: 150ms; }
+.rouge-reveal-ready .rouge-conclusions > :nth-child(2) { transition-delay: 500ms; }
+.rouge-reveal-ready .rouge-conclusions > :nth-child(3) { transition-delay: 850ms; }
+@media (prefers-reduced-motion: reduce) {
+  .rouge-reveal-ready .rouge-conclusions > [data-rouge-reveal] { transition: none; }
+}

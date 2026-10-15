@@ -3,29 +3,29 @@
     "title": "Rouge Again",
     "subtitle": "Re-commerce & Brand Experience",
     "badge": "Subbranding · UX/UI · Figma",
-    "intro": "Et re-commerce-koncept til La Rouge, hvor secondhand-styles får et nyt liv i et digitalt univers med genkendelig brandidentitet.",
+    "intro": "Et re-commerce-koncept til La Rouge, hvor vi udviklede en ny brandidentitet og en digital platform til køb og salg af secondhand-styles.",
     "sections": [
       {
         "title": "Projekt og udfordring",
         "paragraphs": [
-          "Vi udviklede Rouge Again by La Rouge som et re-commerce-koncept med et subbrand, en visuel identitet, køber- og sælgerflows og en interaktiv Figma-prototype. Konceptet samler secondhand-styles i et digitalt univers, der tager afsæt i La Rouges eksisterende brand.",
-          "Udfordringen var at skabe en selvstændig identitet med en genkendelig forbindelse til La Rouge. Udtrykket skulle gøre gensalg tydeligt og samtidig understøtte de forskellige opgaver, brugeren møder ved køb og salg.",
-          "[Til kontrol inden aflevering] Projektet blev udviklet i samarbejde med en medstuderende. Vi arbejdede med koncept, visuel identitet og brugeroplevelse. Min konkrete rolle og ansvarsfordeling præciseres inden aflevering."
+          "Vi udviklede Rouge Again by La Rouge som koncept og subbrand med egen visuel identitet, køber- og sælgerflows og en interaktiv Figma-prototype. La Rouge var virksomheden bag opgaven. Vores arbejde var at skabe identiteten og den digitale brugeroplevelse til re-commerce-konceptet.",
+          "Udfordringen var at skabe et selvstændigt udtryk til Rouge Again og gøre tilknytningen til La Rouge tydelig. Identiteten skulle formidle gensalg og understøtte de forskellige opgaver ved køb og salg.",
+          "Projektet blev udviklet i samarbejde med en medstuderende. Vi var fælles om undersøgelse, koncept, visuel identitet og brugeroplevelse. Herefter udviklede jeg selv den interaktive Figma-prototype med udgangspunkt i vores fælles arbejde."
         ]
       },
       {
         "title": "Undersøgelse og konceptudvikling",
         "paragraphs": [
-          "Vi arbejdede med re-commerce-markedet, Vinted, Tise, DBA og Trendsales samt målgruppens opgaver ved køb og salg. Det dannede grundlag for Rouge Again: et koncept knyttet til La Rouges brandunivers frem for en bred secondhand-platform.",
-          "I brugerflowene tog vi udgangspunkt i køberens behov for overblik og produktinformation og sælgerens behov for en forståelig oprettelse. Det gav retning for prototypen; behovene er ikke valideret gennem brugertests."
+          "Vi undersøgte re-commerce-markedet med særligt fokus på Vinted og så på, hvordan platformen håndterer køb og salg af secondhand. Det brugte vi som inspiration til udviklingen af Rouge Again.",
+          "I brugerflowene tog vi udgangspunkt i køberens behov for overblik og produktinformation og sælgerens behov for en forståelig oprettelse. Det gav retning for prototypen. Behovene er ikke valideret gennem brugertests."
         ]
       },
       {
         "title": "Brandidentitet og designbeslutninger",
         "paragraphs": [
-          "Rouge Again henviser til at give tøjet nyt liv og fastholder forbindelsen til La Rouge. Vi udviklede et primært logo og et RA-monogram til forskellige formater. Målet var et selvstændigt subbrand med en genkendelig forbindelse til hovedbrandet.",
-          "Vi kombinerede varme brune og neutrale farver med serif-typografi og enklere brødtekst. Farverne skulle skabe et roligt, varmt univers; skrifternes kontrast gav plads til både elegance og tydelig information. Retningen var skandinavisk minimalisme og fransk femininitet.",
-          "Vi videreførte brandets farver, typografi og billedstil i Figma-skærmene. Samtidig skulle produktinformation, navigation og handlinger være tydelige. Branding og UX/UI skulle fungere sammen: Det visuelle hierarki skulle guide brugeren, ikke kun skabe stemning."
+          "Rouge Again henviser til at give tøjet nyt liv, mens navnet by La Rouge tydeliggør tilknytningen til virksomheden. Vi udviklede et primært logo og et RA-monogram til forskellige formater som en del af konceptets egen identitet.",
+          "Vi kombinerede varme brune og neutrale farver med serif-typografi og enklere brødtekst. Farverne skulle skabe et roligt, varmt univers. Skrifternes kontrast gav plads til både elegance og tydelig information. Retningen var skandinavisk minimalisme og fransk femininitet.",
+          "Vi omsatte vores farvepalette, typografi og billedstil til Figma-skærmene. Samtidig skulle produktinformation, navigation og handlinger være tydelige. Branding og UX/UI skulle fungere sammen: Vi arbejdede med det visuelle hierarki for at gøre brugerfladen mere overskuelig og mindske den kognitive belastning."
         ],
         "image": "identity"
       },
@@ -33,7 +33,7 @@
         "title": "Brugeroplevelse og prototype",
         "paragraphs": [
           "Køberflowet fører brugeren fra produktoversigt og produktdetaljer gennem kurv, checkout og ordrebekræftelse. Vi gjorde produktinformation og næste handling tydelig undervejs. Produktdetaljesiden er central, fordi køberen skal kunne vurdere en brugt styles stand, materiale, størrelse og pris før køb.",
-          "Vi opdelte sælgerflowet i trin, så brugeren kan arbejde med billeder, produktinformation, pris og øvrige oplysninger før publicering. Én opgave ad gangen skulle gøre processen mere overskuelig end en samlet formular. Preview var et vigtigt designvalg, fordi sælgeren kan kontrollere sit opslag, før det bliver synligt for andre."
+          "Vi opdelte sælgerflowet i trin, så brugeren kan arbejde med billeder, produktinformation, pris og øvrige oplysninger før publicering. Én opgave ad gangen skulle gøre processen mere overskuelig end en samlet formular. Opdelingen i trin følger princippet om progressive disclosure, hvor brugeren kun præsenteres for de oplysninger, der er relevante på det aktuelle trin."
         ],
         "images": [
           "buyer",
@@ -51,14 +51,14 @@
       {
         "title": "Faglig refleksion",
         "paragraphs": [
-          "Jeg lærte, at branding og UX/UI skal udvikles sammen. Identiteten skal fungere, når brugeren søger information og handler. Udfordringen var at give Rouge Again sit eget udtryk med tydelige rødder i La Rouge.",
+          "Jeg lærte, at branding og UX/UI skal udvikles sammen. Identiteten skal fungere, når brugeren søger information og handler. Udfordringen var at skabe Rouge Agains eget udtryk og samtidig formidle, at konceptet er udviklet til La Rouge.",
           "Jeg fik erfaring med at omsætte visuelle valg til Figma-skærme og flows. I en videreudvikling ville vi teste, om brugerne forstår relationen til La Rouge, kan vurdere en style og gennemføre køb og salg uden hjælp. Det kunne kvalificere formidling og navigation."
         ]
       },
       {
         "title": "Forretningspotentiale",
         "paragraphs": [
-          "Rouge Again kan potentielt give tøjet længere brugstid og skabe en ny kontaktflade mellem La Rouge og kunderne. Et samlet univers for secondhand kan understøtte relationen til brandet efter det første køb. Værdien afhænger af efterspørgsel, tillid og en praktisk model for handel; prototypen dokumenterer ikke øget omsætning eller en målbar miljøeffekt."
+          "Rouge Again giver La Rouge mulighed for at tilbyde køb og salg af brugt tøj som en del af deres forretning. Det kan forlænge tøjets levetid og give kunderne en grund til at vende tilbage, også efter deres første køb. Konceptets potentiale afhænger dog af, om kunderne har lyst til at bruge platformen. Vi har ikke undersøgt den faktiske efterspørgsel eller målt en økonomisk eller miljømæssig effekt."
         ]
       }
     ],
@@ -81,7 +81,7 @@
         "title": "Undersøgelse og prioritering",
         "paragraphs": [
           "Jeg arbejdede med databasens struktur, tilmeldingsflowet, CRUD og UI-states. Sammenhængen mellem data og handlinger var central: Den valgte aktivitet og den registrerede tilmelding skal høre sammen.",
-          "Søgning, sortering, navigation og komponentstruktur indgik også. Prioriteringen omfattede funktionelle og tekniske forbedringer. Der er ikke angivet førmålinger eller brugertests; vurderingen bygger på de områder, jeg arbejdede med."
+          "Søgning, sortering, navigation og komponentstruktur indgik også. Prioriteringen omfattede funktionelle og tekniske forbedringer. Der er ikke angivet førmålinger eller brugertests. Vurderingen bygger på de områder, jeg arbejdede med."
         ]
       },
       {
@@ -89,7 +89,7 @@
         "paragraphs": [
           "Jeg normaliserede Supabase-databasen med relationer mellem venues, events og registrations. Opdelingen giver oplysningerne en tydelig plads og gør relationerne mellem sted, aktivitet og tilmelding eksplicitte. Strukturen skal dokumenteres med et diagram fra projektet.",
           "Jeg forbedrede tilmeldingsflowet og håndteringen af tilmeldinger og arbejdede med CRUD. Grænsefladen skal afspejle data, der oprettes, læses, ændres eller slettes. Komponenterne skal reagere på resultatet, så brugeren kan forstå, om handlingen lykkedes.",
-          "Loading-, error-, empty- og success-states gør situationerne synlige. Loading viser, at data er på vej; empty adskiller en tom visning fra en fejl. Error og success kommunikerer handlingens udfald. Tilstandene skal tænkes sammen med den almindelige visning.",
+          "Loading-, error-, empty- og success-states gør situationerne synlige. Loading viser, at data er på vej. Empty adskiller en tom visning fra en fejl. Error og success kommunikerer handlingens udfald. Tilstandene skal tænkes sammen med den almindelige visning.",
           "Søgning og sortering understøtter overblik, mens forbedringer af komponentstruktur og navigation gør applikationen lettere at videreudvikle. Jeg arbejdede desuden med billedoptimering og lazy loading. Det er tekniske tiltag, men der er ikke dokumenteret en bestemt forbedring af indlæsningstiden."
         ],
         "images": [
