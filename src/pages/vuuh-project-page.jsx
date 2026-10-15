@@ -166,7 +166,7 @@ export default function VuuhProjectPage() {
       <div className="vuuh-flow-grid">
         {onboardingScreens.map((image, index) => <div data-vuuh-reveal key={image}><ProjectImage src={image} caption={`Onboarding · Skærm ${index + 1}`} /></div>)}
       </div>
-      <div className="vuuh-copy" data-vuuh-reveal><p>Prototypen viser de foreslåede forbedringer. Vi har ikke dokumenteret en øget gennemførelsesgrad hos rigtige brugere; det kræver efterfølgende brugertests.</p><ResourceLinks /></div>
+      <div className="vuuh-copy" data-vuuh-reveal><p>Prototypen viser de foreslåede forbedringer. Vi har ikke dokumenteret en øget gennemførelsesgrad hos rigtige brugere. Det kræver efterfølgende brugertests.</p><ResourceLinks /></div>
     </div></section>
 
     <div className="vuuh-closing vuuh-container">
@@ -184,7 +184,7 @@ export default function VuuhProjectPage() {
     <section className="vuuh-closing-section">
       <SectionHeading number="06">Forretningspotentiale</SectionHeading>
       <div className="vuuh-copy" data-vuuh-reveal>
-        <p>En mere overskuelig onboarding kan give nye kunder en bedre første oplevelse og gøre det lettere at tage Vuuh i brug. Hvis flere gennemfører opsætningen selvstændigt, kan supportbehovet potentielt falde. Forretningspotentialet bygger på vores identificerede UX-problemer og designforslag; det skal valideres gennem brugertests og data fra den faktiske onboarding.</p>
+        <p>En mere overskuelig onboarding kan give nye kunder en bedre første oplevelse og gøre det lettere at tage Vuuh i brug. Hvis flere gennemfører opsætningen selvstændigt, kan supportbehovet potentielt falde. Forretningspotentialet bygger på vores identificerede UX-problemer og designforslag. Det skal valideres gennem brugertests og data fra den faktiske onboarding.</p>
       </div>
     </section>
       </div>

@@ -88,14 +88,14 @@ export default function MellemrumProjectPage() {
     <header className={`${styles.shell} ${styles.hero}`}>
       <Link className={styles.back} to="/projects">← Alle projekter</Link>
       <div className={styles.heroLayout}>
-        <div><p className={styles.label}>PROJEKTCASE / FRONTEND-OPTIMERING</p><h1>MELLEMRUM<span className={styles.logoDot} aria-hidden="true" /></h1><h2 className={styles.subtitle}>Optimering af en eksisterende React-applikation</h2><p>Fra eksisterende kode til bedre data, tilmeldinger og feedback<br />på en lokal kultur- og eventplatform.</p><ul className={styles.tags}>{["REACT", "VITE", "SUPABASE", "REST API", "GITHUB"].map((tag) => <li key={tag}>{tag}</li>)}</ul><Links /></div>
+        <div><p className={styles.label}>PROJEKTCASE / FRONTEND-OPTIMERING</p><h1>MELLEMRUM<span className={styles.logoDot} aria-hidden="true" /></h1><h2 className={styles.subtitle}>Optimering af en eksisterende React-applikation</h2><p>Jeg har optimeret en eksisterende React-applikation med fokus på databasestruktur, tilmeldingsflow og brugeroplevelse.</p><ul className={styles.tags}>{["REACT", "VITE", "SUPABASE", "REST API", "GITHUB"].map((tag) => <li key={tag}>{tag}</li>)}</ul><Links /></div>
         <div className={styles.heroVisual}><Screenshot src={appOverview} title="Mellemrum / Forside" showBar={false} alt="Mellemrums forside med introduktion til lokale kulturoplevelser og link til kommende events" eager /></div>
       </div>
     </header>
 
     <section className={`${styles.shell} ${styles.section}`}>
       <Heading number="01">UDFORDRINGEN</Heading>
-      <div className={styles.challenge}><h3>Forbedr fundamentet.<br /><span>Bevar produktet.</span></h3><p>Mellemrum skulle optimeres uden en fuld omarbejdning af designet. Gentagne data i Supabase, tilmeldinger uden lagring og manglende feedback var centrale problemer. Administration, navigation, performance og tilgængelighed skulle også forbedres.</p></div>
+      <div className={styles.challenge}><h3>Optimering af Mellemrums<br /><span>funktionalitet og performance</span></h3><p>Mellemrum skulle optimeres uden en fuld omarbejdning af designet. Gentagne data i Supabase, tilmeldinger uden lagring og manglende feedback var centrale problemer. Administration, navigation, performance og tilgængelighed skulle også forbedres.</p></div>
     </section>
 
     <section className={styles.auditSection}><div className={`${styles.shell} ${styles.section}`}>
@@ -111,7 +111,7 @@ export default function MellemrumProjectPage() {
 
     <section className={`${styles.shell} ${styles.section}`}>
       <Heading number="03">DATA &amp; FUNKTIONALITET</Heading>
-      <p className={styles.intro}>Normaliseringen reducerer duplikerede oplysninger. Tilmeldinger gemmes via Supabase REST API og kan ændres og slettes. Events kan søges på flere felter, og tilmeldinger kan sorteres. Loading-, error-, empty- og success-states viser handlingernes status.</p>
+      <p className={styles.intro}>Jeg oprettede en separat venues-tabel, så de samme oplysninger om lokationer ikke skal gemmes på hvert event. Tilmeldinger gemmes via Supabase REST API og kan ændres og slettes. Events kan søges på flere felter, og tilmeldinger kan sorteres. Loading-, error-, empty- og success-states viser handlingernes status.</p>
       <div className={styles.dataScreens}>
         <Screenshot src={schemaImage} title="Supabase / Schema Visualizer" alt="Relationer fra registrations.eventId til events.id og fra events.venueId til venues.id i Supabase" />
         <div className={styles.tableDocumentation}>
@@ -127,7 +127,7 @@ export default function MellemrumProjectPage() {
         <div className={styles.mainMetric}><h3><AnimatedValue delay={100}>BILLEDOPTIMERING</AnimatedValue></h3><span className={styles.label}><AnimatedValue delay={150}>LIGHTHOUSE / MEDIAN</AnimatedValue></span><div className={styles.score}><span><AnimatedValue numeric delay={550}>78</AnimatedValue></span><span aria-hidden="true">→</span><strong><AnimatedValue numeric delay={550}>90</AnimatedValue></strong></div><div className={styles.scoreLabels}><span><AnimatedValue delay={200}>FØR</AnimatedValue></span><span><AnimatedValue delay={250}>EFTER</AnimatedValue></span></div></div>
         <div className={styles.eventMetrics}><dl><div><dt><AnimatedValue delay={350}>PERFORMANCE / FØR</AnimatedValue></dt><dd><AnimatedValue numeric delay={750}>64 / 65 / 65</AnimatedValue></dd></div><div><dt><AnimatedValue delay={400}>PERFORMANCE / EFTER</AnimatedValue></dt><dd><AnimatedValue numeric delay={800}>94 / 93 / 93</AnimatedValue></dd></div><div className={styles.cls}><dt><AnimatedValue delay={450}>CLS / FØR → EFTER</AnimatedValue></dt><dd><AnimatedValue numeric delay={950}>0,671</AnimatedValue> <span>→</span> <strong><AnimatedValue numeric delay={950}>0</AnimatedValue></strong></dd></div></dl></div>
       </div>
-      <p>Tallene stammer fra gentagne Lighthouse Mobile-tests i den tekniske gennemgang, ikke brugerdata. Jeg optimerede billeder, responsive billedstørrelser og EventPages indlæsning for at begrænse layoutskift.</p>
+      <p>Tallene stammer fra gentagne Lighthouse-tests i den tekniske gennemgang, ikke brugerdata. Jeg optimerede billeder, responsive billedstørrelser og EventPages indlæsning for at begrænse layoutskift.</p>
     </div></section>
 
     <section className={`${styles.shell} ${styles.section}`}>
@@ -135,7 +135,7 @@ export default function MellemrumProjectPage() {
       <div className={styles.stability}>{[
         ["FEJLHÅNDTERING", "Fejlfeedback og mulighed for at prøve igen."],
         ["TILGÆNGELIGHED", "Semantiske labels, synligt fokus og skip-link til hovedindholdet."],
-        ["NAVIGATION", "Tilpassede routing til GitHub Pages, så undersider kan åbnes direkte og genindlæses uden 404-fejl."],
+        ["NAVIGATION", "Jeg tilpassede routingen til GitHub Pages, så undersider kan åbnes direkte og genindlæses uden 404-fejl."],
       ].map(([title, text]) => <div key={title}><h3>{title}</h3><p>{text}</p></div>)}</div>
       <h3 className={styles.registrationHeading}>Tilmeldingsadministration</h3>
       <Screenshot src={registrationsImage} title="Tilmeldingsoversigt" alt="Tilmeldingsoversigt med datosortering, ændring af status og mulighed for at slette tilmeldinger" className={styles.registrationPreview} />
@@ -143,7 +143,7 @@ export default function MellemrumProjectPage() {
 
     <section className={styles.final}><div className={`${styles.shell} ${styles.section}`}>
       <Heading number="06">RESULTAT &amp; REFLEKSION</Heading>
-      <div className={styles.output}><div><h3>RESULTAT</h3><p>En optimeret og publiceret React-app med forbedret datamodel, tilmeldinger, feedback, navigation og performance.</p></div><div><h3>FAGLIG REFLEKSION</h3><p>Jeg lærte at analysere eksisterende kode og prioritere små ændringer med test og Git-branches. Optimering kræver forståelse for samspillet mellem kode, data og brugeroplevelse.</p></div><div><h3>FORRETNINGSPOTENTIALE</h3><p>Robuste tilmeldinger og bedre administration kan gøre platformen mere anvendelig for deltagere og arrangører. Øget brug eller omsætning er ikke dokumenteret.</p></div></div>
+      <div className={styles.output}><div><h3>RESULTAT</h3><p>En optimeret og publiceret React-app med forbedret datamodel, tilmeldinger, feedback, navigation og performance.</p></div><div><h3>FAGLIG REFLEKSION</h3><p>Jeg lærte at sætte mig ind i eksisterende kode og arbejde med mindre ændringer i separate Git-branches. Jeg blev også mere opmærksom på, hvordan ændringer i databasen påvirker både funktionaliteten og brugeroplevelsen.</p></div><div><h3>FORRETNINGSPOTENTIALE</h3><p>Robuste tilmeldinger og bedre administration kan gøre platformen mere anvendelig for deltagere og arrangører. Øget brug eller omsætning er ikke dokumenteret.</p></div></div>
       <div className={styles.end}><Links showAudit /></div>
     </div></section>
   </article>;

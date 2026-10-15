@@ -121,12 +121,12 @@ export default function RougeAgainProjectPage() {
 
     <section className="rouge-section rouge-shell rouge-challenge" data-rouge-reveal>
       <Heading label="Projekt og udfordring">En ny identitet.<br />Med rødder i La Rouge.</Heading>
-      <h3>Hvordan kan La Rouge udvide sit brand med et re-commerce-univers, der viderefører den eksisterende identitet og samtidig tilbyder en intuitiv købs- og salgsoplevelse?</h3>
+      <h3>Hvordan kan vi udvikle et re-commerce-koncept til La Rouge med en ny brandidentitet og en brugervenlig digital oplevelse for både købere og sælgere?</h3>
       <Copy paragraphs={sections[0].paragraphs} />
     </section>
 
     <section className="rouge-wash"><div className="rouge-section rouge-shell">
-      <div className="rouge-split rouge-concept-intro" data-rouge-reveal><Heading label="Undersøgelse og koncept">Secondhand med<br />et tydeligt tilhørsforhold.</Heading><Copy paragraphs={sections[1].paragraphs} /></div>
+      <div className="rouge-split rouge-concept-intro" data-rouge-reveal><Heading label="Undersøgelse og koncept">Et secondhand-univers til La Rouge</Heading><Copy paragraphs={sections[1].paragraphs} /></div>
 
     </div></section>
 
@@ -167,12 +167,12 @@ export default function RougeAgainProjectPage() {
     </div></section>
 
     <section className="rouge-buyer-section"><div className="rouge-section rouge-shell">
-      <div className="rouge-split rouge-buyer-intro" data-rouge-reveal><Heading label="Køberflow">Fra fund<br />til favorit.</Heading><Copy paragraphs={[sections[3].paragraphs[0]]} /></div>
+      <div className="rouge-split rouge-buyer-intro" data-rouge-reveal><Heading label="Køberflow">Fra fund<br />til køb.</Heading><Copy paragraphs={[sections[3].paragraphs[0]]} /></div>
       <FlowCarousel screens={buyerScreens} label="Køberflowets fem skærme" />
     </div></section>
 
     <section className="rouge-wash rouge-seller-section"><div className="rouge-section rouge-shell">
-      <div className="rouge-split" data-rouge-reveal><Heading label="Sælgerflow">Giv din style<br />et nyt kapitel.</Heading><Copy paragraphs={[sections[3].paragraphs[1]]} /></div>
+      <div className="rouge-split" data-rouge-reveal><Heading label="Sælgerflow">Giv din style<br />et nyt liv.</Heading><Copy paragraphs={[sections[3].paragraphs[1]]} /></div>
       <FlowCarousel screens={sellerScreens} label="Sælgerflowets seks skærme" />
     </div></section>
 
